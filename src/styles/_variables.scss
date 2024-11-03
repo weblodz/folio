@@ -1,0 +1,25 @@
+$phone: 380px;
+$tablet: 768px;
+$laptop: 1200px;
+$fullHd-screen: 1920px;
+
+:root {
+  --neutrals-gray-100: #f5f5f5;
+  --neutrals-gray-200: #b2b2b2;
+  --neutrals-gray-300: #808080;
+  --neutrals-gray-400: #646464;
+  --neutrals-gray-500: #4c4c4c;
+  --neutrals-gray-600: #333;
+  --neutrals-gray-700: #222;
+  --neutrals-gray-800: #1c1c1d;
+
+  --accent-green: #cbfd50;
+  --accent-orange: #ea9829;
+  --accent-sad-purple: #c3c7df;
+  --accent-midnight-green: #1a2f36;
+  --accent-turquoise: #8bf3fc;
+  --accent-purple: #9759ff;
+
+  --gradient-s-0: linear-gradient(225deg, #bae2db 24.6%, #f59ff7 44.61%, #bd9afe 59.9%, #b0c2eb 79.18%);
+  --gradient-p-0: linear-gradient(262deg, #ffbaf3 11.2%, #fff1d4 50.33%, #8bf3fc 90.29%);
+}
