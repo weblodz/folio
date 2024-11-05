@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky install"
   },
   "dependencies": {
     "path": "^0.12.7",
@@ -29,6 +30,7 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.12",
     "globals": "^15.11.0",
+    "husky": "^8.0.0",
     "prettier": "^3.3.3",
     "sass": "^1.80.6",
     "sass-embedded": "^1.80.3",
