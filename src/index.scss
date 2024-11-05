@@ -18,3 +18,17 @@
   --gradient-s-0: linear-gradient(225deg, #bae2db 24.6%, #f59ff7 44.61%, #bd9afe 59.9%, #b0c2eb 79.18%);
   --gradient-p-0: linear-gradient(262deg, #ffbaf3 11.2%, #fff1d4 50.33%, #8bf3fc 90.29%);
 }
+
+@font-face {
+  font-family: 'SSTW20-Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SSTW20-Bold.woff2'), url('/public/fonts/SSTW20-Bold.woff2');
+}
+
+@font-face {
+  font-family: 'SSTW20-Roman';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SSTW20-Roman.woff2'), url('/public/fonts/SSTW20-Roman.woff2');
+}
