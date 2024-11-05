@@ -23,12 +23,12 @@
   font-family: 'SSTW20-Bold';
   font-style: normal;
   font-weight: normal;
-  src: local('SSTW20-Bold.woff2'), url('/public/fonts/SSTW20-Bold.woff2');
+  src: local('SSTW20-Bold.woff2'), url('./assets/fonts/SSTW20-Bold.woff2');
 }
 
 @font-face {
   font-family: 'SSTW20-Roman';
   font-style: normal;
   font-weight: normal;
-  src: local('SSTW20-Roman.woff2'), url('/public/fonts/SSTW20-Roman.woff2');
+  src: local('SSTW20-Roman.woff2'), url('./assets/fonts/SSTW20-Roman.woff2');
 }
