@@ -1,4 +1,34 @@
 :root {
+  --screen-mobile-s: 320px;
+  --screen-mobile-m: 375px;
+  --screen-mobile-l: 425px;
+  --screen-tablet: 768px;
+  --screen-laptop: 1024px;
+  --laptop-l: 1440px;
+  --laptop-4k: 2560px;
+
+  --common-font: 'SST W20 Roman', sans-serif;
+  --common-font-bold: 'SST W20 Bold', sans-serif;
+  --common-font-en: 'SST W20 Roman', sans-serif;
+  --common-font-en-bold: 'SST W20 Bold', sans-serif;
+  --common-font-jp: 'SSTJapanese W55 Regular', sans-serif;
+  --common-font-jp-bold: 'SST W55 Bold', sans-serif;
+  --common-color-bg-primary: #fff;
+  --common-color-bg-primary-rgb: 255, 255, 255;
+  --common-color-bg-secondary: #f7f6f4;
+  --common-color-bg-tertiary: #edeceb;
+  --common-color-bg-inverse-primary: #081217;
+  --common-color-bg-inverse-secondary: #152126;
+  --common-color-bg-inverse-tertiary: #273238;
+  --common-color-text-primary: #081217;
+  --common-color-text-secondary: #66696b;
+  --common-color-text-inverse-primary: #fff;
+  --common-color-text-inverse-secondary: #bdbcbb;
+  --common-color-border-strong: #a4a3a2;
+  --common-color-pallete-base-white: #fff;
+  --common-color-border-inverse-strong: #f7f6f4;
+  --swiper-theme-color: #007aff;
+
   --neutrals-gray-100: #f5f5f5;
   --neutrals-gray-200: #b2b2b2;
   --neutrals-gray-300: #808080;
