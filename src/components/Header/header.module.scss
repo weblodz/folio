@@ -1,4 +1,4 @@
-.container {
+.header {
   position: fixed;
   top: 0;
   left: 0;
@@ -8,52 +8,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.mainDiv {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-}
-
-.logoContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 80px;
-}
-
-.linksContainer {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-grow: 1;
-}
-
-.link {
-  text-decoration: none;
-  font-size: large;
-  color: black;
-  padding: 10px;
-}
-
-.link:hover {
-  text-decoration: underline;
-}
-
-.lang {
-  margin: 100px;
-  display: inline-block;
-  position: relative;
-}
-
-.lang:hover::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 100%;
-  height: 2px;
-  background-color: black;
 }
