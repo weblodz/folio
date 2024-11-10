@@ -3,7 +3,7 @@ import styles from '../LanguageSwitch/languageSwitch.module.scss'
 
 function Language() {
   return (
-    <div className={styles.lang}>
+    <div className={styles.icon}>
       <img src={langIcon} alt="language" />
     </div>
   )
