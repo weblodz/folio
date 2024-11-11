@@ -1,14 +1,16 @@
-import styles from './header.module.scss'
 import Logo from './components/Logo'
 import Navbar from './components/Navbar'
-import Language from './components/LanguageSwitch'
+import Language from './components/Language'
+import styles from './header.module.scss'
 
 export default function Header() {
   return (
     <header className={styles.header}>
-      <Logo />
-      <Navbar />
-      <Language />
+      <div className={styles.container}>
+        <Logo />
+        <Navbar />
+        <Language />
+      </div>
     </header>
   )
 }

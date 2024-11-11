@@ -1,10 +1,12 @@
 import langIcon from '/src/assets/header/language.svg'
-import styles from '../LanguageSwitch/languageSwitch.module.scss'
+import styles from './language.module.scss'
 
 function Language() {
   return (
     <div className={styles.icon}>
-      <img src={langIcon} alt="language" />
+      <button className={styles.lang} type="button">
+        <img src={langIcon} alt="language" />
+      </button>
     </div>
   )
 }
