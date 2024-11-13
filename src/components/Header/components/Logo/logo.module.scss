@@ -1,5 +1,21 @@
-.logo {
+.logo_link {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+.img_wrapper {
+  width: 114px;
+  height: auto;
+  margin-bottom: 11px;
+  display: flex;
+  justify-content: center;
+}
+
+.img_wrapper__sub {
+  width: 84px;
+  height: auto;
+  display: flex;
+  justify-content: center;
 }

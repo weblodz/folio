@@ -6,9 +6,13 @@ import styles from './logo.module.scss'
 function Logo() {
   return (
     <div>
-      <Link className={styles.logo} to="/">
-        <img src={logo} alt="Logo" />
-        <img src={subText} alt="Sub Logo" />
+      <Link className={styles.logo_link} to="/">
+        <span className={styles.img_wrapper}>
+          <img src={logo} alt="Logo" />
+        </span>
+        <span className={styles.img_wrapper__sub}>
+          <img src={subText} alt="Sub Logo" />
+        </span>
       </Link>
     </div>
   )

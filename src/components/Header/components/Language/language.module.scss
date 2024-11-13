@@ -4,6 +4,8 @@
 }
 
 .lang {
+  display: flex;
+  align-items: center;
   border: none;
   background: var(--common-header-bg-color);
   padding: 4px 0;

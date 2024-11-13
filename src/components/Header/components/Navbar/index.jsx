@@ -2,7 +2,7 @@ import styles from './navbar.module.scss'
 
 function Navbar() {
   return (
-    <div className={styles.linksContainer}>
+    <div className={styles.container}>
       <ul className={styles.list}>
         <li className={styles.item}>
           <a className={styles.link} href="#">
