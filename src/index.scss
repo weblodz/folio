@@ -1,5 +1,5 @@
 @use '/src/assets/fonts/fonts' as *;
-@use './styles/reset' as *;
+@use '/src/styles/_reset' as *;
 
 :root {
   --screen-mobile-s: 320px;
