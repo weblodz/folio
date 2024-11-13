@@ -1,7 +1,6 @@
-import React from 'react'
 import styles from './logo.module.scss'
 
-const Logo = () => {
+function Logo() {
   return (
     <div className={styles.logoContainer}>
       <svg

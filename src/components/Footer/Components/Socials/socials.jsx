@@ -1,10 +1,9 @@
-import React from 'react'
 import styles from './socials.module.scss'
 import { FaInstagram, FaFacebook, FaYoutube } from 'react-icons/fa'
 import { RiTwitterXFill } from 'react-icons/ri'
 import { RxLinkedinLogo } from 'react-icons/rx'
 
-const Socials = () => {
+function Socials() {
   return (
     <div className={styles['iconLinks']}>
       <ul>

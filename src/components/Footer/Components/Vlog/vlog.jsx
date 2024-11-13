@@ -1,8 +1,7 @@
-import React from 'react'
 import styles from './vlog.module.scss'
 import { IoIosArrowRoundForward } from 'react-icons/io'
 
-const Vlog = () => {
+function Vlog() {
   return (
     <div className={styles['vlog']}>
       <h2 className={styles['vlogTitle']}>Stay in the loop</h2>
