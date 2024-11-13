@@ -2,7 +2,7 @@ import styles from './navigation.module.scss'
 
 function Navigation() {
   return (
-    <div className={styles['footerNavigations']}>
+    <div className={styles.footerNavigations}>
       <ul>
         <li>
           <a href="#">Home</a>

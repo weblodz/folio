@@ -1,11 +1,11 @@
-import styles from './socials.module.scss'
 import { FaInstagram, FaFacebook, FaYoutube } from 'react-icons/fa'
 import { RiTwitterXFill } from 'react-icons/ri'
 import { RxLinkedinLogo } from 'react-icons/rx'
+import styles from './socials.module.scss'
 
 function Socials() {
   return (
-    <div className={styles['iconLinks']}>
+    <div className={styles.iconLinks}>
       <ul>
         <li>
           <a href="https://www.instagram.com/shmafeela/" target="_blank" aria-label="Instagram link">
