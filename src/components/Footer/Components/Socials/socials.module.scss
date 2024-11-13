@@ -1,0 +1,31 @@
+.iconLinks {
+    margin-top: 76px;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+.iconLinks ul {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.iconLinks ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--common-color-bg-primary);
+    font-size: 30px;
+}
+
+.iconLinks ul li:nth-child(5) a {
+    font-size: 32px;
+}
+
+.iconLinks ul li a:hover {
+    color: var(--common-color-text-inverse-secondary);
+}

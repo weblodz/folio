@@ -1,8 +1,24 @@
-.container {
-  position: fixed;
+.footer {
+  position: relative;
   bottom: 0;
-  left: 0;
   width: 100%;
-  height: 100px;
-  background: yellow;
+  padding: 110px 0px 0px;
+  text-align: center;
+  color: var(--common-color-text-inverse-primary);
+  background: linear-gradient(rgb(22, 33, 39) 0%, rgb(0, 0, 0) 100%);
+}
+
+.footerContainer {
+  box-sizing: border-box;
+  display: flex;
+  width: 80%;
+  max-width: 1800px;
+  text-align: left;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.footerContent {
+  box-sizing: border-box;
+  width: 50%;
 }
