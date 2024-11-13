@@ -1,0 +1,19 @@
+.icon {
+  display: inline-block;
+  position: relative;
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: var(--common-header-bg-color);
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+}
+
+.lang:hover {
+  border-bottom: solid 1px var(--common-color-text-inverse-primary);
+  transition: border-bottom-color 0.5s ease;
+  cursor: pointer;
+}
