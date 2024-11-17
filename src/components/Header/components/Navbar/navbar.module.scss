@@ -8,6 +8,7 @@
 .list {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: min(72px, 5vw);
   letter-spacing: 0.02em;
   margin: 0;
