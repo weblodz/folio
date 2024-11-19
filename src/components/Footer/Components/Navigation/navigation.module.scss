@@ -1,4 +1,4 @@
-.footerNavigations {
+.container {
     font-size: 1rem;
     line-height: 1.6;
     letter-spacing: 0.02em;
@@ -6,7 +6,7 @@
     width: 50%;
 }
 
-.footerNavigations ul {
+.linkContainer {
     display: grid;
     grid-template-rows: repeat(5, max-content);
     grid-template-columns: 1fr 1fr;
@@ -14,11 +14,11 @@
     gap: 22px;
 }
 
-.footerNavigations a {
+.link {
     color: var(--common-color-bg-primary);
     text-decoration: none;
 }
 
-.footerNavigations a:hover {
+.link:hover {
     color: var(--common-color-text-inverse-secondary);
 }

@@ -1,20 +1,20 @@
-.iconLinks {
-    margin-top: 76px;
-}
-
 ul {
     margin: 0px;
     padding: 0px;
     list-style-type: none;
 }
 
-.iconLinks ul {
+.iconLinks {
+    margin-top: 76px;
+}
+
+.linkContainer {
     display: flex;
     align-items: center;
     gap: 24px;
 }
 
-.iconLinks ul li a {
+.link {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,10 +22,10 @@ ul {
     font-size: 30px;
 }
 
-.iconLinks ul li:nth-child(5) a {
+.item:nth-child(5) a {
     font-size: 32px;
 }
 
-.iconLinks ul li a:hover {
+.link:hover {
     color: var(--common-color-text-inverse-secondary);
 }
