@@ -1,5 +1,5 @@
-import logoTitle from "../../../../assets/logoTitle.svg"
-import logoSubTitle from "../../../../assets/logoSubTitle.svg"
+import logoTitle from '@assets/logoTitle.svg'
+import logoSubTitle from '@assets/logoSubTitle.svg'
 import styles from './logo.module.scss'
 
 function Logo() {
