@@ -1,0 +1,31 @@
+ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+.iconLinks {
+    margin-top: 76px;
+}
+
+.linkContainer {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--common-color-bg-primary);
+    font-size: 30px;
+}
+
+.item:nth-child(5) a {
+    font-size: 32px;
+}
+
+.link:hover {
+    color: var(--common-color-text-inverse-secondary);
+}
