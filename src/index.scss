@@ -1,4 +1,5 @@
 @use '/src/assets/fonts/fonts' as *;
+@use '/src/styles/_reset' as *;
 
 :root {
   --screen-mobile-s: 320px;
@@ -27,4 +28,5 @@
   --common-color-border-inverse-strong: #f7f6f4;
   --swiper-theme-color: #007aff;
   --common-bg-gradient-dark: linear-gradient(rgb(22, 33, 39) 0%, rgb(0, 0, 0) 100%);
+  --common-header-bg-color: transparent;
 }
