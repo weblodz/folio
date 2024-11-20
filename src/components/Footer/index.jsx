@@ -1,8 +1,8 @@
-import Logo from './Components/Logo/index'
-import Socials from './Components/Socials/index'
-import Vlog from './Components/Vlog/index'
-import Navigation from './Components/Navigation/index'
-import Copyright from './Components/Copyright/index'
+import Logo from './Components/Logo'
+import Socials from './Components/Socials'
+import Vlog from './Components/Vlog'
+import Navigation from './Components/Navigation'
+import Copyright from './Components/Copyright'
 import styles from './footer.module.scss'
 
 function Footer() {
