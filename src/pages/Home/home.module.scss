@@ -1,11 +1,8 @@
 .container {
   width: 100%;
   min-height: 100vh;
-}
-
-.hero {
-  background-color: #fff;
-  height: 200px;
+  color: var(--common-color-text-inverse-primary);
+  font-family: var(--common-font-en),sans-serif;
 }
 
 

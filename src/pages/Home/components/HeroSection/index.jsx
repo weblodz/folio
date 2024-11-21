@@ -1,21 +1,12 @@
 import styles from './hero.module.scss'
 import NewsletterLink from '@pages/Home/components/HeroSection/components/newsletterLink/index.jsx'
+import MainText from '@pages/Home/components/HeroSection/components/mainText'
 
 function HeroSection() {
   return (
     <div className={styles.container}>
       <div className={styles.contentContainer}>
-        <div className={styles.textContainer}>
-          <h1 className={styles.mainText}>
-            Mobility with <br /> an Emotional Connection
-          </h1>
-          <div className={styles.fullMovieContainer}>
-            <a className={styles.fullMovieLink}>
-              <span className={styles.fullMovieIcon}></span>
-              <span className={styles.fullMovieText}>Play a full movie</span>
-            </a>
-          </div>
-        </div>
+        <MainText />
         <NewsletterLink />
         <div className={styles.backgroundContainer}></div>
         <div className={styles.playButtonContainer}>
