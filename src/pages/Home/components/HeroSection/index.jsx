@@ -1,4 +1,5 @@
 import styles from './hero.module.scss'
+import NewsletterLink from '@pages/Home/components/HeroSection/components/newsletterLink/index.jsx'
 
 function HeroSection() {
   return (
@@ -15,7 +16,7 @@ function HeroSection() {
             </a>
           </div>
         </div>
-        <div className={styles.newsletterContainer}></div>
+        <NewsletterLink />
         <div className={styles.backgroundContainer}></div>
         <div className={styles.playButtonContainer}>
           <span></span>
