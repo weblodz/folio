@@ -3,6 +3,7 @@ import NewsletterLink from '@pages/Home/components/HeroSection/components/newsle
 import MainText from '@pages/Home/components/HeroSection/components/mainText'
 import PlayButton from '@pages/Home/components/HeroSection/components/playButton/index.jsx'
 import { useState } from 'react'
+import { VideoBG } from '@pages/Home/components/HeroSection/components/videoBG/index.jsx'
 
 function HeroSection() {
   const [isBgPlaying, setBgPlaying] = useState(false)
@@ -12,7 +13,7 @@ function HeroSection() {
       <div className={styles.contentContainer}>
         <MainText />
         <NewsletterLink />
-        <div className={styles.backgroundContainer}></div>
+        <VideoBG isBgPlaying={isBgPlaying} />
         <PlayButton isBgPlaying={isBgPlaying} setBgPlaying={setBgPlaying} />
       </div>
     </div>
