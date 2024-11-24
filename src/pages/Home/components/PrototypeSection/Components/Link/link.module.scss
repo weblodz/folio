@@ -1,0 +1,28 @@
+.pageLink {
+    margin-top: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  
+    a {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #f0e9e9;
+      color: #020202;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 25px;
+      transition: background-color 0.3s ease;
+  
+      a:hover {
+        background-color: #737578;
+      }
+  
+      svg {
+        margin-right: 8px;
+      }
+    }
+  }
+  
