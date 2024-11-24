@@ -34,5 +34,5 @@ export function FullMovieLink({ setModalPlayerShown }) {
 }
 
 FullMovieLink.propTypes = {
-  setModalPlayerShow: PropTypes.func.isRequired,
+  setModalPlayerShown: PropTypes.func.isRequired,
 }
