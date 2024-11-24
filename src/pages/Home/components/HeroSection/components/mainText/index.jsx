@@ -2,7 +2,7 @@ import styles from './mainText.module.scss'
 import { FullMovieLink } from '@pages/Home/components/HeroSection/components/mainText/components/fullMovieLink/index.jsx'
 import PropTypes from 'prop-types'
 
-export function MainText({ setModalPlayerShown }) {
+export default function MainText({ setModalPlayerShown }) {
   return (
     <div className={styles.Container}>
       <h1 className={styles.mainText}>
