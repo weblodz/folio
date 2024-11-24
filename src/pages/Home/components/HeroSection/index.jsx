@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { VideoBG } from '@pages/Home/components/HeroSection/components/videoBG/index.jsx'
 
 function HeroSection() {
-  const [isBgPlaying, setBgPlaying] = useState(false)
+  const [isBgPlaying, setBgPlaying] = useState(true)
 
   return (
     <div className={styles.container}>
