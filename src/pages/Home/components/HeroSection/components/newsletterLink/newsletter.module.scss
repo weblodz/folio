@@ -39,10 +39,8 @@
   }
 
   @media (max-width: 900px){
-    display: none;
+    visibility: hidden;
   }
-
-
 }
 
 .content {
@@ -88,4 +86,9 @@
   fill: var(--common-color-text-inverse-primary);
   transition: 0.5s ease;
   transform: translateX(0);
+
+  @media (max-width: 900px){
+    visibility: hidden;
+    transition: none;
+  }
 }
