@@ -2,6 +2,11 @@
   display: inline-block;
   margin-top: 32px;
 
+  @media (max-width: 900px){
+    margin-top: 16px;
+    padding: 0 24px 32px;
+  }
+
   .fullMovieLink {
     display: flex;
     align-items: center;
@@ -25,8 +30,13 @@
       border-radius: 50%;
       transition: background-color 0.5s ease;
 
+      @media (max-width: 900px){
+        width: 36px;
+        height: 36px;
+      }
+
       .icon {
-        width: 24px;
+        width: 13px;
         height: auto;
         margin-left: 2px;
         transition: transform 0.5s ease;

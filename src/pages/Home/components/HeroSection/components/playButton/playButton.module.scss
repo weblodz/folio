@@ -3,6 +3,11 @@
   bottom: 16px;
   left: 16px;
   z-index: 1;
+
+  @media (max-width: 900px){
+    left: auto;
+    right: 16px;
+  }
 }
 
 .contentContainer {
