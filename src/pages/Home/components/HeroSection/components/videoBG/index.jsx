@@ -16,7 +16,7 @@ export function VideoBG({ isBgPlaying }) {
   return (
     <div className={styles.container}>
       <div className={styles.contentContainer}>
-        <video ref={videoRef} className={styles.video} autoPlay={true} muted={true}>
+        <video ref={videoRef} className={styles.video} autoPlay={true} muted={true} loop={true}>
           <source src="src/assets/videos/top_topbanner_01_pc.mp4" type="video/mp4" />
         </video>
       </div>
