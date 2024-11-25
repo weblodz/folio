@@ -52,11 +52,15 @@
       }
 
       .icon {
-        width: 13px;
+        width: 24px;
         height: auto;
         margin-left: 2px;
         transition: transform 0.5s ease;
         transform: scale(1);
+
+        @media (max-width: 900px){
+          width: 13px;
+        }
 
         .iconOutline {
           fill: var(--common-color-text-inverse-primary);
