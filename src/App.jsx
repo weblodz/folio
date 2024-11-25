@@ -1,4 +1,3 @@
-// import Default from './components/Default'
 import Home from '@pages/Home'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -9,6 +8,7 @@ function App() {
     <div className={styles.main_container}>
       <Header />
       <Home />
+      <Footer />
     </div>
   )
 }
