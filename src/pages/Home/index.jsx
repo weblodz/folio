@@ -9,6 +9,12 @@ import { ModalPlayer } from '@pages/Home/components/modalPlayer/index.jsx'
 export default function Home() {
   const [isModalPlayerShown, setModalPlayerShown] = useState(false)
 
+  if (isModalPlayerShown) {
+    document.body.style.overflowY = 'hidden'
+  } else {
+    document.body.style.overflowY = 'auto'
+  }
+
   return (
     <div className={styles.container}>
       <HeroSection setModalPlayerShown={setModalPlayerShown} />
