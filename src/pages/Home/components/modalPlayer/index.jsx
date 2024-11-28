@@ -1,10 +1,15 @@
 import styles from './modalPlayer.module.scss'
-import { CloseButton } from '@pages/Home/components/HeroSection/components/modalPlayer/components/closeButton/index.jsx'
+import { CloseButton } from './components/closeButton/index.jsx'
 import PropTypes from 'prop-types'
 
 export function ModalPlayer({ setModalPlayerShown }) {
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      onClick={() => {
+        setModalPlayerShown(false)
+      }}
+    >
       <div className={styles.videoOuterContainer}>
         <div className={styles.videoInnerContainer}>
           <iframe
