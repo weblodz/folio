@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <HeroSection isModalPlayerShown={isModalPlayerShown} setModalPlayerShown={setModalPlayerShown} />
+      <HeroSection setModalPlayerShown={setModalPlayerShown} />
       <PrototypeSection />
       <UpdatesSection />
       <DiscoverSection />
