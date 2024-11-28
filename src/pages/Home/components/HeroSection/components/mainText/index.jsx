@@ -1,10 +1,10 @@
-import styles from './mainText.module.scss'
-import { FullMovieLink } from '@pages/Home/components/HeroSection/components/mainText/components/fullMovieLink/index.jsx'
 import PropTypes from 'prop-types'
+import { FullMovieLink } from '@pages/Home/components/HeroSection/components/mainText/components/fullMovieLink/index.jsx'
+import styles from './mainText.module.scss'
 
 export default function MainText({ setModalPlayerShown }) {
   return (
-    <div className={styles.Container}>
+    <div className={styles.container}>
       <h1 className={styles.mainText}>
         Mobility with <br /> an Emotional Connection
       </h1>

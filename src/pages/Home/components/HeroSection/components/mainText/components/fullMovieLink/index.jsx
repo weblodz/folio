@@ -1,5 +1,5 @@
-import styles from './fullMovieLink.module.scss'
 import PropTypes from 'prop-types'
+import styles from './fullMovieLink.module.scss'
 
 export function FullMovieLink({ setModalPlayerShown }) {
   return (
@@ -27,7 +27,7 @@ export function FullMovieLink({ setModalPlayerShown }) {
             ></path>
           </svg>
         </span>
-        <span className={styles.linkText}>Play a full movie</span>
+        <span className={styles.linkText}>PLAY A FULL MOVIE</span>
       </a>
     </div>
   )

@@ -1,6 +1,6 @@
-import styles from './videoBG.module.scss'
 import PropTypes from 'prop-types'
 import { useRef } from 'react'
+import styles from './videoBG.module.scss'
 
 export function VideoBG({ isBgPlaying }) {
   const videoRef = useRef(null)

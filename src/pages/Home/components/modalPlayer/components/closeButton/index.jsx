@@ -1,5 +1,5 @@
-import styles from './closeButton.module.scss'
 import PropTypes from 'prop-types'
+import styles from './closeButton.module.scss'
 
 export function CloseButton({ setModalPlayerShown }) {
   function closeVideo() {

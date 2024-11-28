@@ -1,6 +1,6 @@
-import styles from './modalPlayer.module.scss'
-import { CloseButton } from './components/closeButton/index.jsx'
 import PropTypes from 'prop-types'
+import { CloseButton } from './components/closeButton/index.jsx'
+import styles from './modalPlayer.module.scss'
 
 export function ModalPlayer({ setModalPlayerShown }) {
   return (

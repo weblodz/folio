@@ -1,10 +1,10 @@
-import styles from './hero.module.scss'
+import PropTypes from 'prop-types'
 import NewsletterLink from '@pages/Home/components/HeroSection/components/newsletterLink/index.jsx'
 import MainText from '@pages/Home/components/HeroSection/components/mainText'
 import PlayButton from '@pages/Home/components/HeroSection/components/playButton/index.jsx'
 import { useState } from 'react'
 import { VideoBG } from '@pages/Home/components/HeroSection/components/videoBG/index.jsx'
-import PropTypes from 'prop-types'
+import styles from './hero.module.scss'
 
 function HeroSection({ setModalPlayerShown }) {
   const [isBgPlaying, setBgPlaying] = useState(true)
