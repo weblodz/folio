@@ -9,9 +9,11 @@ export default function PrototypeSection() {
   const sectionRef = useRef(null)
   const videoRef = useRef(null)
 
-  const [isFallbackImageVisible, setIsFallbackImageVisible] = useState(true)
+  const [isFallbackImageVisible, setIsFallbackImageVisible] = useState(false)
 
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+
+  const [isLinkShown, setIsLinkShown] = useState(false)
 
   useEffect(() => {
     const currentVideo = videoRef.current
@@ -50,12 +52,32 @@ export default function PrototypeSection() {
     setIsVideoPlaying(true)
   }
 
+  function log() {
+    if (videoRef.current) {
+      if (window.scrollY > document.documentElement.scrollHeight / 4.5) {
+        videoRef.current.style.opacity = '0.3'
+        setIsLinkShown(true)
+      } else {
+        videoRef.current.style.opacity = '1'
+        setIsLinkShown(false)
+      }
+    }
+  }
+
+  useEffect(() => {
+    const handleScroll = () => log()
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <div
       className={styles.prototypePage}
       ref={sectionRef}
       style={{
-        background: isFallbackImageVisible ? `url(${prototypeImage})` : 'none',
+        background: isFallbackImageVisible ? `url(${prototypeImage})` : 'black',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
@@ -76,7 +98,7 @@ export default function PrototypeSection() {
       </video>
       <div className={styles.container}>
         <Content />
-        <Link />
+        {isLinkShown && <Link />}
       </div>
     </div>
   )
