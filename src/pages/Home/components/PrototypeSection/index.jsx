@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect } from 'react'
-import Content from './Components/Content/Content'
-import Link from './Components/Link/Link'
 import prototypeImage from '@assets/prototype/prototype.jpg'
 import prototypeVideo from '@assets/prototype/video.mp4'
+import Content from './Components/Content/Content'
+import Link from './Components/Link/Link'
 import styles from './prototype.module.scss'
 
 export default function PrototypeSection() {
