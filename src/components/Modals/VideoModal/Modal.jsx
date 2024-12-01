@@ -1,6 +1,7 @@
 import T from 'prop-types'
 import { createPortal } from 'react-dom'
 import styles from './modal.module.scss'
+import Button from './components/uiKit/buttons/closeButton.jsx'
 
 function Modal({ isOpen, onClose, videoLink }) {
   let elementModal = document.getElementById('video-modal')
@@ -10,6 +11,7 @@ function Modal({ isOpen, onClose, videoLink }) {
   return isOpen && createPortal (
     <div className={styles.container}>
       <div className={styles.section_container}>
+        <Button onClose={onClose} />
         <iframe
           className={styles.video}
           width="1280"
