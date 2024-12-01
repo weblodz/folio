@@ -10,9 +10,7 @@ export default function PrototypeSection() {
   const videoRef = useRef(null)
 
   const [isFallbackImageVisible, setIsFallbackImageVisible] = useState(false)
-
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
-
   const [isLinkShown, setIsLinkShown] = useState(false)
 
   useEffect(() => {
@@ -52,7 +50,7 @@ export default function PrototypeSection() {
     setIsVideoPlaying(true)
   }
 
-  function log() {
+  function handleVideoOpacity() {
     if (videoRef.current) {
       if (window.scrollY > document.documentElement.scrollHeight / 4.5) {
         videoRef.current.style.opacity = '0.3'
@@ -65,7 +63,7 @@ export default function PrototypeSection() {
   }
 
   useEffect(() => {
-    const handleScroll = () => log()
+    const handleScroll = () => handleVideoOpacity()
 
     window.addEventListener('scroll', handleScroll)
 
@@ -74,13 +72,10 @@ export default function PrototypeSection() {
 
   return (
     <div
-      className={styles.prototypePage}
       ref={sectionRef}
-      style={{
-        background: isFallbackImageVisible ? `url(${prototypeImage})` : 'black',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+      className={`${styles.prototypePage} ${
+        isFallbackImageVisible ? `url(${prototypeImage})` : styles.blackBackground
+      }`}
     >
       <video
         ref={videoRef}
@@ -88,10 +83,7 @@ export default function PrototypeSection() {
         loop
         muted
         playsInline
-        className={styles.backgroundVideo}
-        style={{
-          opacity: isVideoPlaying ? 1 : 0,
-        }}
+        className={`${styles.backgroundVideo} ${isVideoPlaying ? styles.videoVisible : styles.videoHidden}`}
       >
         <source src={prototypeVideo} type="video/mp4" />
         Your browser does not support the video tag.
