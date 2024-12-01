@@ -8,10 +8,10 @@ function App() {
   return (
     <div className={styles.main_container}>
       <Header />
-      <Footer />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
+      <Footer />
     </div>
   )
 }
