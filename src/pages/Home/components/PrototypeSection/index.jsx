@@ -1,11 +1,12 @@
 import { useRef, useState, useEffect } from 'react'
+import { useIntersectionObserver } from '@hooks/useIntersectionObserver'
 import prototypeImage from '@assets/prototype/prototype.jpg'
 import prototypeVideo from '@assets/prototype/video.mp4'
 import Content from './Components/Content/Content'
 import Link from './Components/Link/Link'
 import styles from './prototype.module.scss'
 
-export default function Prototype() {
+export default function PrototypeSection() {
   const sectionRef = useRef(null)
   const videoRef = useRef(null)
 
@@ -13,40 +14,8 @@ export default function Prototype() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
   const [isLinkShown, setIsLinkShown] = useState(false)
 
-  useEffect(() => {
-    const currentVideo = videoRef.current
-    const currentSection = sectionRef.current
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          if (currentVideo) {
-            currentVideo.addEventListener('canplay', handleVideoReady)
-            currentVideo.load()
-          }
-        }
-      },
-      { threshold: 0.9 },
-    )
-
-    if (currentSection) {
-      observer.observe(currentSection)
-    }
-
-    return () => {
-      if (currentVideo) {
-        currentVideo.removeEventListener('canplay', handleVideoReady)
-      }
-
-      if (currentSection) {
-        observer.disconnect()
-      }
-    }
-  }, [])
-
   const handleVideoReady = () => {
     setIsFallbackImageVisible(false)
-
     setIsVideoPlaying(true)
   }
 
@@ -61,6 +30,25 @@ export default function Prototype() {
       }
     }
   }
+
+  const { setTarget } = useIntersectionObserver({ threshold: 0.9 }, ([entry]) => {
+    if (entry.isIntersecting) {
+      if (videoRef.current) {
+        videoRef.current.addEventListener('canplay', handleVideoReady)
+        videoRef.current.load()
+      }
+    }
+  })
+
+  useEffect(() => {
+    setTarget(sectionRef.current)
+
+    return () => {
+      if (videoRef.current) {
+        videoRef.current.removeEventListener('canplay', handleVideoReady)
+      }
+    }
+  }, [setTarget])
 
   useEffect(() => {
     const handleScroll = () => handleVideoOpacity()
