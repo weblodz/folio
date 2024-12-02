@@ -58,6 +58,12 @@ export default [
         { blankLine: 'always', prev: 'import', next: '*' },
         { blankLine: 'any', prev: 'import', next: 'import' },
       ],
+      'import/order': [
+        'error',
+        {
+          groups: [['builtin', 'external'], ['internal'], ['parent', 'sibling', 'index']],
+        },
+      ],
     },
   },
 ]

@@ -8,9 +8,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: normal;
   background-color: var(--common-header-bg-color);
   font-family: var(--common-font-en);
+  font-weight: normal;
+  z-index: 100;
 
   &:hover {
     background-color: var(--common-color-bg-inverse-primary);
