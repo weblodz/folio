@@ -41,11 +41,19 @@ export default function PrototypeSection() {
   })
 
   useEffect(() => {
-    setTarget(sectionRef.current)
+    const currentVideo = videoRef.current
+    const currentSection = sectionRef.current
+
+    setTarget(currentSection)
+
+    if (currentVideo) {
+      currentVideo.addEventListener('canplay', handleVideoReady)
+      currentVideo.load()
+    }
 
     return () => {
-      if (videoRef.current) {
-        videoRef.current.removeEventListener('canplay', handleVideoReady)
+      if (currentVideo) {
+        currentVideo.removeEventListener('canplay', handleVideoReady)
       }
     }
   }, [setTarget])
