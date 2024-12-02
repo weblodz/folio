@@ -5,7 +5,7 @@ import Content from './Components/Content/Content'
 import Link from './Components/Link/Link'
 import styles from './prototype.module.scss'
 
-export default function PrototypeSection() {
+export default function Prototype() {
   const sectionRef = useRef(null)
   const videoRef = useRef(null)
 
