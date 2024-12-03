@@ -6,7 +6,7 @@ import styles from './app.module.scss'
 
 function App() {
   return (
-    <div id="modal-root" className={styles.main_container}>
+    <div className={styles.main_container}>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

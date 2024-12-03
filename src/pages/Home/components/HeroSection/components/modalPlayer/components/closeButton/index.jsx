@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import styles from './closeButton.module.scss'
 
-export function CloseButton({ setModalPlayerShown }) {
+export function CloseButton({ setModalShown }) {
   function closeVideo() {
-    setModalPlayerShown(false)
+    setModalShown(false)
   }
 
   return (
@@ -27,5 +27,5 @@ export function CloseButton({ setModalPlayerShown }) {
 }
 
 CloseButton.propTypes = {
-  setModalPlayerShown: PropTypes.func.isRequired,
+  setModalShown: PropTypes.func.isRequired,
 }

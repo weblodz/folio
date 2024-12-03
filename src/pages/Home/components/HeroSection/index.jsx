@@ -18,7 +18,7 @@ function HeroSection() {
         <NewsletterLink />
         <VideoBG isBgPlaying={isBgPlaying} />
         <PlayButton isBgPlaying={isBgPlaying} setBgPlaying={setBgPlaying} />
-        {isModalPlayerShown && <ModalPlayer setModalPlayerShown={setModalPlayerShown} />}
+        <ModalPlayer isShown={isModalPlayerShown} setShown={setModalPlayerShown} />
       </div>
     </div>
   )
