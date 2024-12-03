@@ -13,6 +13,11 @@
     background-size: cover;
     background-position: center;
   }
+
+  @media (max-width: 900px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 .container {
@@ -23,6 +28,11 @@
   margin: 0 calc(10% + 64px) 0 10%;
   padding: 96px 0;
   z-index: 1;
+
+  @media (max-width: 900px) {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 }
 
 .backgroundVideo {
@@ -41,5 +51,21 @@
 
   &.videoVisible {
     opacity: 1;
+  }
+}
+
+.largeScreenVideo {
+  display: block;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+.smallScreenVideo {
+  display: none;
+
+  @media (max-width: 900px) {
+    display: block;
   }
 }

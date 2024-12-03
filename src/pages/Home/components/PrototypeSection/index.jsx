@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react'
 import { useIntersectionObserver } from '@hooks/useIntersectionObserver'
 import prototypeImage from '@assets/prototype/prototype.jpg'
 import prototypeVideo from '@assets/prototype/video.mp4'
+import prototypeSmallVideo from '@assets/prototype/proto_small.mp4'
 import Content from './Components/Content/Content'
 import Link from './Components/Link/Link'
 import styles from './prototype.module.scss'
@@ -79,9 +80,20 @@ export default function PrototypeSection() {
         loop
         muted
         playsInline
-        className={`${styles.backgroundVideo} ${isVideoPlaying ? styles.videoVisible : styles.videoHidden}`}
+        className={`${styles.backgroundVideo} ${styles.largeScreenVideo} ${isVideoPlaying ? styles.videoVisible : styles.videoHidden}`}
       >
         <source src={prototypeVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className={`${styles.backgroundVideo} ${styles.smallScreenVideo} ${isVideoPlaying ? styles.videoVisible : styles.videoHidden}`}
+      >
+        <source src={prototypeSmallVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className={styles.container}>
