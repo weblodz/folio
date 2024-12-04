@@ -1,11 +1,11 @@
 import T from 'prop-types'
-import closeBtn from '../../../../../../assets/button/modalBtn.svg'
+import closeBtn from '@assets/button/modalBtn.svg'
 import styles from './closeButton.module.scss'
 
 function Button({ onClose }) {
   return (
     <button className={styles.button} onClick={onClose}>
-      <img src={closeBtn} alt="Close Modal" />
+      <img src={closeBtn} alt="close modal" />
     </button>
   )
 }
