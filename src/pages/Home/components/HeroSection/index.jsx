@@ -1,31 +1,23 @@
-import PropTypes from 'prop-types'
 import NewsletterLink from '@pages/Home/components/HeroSection/components/newsletterLink/index.jsx'
 import MainText from '@pages/Home/components/HeroSection/components/mainText'
 import PlayButton from '@pages/Home/components/HeroSection/components/playButton/index.jsx'
 import { useState } from 'react'
 import { VideoBG } from '@pages/Home/components/HeroSection/components/videoBG/index.jsx'
-import { ModalPlayer } from '@pages/Home/components/HeroSection/components/modalPlayer/index.jsx'
 import styles from './hero.module.scss'
 
 function HeroSection() {
   const [isBgPlaying, setBgPlaying] = useState(true)
-  const [isModalPlayerShown, setModalPlayerShown] = useState(false)
 
   return (
     <div className={styles.container}>
       <div className={styles.contentContainer}>
-        <MainText setModalPlayerShown={setModalPlayerShown} />
+        <MainText />
         <NewsletterLink />
         <VideoBG isBgPlaying={isBgPlaying} />
         <PlayButton isBgPlaying={isBgPlaying} setBgPlaying={setBgPlaying} />
-        <ModalPlayer isShown={isModalPlayerShown} setShown={setModalPlayerShown} />
       </div>
     </div>
   )
 }
 
 export default HeroSection
-
-HeroSection.propTypes = {
-  setModalPlayerShown: PropTypes.func.isRequired,
-}

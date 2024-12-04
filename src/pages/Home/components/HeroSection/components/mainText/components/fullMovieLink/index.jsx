@@ -1,10 +1,9 @@
-import PropTypes from 'prop-types'
 import styles from './fullMovieLink.module.scss'
 
-export function FullMovieLink({ setModalPlayerShown }) {
+export function FullMovieLink() {
   return (
     <div className={styles.linkContainer}>
-      <a className={styles.fullMovieLink} onClick={() => setModalPlayerShown(true)}>
+      <a className={styles.fullMovieLink}>
         <span className={styles.linkIconContainer}>
           <svg
             className={styles.icon}
@@ -31,8 +30,4 @@ export function FullMovieLink({ setModalPlayerShown }) {
       </a>
     </div>
   )
-}
-
-FullMovieLink.propTypes = {
-  setModalPlayerShown: PropTypes.func.isRequired,
 }
