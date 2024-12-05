@@ -21,15 +21,21 @@ export default function PrototypeSection() {
   }
 
   function handleVideoOpacity() {
-    if (videoRef.current) {
-      if (window.scrollY > document.documentElement.scrollHeight / 4.5) {
-        videoRef.current.style.opacity = '0.3'
-        setIsLinkShown(true)
-      } else {
-        videoRef.current.style.opacity = '1'
-        setIsLinkShown(false)
+    const largeVideo = document.querySelector(`.${styles.largeScreenVideo}`)
+    const smallVideo = document.querySelector(`.${styles.smallScreenVideo}`)
+    const videos = [largeVideo, smallVideo]
+
+    videos.forEach((video) => {
+      if (video) {
+        if (window.scrollY > document.documentElement.scrollHeight / 4.5) {
+          video.style.opacity = '0.3'
+          setIsLinkShown(true)
+        } else {
+          video.style.opacity = '1'
+          setIsLinkShown(false)
+        }
       }
-    }
+    })
   }
 
   const { setTarget } = useIntersectionObserver({ threshold: 0.9 }, ([entry]) => {
