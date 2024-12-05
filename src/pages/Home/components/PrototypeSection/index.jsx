@@ -3,8 +3,8 @@ import { useIntersectionObserver } from '@hooks/useIntersectionObserver'
 import prototypeImage from '@assets/prototype/prototype.jpg'
 import prototypeVideo from '@assets/prototype/video.mp4'
 import prototypeSmallVideo from '@assets/prototype/proto_small.mp4'
-import Content from './Components/Content/Content'
-import Link from './Components/Link/Link'
+import Content from './Components/Content/index.jsx'
+import Link from './Components/Link/index.jsx'
 import styles from './prototype.module.scss'
 
 export default function PrototypeSection() {
