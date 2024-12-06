@@ -1,3 +1,5 @@
+@use '/src/styles/variables' as *;
+
 .container {
   height: 150vh;
   background-color: #ff7aff;
@@ -11,7 +13,7 @@
   display: flex;
   align-items: center;
 
-  @media (max-width: 900px) {
+  @media (max-width: $mobile_width) {
     position: relative;
     align-items: flex-end;
   }

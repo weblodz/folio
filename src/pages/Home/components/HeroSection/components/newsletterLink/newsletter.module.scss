@@ -1,3 +1,5 @@
+@use '/src/styles/variables' as *;
+
 .container {
   position: absolute;
   right: 0;
@@ -37,7 +39,7 @@
     }
   }
 
-  @media (max-width: 900px){
+  @media (max-width: $mobile_width){
     visibility: hidden;
   }
 }
@@ -86,7 +88,7 @@
   transition: 0.5s ease;
   transform: translateX(0);
 
-  @media (max-width: 900px){
+  @media (max-width: $mobile_width){
     visibility: hidden;
     transition: none;
   }
