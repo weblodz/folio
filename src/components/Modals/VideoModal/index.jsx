@@ -6,7 +6,7 @@ import styles from './modal.module.scss'
 
 const VIDEO_LINK = "https://www.youtube.com/embed/4Oj_fenobDw?enablejsapi=1"
 
-function Modal( {isOpen, onClose, videoLink = VIDEO_LINK} ) {
+function Modal({ isOpen, onClose, videoLink = VIDEO_LINK }) {
   let elementModal = document.getElementById('video-modal')
 
   useEffect(() => {
