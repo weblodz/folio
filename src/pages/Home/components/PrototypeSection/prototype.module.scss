@@ -1,3 +1,5 @@
+@use '/src/styles/_variables' as *;
+
 .prototypePage {
   display: flex;
   justify-content: flex-start;
@@ -14,7 +16,7 @@
     background-position: center;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: $screen-tablet-l) {
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -29,7 +31,7 @@
   padding: 96px 0;
   z-index: 1;
 
-  @media (max-width: 900px) {
+  @media (max-width: $screen-tablet-l) {
     margin-left: 5px;
     margin-right: 5px;
   }
@@ -57,7 +59,7 @@
 .largeScreenVideo {
   display: block;
 
-  @media (max-width: 900px) {
+  @media (max-width: $screen-tablet-l) {
     display: none;
   }
 }
@@ -65,7 +67,7 @@
 .smallScreenVideo {
   display: none;
 
-  @media (max-width: 900px) {
+  @media (max-width: $screen-tablet-l) {
     display: block;
   }
 }
