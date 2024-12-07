@@ -9,7 +9,8 @@
       "@pages/*": ["src/pages/*"],
       "@routing/*": ["src/routing/*"],
       "@styles/*": ["src/styles/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@hooks/*": ["src/hooks/*"]
     }
   },
   "include": ["src/**/*"],
