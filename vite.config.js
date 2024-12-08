@@ -15,6 +15,7 @@ export default defineConfig({
       '@routing': path.resolve(__dirname, 'src/routing'),
       '@styles': path.resolve(__dirname, 'src/styles'),
       '@utils': path.resolve(__dirname, 'src/utils'),
+      '@hooks': path.resolve(__dirname, 'src/hooks'),
     },
   },
   css: {
