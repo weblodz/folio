@@ -1,0 +1,19 @@
+@use '/src/styles/variables' as *;
+
+.container {
+  height: 150vh;
+  position: sticky;
+  top: 0;
+}
+
+.contentContainer {
+  position: relative;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: $screen-tablet-l) {
+    position: relative;
+    align-items: flex-end;
+  }
+}
