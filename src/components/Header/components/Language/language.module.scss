@@ -18,3 +18,18 @@
   transition: border-bottom-color 0.5s ease;
   cursor: pointer;
 }
+
+.langButtons {
+  color: var(--common-header-bg-color);
+}
+
+.link {
+  text-decoration: none;
+  color: var(--common-color-bg-primary);
+  border-bottom: solid 1px transparent;
+    transition: border-bottom-color 0.5s ease;
+}
+
+.link:hover {
+  border-bottom-color: var(--common-header-text-color);
+}
