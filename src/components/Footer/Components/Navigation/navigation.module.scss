@@ -1,9 +1,18 @@
+@use '/src/styles/_variables' as *;
+
 .container {
     font-size: 1rem;
     line-height: 1.6;
     letter-spacing: 0.02em;
     font-family: var(--common-font-en), sans-serif;
     width: 50%;
+    
+    @media (max-width: $screen-tablet-l) {
+        margin-top: 140px;
+        margin-bottom: 20px;
+        width: 100%;
+        font-size: 0.9rem;
+      }
 }
 
 .linkContainer {
@@ -12,6 +21,11 @@
     grid-template-columns: 1fr 1fr;
     grid-auto-flow: column;
     gap: 22px;
+
+    @media (max-width: $screen-tablet-l){
+        row-gap: 17px;
+        column-gap: 100px;
+    }
 }
 
 .link {

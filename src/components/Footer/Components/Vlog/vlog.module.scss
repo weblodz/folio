@@ -1,11 +1,17 @@
+@use '/src/styles/_variables' as *;
+
 .vlogTitle {
     margin: 0px;
     padding: 0px;
-    font-size: 1.25rem;
+    font-size: 1.45rem;
     font-weight: normal;
     line-height: 1.9;
     letter-spacing: 0.03em;
     font-family: var(--common-font-en), sans-serif;
+    
+    @media (max-width: $screen-tablet-l){
+        font-size: 1.25rem;
+    }
 }
 
 .vlogText {
@@ -13,18 +19,23 @@
     padding: 0px;
     max-width: 515px;
     margin-top: 16px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: normal;
     line-height: 1.4;
     color: var(--common-color-text-inverse-secondary);
     font-family: var(--common-font-en), sans-serif;
+
+    @media (max-width: $screen-tablet-l){
+        font-size: 0.9rem;
+        width: 80%
+    }
 }
 
 .vlogLink {
     display: flex;
     align-items: center;
     margin-top: 24px;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: normal;
     line-height: 1.4;
     gap: 12px;
@@ -32,8 +43,8 @@
 }
 
 .icon {
-    width: 32px;
-    height: 32px;
+    width: 33px;
+    height: 33px;
     border: 1px solid var(--common-color-bg-primary);
     border-radius: 50%;
     display: flex;
@@ -51,7 +62,7 @@
 
 .text {
     color: var(--common-color-bg-primary);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     letter-spacing: 0.5px;
     font-family: var(--common-font-en), sans-serif;
 }
