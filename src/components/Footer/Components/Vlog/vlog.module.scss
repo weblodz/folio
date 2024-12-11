@@ -1,5 +1,9 @@
 @use '/src/styles/_variables' as *;
 
+.vlog{
+    width: 100%;
+}
+
 .vlogTitle {
     margin: 0px;
     padding: 0px;
@@ -7,6 +11,7 @@
     font-weight: normal;
     line-height: 1.9;
     letter-spacing: 0.03em;
+    width: 100%;
     font-family: var(--common-font-en), sans-serif;
     
     @media (max-width: $screen-tablet-l){
@@ -27,7 +32,7 @@
 
     @media (max-width: $screen-tablet-l){
         font-size: 0.9rem;
-        width: 80%
+        max-width: calc(14.5% + (900px - 60vw) * 0.3);
     }
 }
 
