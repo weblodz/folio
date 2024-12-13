@@ -1,11 +1,12 @@
 @use '/src/styles/_variables' as *;
 
 .container {
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.6;
     letter-spacing: 0.02em;
     font-family: var(--common-font-en), sans-serif;
     width: 50%;
+    margin-left: 15px;
     
     @media (max-width: $screen-tablet-l) {
         margin-top: 140px;
