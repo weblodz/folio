@@ -3,8 +3,8 @@ import styles from './socials.module.scss'
 
 function Socials() {
   return (
-    <div className={styles.iconLinks}>
-      <ul className={styles.linkContainer}>
+    <div className={styles.container}>
+      <ul className={styles.list}>
         {SOCIAL_LINKS.map((item) => (
           <li key={item.name} className={styles.item}>
             <a

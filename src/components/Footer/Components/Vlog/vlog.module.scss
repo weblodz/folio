@@ -1,10 +1,10 @@
 @use '/src/styles/_variables' as *;
 
-.vlog{
+.container{
     width: 100%;
 }
 
-.vlogTitle {
+.title {
     margin: 0px;
     padding: 0px;
     font-size: 1.45rem;
@@ -19,7 +19,7 @@
     }
 }
 
-.vlogText {
+.description {
     margin: 0px;
     padding: 0px;
     max-width: 515px;
@@ -36,7 +36,7 @@
     }
 }
 
-.vlogLink {
+.link {
     display: flex;
     align-items: center;
     margin-top: 24px;

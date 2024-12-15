@@ -4,9 +4,9 @@ import styles from './logo.module.scss'
 
 function Logo() {
   return (
-    <div className={styles.logoContainer}>
-      <img src={logoTitle} className={styles.logoTitle} alt="Logo Title" />
-      <img src={logoSubTitle} className={styles.logoSubTitle} alt="Logo Subtitle" />
+    <div className={styles.container}>
+      <img src={logoTitle} className={styles.logo_title} alt="Logo Title" />
+      <img src={logoSubTitle} className={styles.logo_subtitle} alt="Logo Subtitle" />
     </div>
   )
 }
