@@ -10,7 +10,6 @@ const LANGUAGES = {
 }
 
 function Language( { isHovered } ) {
-
   const [isDropdownVisible, setDropdownVisible] = useState(false)
   const [currentLanguage, setCurrentLanguage] = useState(LANGUAGES.english)
 
