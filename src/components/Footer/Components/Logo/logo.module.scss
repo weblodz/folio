@@ -1,8 +1,30 @@
-.logoContainer {
+@use '/src/styles/_variables' as *;
+
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
   align-content: center;
   gap: 18px;
-  margin-top: 130px;
+  margin-top: 170px;
+}
+
+.logo_title{
+  width: 294px;
+  height: 42px;
+
+  @media (max-width: $screen-tablet-l){
+    width: 120px;
+    height: 20px;  
+  }
+}
+
+.logo_subtitle{
+  width: 295px;
+  height: 19px;
+
+  @media (max-width: $screen-tablet-l){
+    width: 120px;
+    height: 10px;  
+  }
 }

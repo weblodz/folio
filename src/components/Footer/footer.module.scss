@@ -1,3 +1,5 @@
+@use '/src/styles/_variables' as *;
+
 .footer {
   position: relative;
   bottom: 0;
@@ -8,7 +10,7 @@
   background: var(--common-bg-gradient-dark);
 }
 
-.footerContainer {
+.container {
   box-sizing: border-box;
   display: flex;
   width: 80%;
@@ -16,9 +18,19 @@
   text-align: left;
   margin-right: auto;
   margin-left: auto;
+
+  @media (max-width: $screen-tablet-l) {
+    flex-direction: column;
+    text-align: left;
+    width: 93%;
+  }
 }
 
-.footerContent {
+.content {
   box-sizing: border-box;
   width: 50%;
+
+  @media (max-width: $screen-tablet-l) {
+    width: 100%;
+  }
 }
