@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import PlayIcon from './Icon.jsx'
 import styles from './playButton.module.scss'
 
@@ -25,6 +25,6 @@ export default function PlayButton({ isBgPlaying, setBgPlaying }) {
 }
 
 PlayButton.propTypes = {
-  isBgPlaying: PropTypes.bool.isRequired,
-  setBgPlaying: PropTypes.func.isRequired,
+  isBgPlaying: T.bool.isRequired,
+  setBgPlaying: T.func.isRequired,
 }
