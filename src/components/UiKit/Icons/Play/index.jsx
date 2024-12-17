@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import styles from './playButton.module.scss'
+import styles from './playicon.module.scss'
 
 export default function PlayIcon({ isBgPlaying }) {
   let icon = null

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import VideoModal from '@components/Modals/VideoModal'
-import { MovieIcon } from '@components/UiKit/Icons'
+import { MovieIcon } from 'src/components/UiKit/Icons/Movie'
 import styles from './fullMovieLink.module.scss'
 
 export default function FullMovieLink() {

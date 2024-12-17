@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import PlayIcon from './Icon.jsx'
+import PlayIcon from '@components/UiKit/Icons/Play/index.jsx'
 import styles from './playButton.module.scss'
 
 export default function PlayButton({ isBgPlaying, setBgPlaying }) {
