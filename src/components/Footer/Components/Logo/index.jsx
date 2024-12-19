@@ -1,12 +1,12 @@
-import logoTitle from '@assets/logoTitle.svg'
-import logoSubTitle from '@assets/logoSubTitle.svg'
+import FooterLogoIcon from '@components/UiKit/Icons/FooterLogo/index.jsx'
+import FooterSubTextIcon from '@components/UiKit/Icons/FooterSubText/index.jsx'
 import styles from './logo.module.scss'
 
 function Logo() {
   return (
-    <div className={styles.container}>
-      <img src={logoTitle} className={styles.logo_title} alt="Logo Title" />
-      <img src={logoSubTitle} className={styles.logo_subtitle} alt="Logo Subtitle" />
+    <div className={styles.logoContainer}>
+      <FooterLogoIcon />
+      <FooterSubTextIcon />
     </div>
   )
 }

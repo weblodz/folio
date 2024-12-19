@@ -1,6 +1,9 @@
-import styles from './movieIcon.module.scss'
+import styles from '@pages/Home/sections/Hero/components/FullMovieLink/fullMovieLink.module.scss'
 
-export default function MovieIcon() {
+// !-- This import statement was made intentionally.
+// !-- It is needed for parent style to affect the style of the child.
+
+export function MovieIcon() {
   return (
     <svg
       className={styles.icon}

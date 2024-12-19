@@ -103,3 +103,23 @@
     }
   }
 }
+
+.icon {
+  width: 24px;
+  height: auto;
+  margin-left: 2px;
+  transition: transform 0.5s ease;
+  transform: scale(1);
+
+  @media (max-width: $screen-tablet-l) {
+    width: 13px;
+  }
+
+  .iconOutline {
+    fill: var(--common-color-text-inverse-primary);
+  }
+
+  .iconFill {
+    transition: transform 0.5s ease;
+  }
+}
