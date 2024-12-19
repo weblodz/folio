@@ -1,0 +1,31 @@
+@use '/src/styles/_variables' as *;
+
+.title {
+  font-family: var(--common-font-en), sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+
+  @media (max-width: $screen-tablet-l) {
+    font-size: 1.39rem;
+    margin-top: 70px;
+    max-width: calc(32% + (900px - 100vw) * 0.1);
+  }
+}
+
+.description {
+  font-family: var(--common-font-en), sans-serif;
+  margin-top: 24px;
+  font-size: 1.35rem;
+  font-weight: normal;
+  line-height: 1.9;
+  letter-spacing: 0.03em;
+
+  @media (max-width: $screen-tablet-l) {
+    font-size: 1rem;
+    margin-top: 16px;
+    line-height: 1.6;
+  }
+}
