@@ -1,4 +1,4 @@
-import NewsLetterIcon from '@components/UiKit/Icons/NewsLetter/index.jsx'
+import ArrowRightIcon from '@components/UiKit/Icons/ArrowRight/index.jsx'
 import styles from './newsletter.module.scss'
 
 export default function NewsletterLink() {
@@ -12,7 +12,7 @@ export default function NewsletterLink() {
         </dd>
       </dl>
       <span className={styles.iconContainer}>
-        <NewsLetterIcon />
+        <ArrowRightIcon styles={styles} />
       </span>
     </div>
   )
