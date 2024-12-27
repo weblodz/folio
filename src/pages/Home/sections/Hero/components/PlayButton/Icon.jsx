@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import styles from './playButton.module.scss'
 
 export default function PlayIcon({ isBgPlaying }) {
@@ -36,5 +36,5 @@ export default function PlayIcon({ isBgPlaying }) {
 }
 
 PlayIcon.propTypes = {
-  isBgPlaying: PropTypes.bool.isRequired,
+  isBgPlaying: T.bool.isRequired,
 }

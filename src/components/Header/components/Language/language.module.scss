@@ -1,6 +1,6 @@
 .icon {
-  display: inline-block;
-  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .lang {
@@ -16,4 +16,54 @@
   border-bottom: solid 1px var(--common-color-text-inverse-primary);
   transition: border-bottom-color 0.5s ease;
   cursor: pointer;
+}
+
+.language_button {
+  text-decoration: none;
+  color: var(--common-color-bg-primary);
+  background-color: transparent;
+  border: none;
+  transition: border-bottom-color 0.5s ease;
+  border-bottom: solid 1px transparent;
+
+  &:hover {
+    border-bottom-color: var(--common-color-text-inverse-primary);
+    cursor: pointer;
+  }
+
+  &.active{
+    border-bottom-color: var(--common-color-text-inverse-primary);
+  }
+}
+
+.buttons_container{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 100%;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  //background-color: var(--common-header-bg-color);
+  //transition: color 900ms cubic-bezier(0.19,1,0.22,1), background-color 900ms cubic-bezier(0.19,1,0.22,1);
+
+  &.hovered {
+    background-color: var(--common-color-bg-inverse-primary);
+  }
+}
+
+.language_nav{
+  width: 80%;
+  max-width: 1600px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.language_list{
+  display: flex;
+  opacity: 1;
+  gap: 48px;
+
 }

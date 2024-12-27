@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import { useRef } from 'react'
 import styles from './videoBG.module.scss'
 
@@ -25,5 +25,5 @@ export default function VideoBG({ isBgPlaying }) {
 }
 
 VideoBG.propTypes = {
-  isBgPlaying: PropTypes.bool.isRequired,
+  isBgPlaying: T.bool.isRequired,
 }

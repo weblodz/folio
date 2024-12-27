@@ -4,7 +4,7 @@ import styles from './navigation.module.scss'
 function Navigation() {
   return (
     <div className={styles.container}>
-      <ul className={styles.linkContainer}>
+      <ul className={styles.list}>
         {LINKS.map((item) => (
           <li key={item.name} className={styles.item}>
             <a className={styles.link} href={item.path}>
