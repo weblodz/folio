@@ -59,12 +59,18 @@
 }
 
 .link {
-  margin-top: 205px;
   font-size: 1.1rem;
-  color: #000000;
+  color: #000;
   text-decoration: none;
+  margin-top: 200px;
 }
 
-.link:hover {
-  text-decoration: underline;
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 13%;
+  height: 1px;
+  background-color: #000;
 }

@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import styles from './content.module.scss'
 
 function Content() {
@@ -35,9 +36,9 @@ function Content() {
       <div className={styles.textContainer}>
         <h3 className={styles.subtitle}>Future Voice vol.6 AFEELA: The Entertainment Destination</h3>
         <p className={styles.description}>Future Voice vol.6 AFEELA: The Entertainment Destination</p>
-        <a href="/read-more" className={styles.link}>
+        <Link to="/stories" className={styles.link}>
           Read more
-        </a>
+        </Link>
       </div>
     </div>
   )
