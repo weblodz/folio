@@ -8,7 +8,13 @@ export default function PrototypeLink() {
       <Link to="/prototype">
         <div className={styles.pageLinkContainer}>
           <span data-type="icon">
-            <ArrowRightIcon styles={styles} />
+            <ArrowRightIcon
+              styles={styles}
+              fill={'--color-inverse-primary'}
+              height={'10'}
+              width={'18'}
+              viewBox={'0 0 18 10'}
+            />
           </span>
           <p className={styles.pageLinkText}>EXPLORE PROTOTYPE</p>
         </div>

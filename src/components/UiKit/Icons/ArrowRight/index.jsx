@@ -1,8 +1,15 @@
 import T from 'prop-types'
 
-export default function ArrowRightIcon({ styles }) {
+export default function ArrowRightIcon({ styles, fill, width, height, viewBox }) {
   return (
-    <svg className={styles.icon} width="18" height="10" viewBox="0 0 18 10" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      className={styles.icon}
+      fill={fill}
+      width={width}
+      height={height}
+      viewBox={viewBox}
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -14,4 +21,8 @@ export default function ArrowRightIcon({ styles }) {
 
 ArrowRightIcon.propTypes = {
   styles: T.object.isRequired,
+  fill: T.string.isRequired,
+  width: T.string.isRequired,
+  height: T.string.isRequired,
+  viewBox: T.string.isRequired,
 }

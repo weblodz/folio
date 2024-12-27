@@ -1,12 +1,15 @@
-export default function HeaderSubTextIcon() {
+import T from 'prop-types'
+
+export default function LogoSubIcon({ styles, height, width, fill, viewBox }) {
   return (
     <svg
+      className={styles.logo_subtitle}
       role="img"
       aria-label="Sony Honda Mobility"
-      width="181"
-      height="17"
-      viewBox="0 0 181 17"
-      fill="white"
+      width={width}
+      height={height}
+      viewBox={viewBox}
+      fill={fill}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M8.13508 2.97748C7.25254 2.66085 6.30262 2.51937 5.43356 2.51937C4.40954 2.51937 3.41921 2.82253 3.41921 3.86002C3.41921 4.74256 4.14006 5.18046 5.80409 5.85416C7.8858 6.71649 9.30056 7.56534 9.30056 9.77506C9.30056 12.3014 7.11106 13.4804 4.6386 13.4804C3.49332 13.4804 2.04487 13.285 0.812012 12.8471L1.27012 10.7452C2.40193 11.2033 3.63479 11.4189 4.55102 11.4189C5.94557 11.4189 6.72031 10.9271 6.72031 9.95696C6.72031 8.98684 5.95904 8.5422 4.24785 7.87524C2.23351 7.06007 0.83896 6.05626 0.83896 4.11602C0.83896 1.50209 3.13626 0.4646 5.26513 0.4646C6.48452 0.4646 7.65002 0.626287 8.56624 0.922712L8.1216 2.98422L8.13508 2.97748Z"></path>
@@ -28,4 +31,12 @@ export default function HeaderSubTextIcon() {
       <path d="M176.074 10.1927H176.108L178.351 3.94751H180.978L175.932 16.7073H173.265L174.78 13.0559L171.109 3.94751H173.81L176.067 10.1927H176.074Z"></path>
     </svg>
   )
+}
+
+LogoSubIcon.propTypes = {
+  styles: T.object,
+  fill: T.string.isRequired,
+  height: T.string.isRequired,
+  width: T.string.isRequired,
+  viewBox: T.string.isRequired,
 }

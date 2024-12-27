@@ -1,13 +1,16 @@
-export default function FooterLogoIcon() {
+import T from 'prop-types'
+
+export default function LogoIcon({ styles, width, height, viewBox, fill }) {
   return (
     <svg
+      className={styles.logo_title}
       role="img"
       aria-label="AFEELA"
-      width="294"
-      height="36"
-      viewBox="0 0 94 16"
+      width={width}
+      height={height}
+      viewBox={viewBox}
+      fill={fill}
       xmlns="http://www.w3.org/2000/svg"
-      fill="#ffffff"
     >
       <path d="M19.6205 0H28.6073V2.71062H22.8452V6.53661H27.8681V9.12186H22.8452V15.9957H19.6248V0H19.6205Z"></path>
       <path d="M34.4084 0H43.8707V2.71062H37.6331V6.53661H43.1532V9.12186H37.6331V13.2851H43.8707V15.9957H34.4084V0Z"></path>
@@ -17,4 +20,12 @@ export default function FooterLogoIcon() {
       <path d="M81.1259 15.9957H77.7455L84.1085 0H86.9398L93.3935 15.9957H89.9916L88.8245 12.8614H82.267L81.1215 15.9957H81.1259ZM85.5263 3.55796L83.1143 10.2891H87.9643L85.5263 3.55796Z"></path>
     </svg>
   )
+}
+
+LogoIcon.propTypes = {
+  styles: T.object,
+  fill: T.string.isRequired,
+  width: T.string.isRequired,
+  height: T.string.isRequired,
+  viewBox: T.string.isRequired,
 }
