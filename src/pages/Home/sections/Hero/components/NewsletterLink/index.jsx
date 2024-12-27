@@ -12,13 +12,7 @@ export default function NewsletterLink() {
         </dd>
       </dl>
       <span className={styles.iconContainer}>
-        <ArrowRightIcon
-          className={styles.icon}
-          height={'10'}
-          width={'18'}
-          fill="--common-color-text-inverse-primary"
-          viewBox={'0 0 18 10'}
-        />
+        <ArrowRightIcon className={styles.icon} />
       </span>
     </div>
   )

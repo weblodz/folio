@@ -1,13 +1,13 @@
 import T from 'prop-types'
 
-export default function LanguageIcon({ className, width, height, viewBox, fill }) {
+export default function LanguageIcon({ className, size = '20', fill = 'var(--common-color-text-inverse-primary)' }) {
   return (
     <svg
       className={className}
-      width={width}
-      height={height}
-      viewBox={viewBox}
       fill={fill}
+      width={size}
+      height={size}
+      viewBox={'0 0 ' + size + ' ' + size}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -26,8 +26,6 @@ export default function LanguageIcon({ className, width, height, viewBox, fill }
 
 LanguageIcon.propTypes = {
   className: T.string,
-  fill: T.string.isRequired,
-  width: T.string.isRequired,
-  height: T.string.isRequired,
-  viewBox: T.string.isRequired,
+  fill: T.string,
+  size: T.string,
 }

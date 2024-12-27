@@ -5,20 +5,8 @@ import styles from './logo.module.scss'
 function Logo() {
   return (
     <div className={styles.container}>
-      <LogoIcon
-        className={styles.logo_title}
-        width={'294'}
-        height={'36'}
-        viewBox={'0 0 94 16'}
-        fill={'var(--common-color-text-inverse-primary)'}
-      />
-      <LogoSubIcon
-        className={styles.logo_subtitle}
-        height={'17'}
-        width={'175'}
-        fill={'var(--common-color-text-inverse-primary)'}
-        viewBox={'0 0 181 17'}
-      />
+      <LogoIcon className={styles.logo_title} />
+      <LogoSubIcon className={styles.logo_subtitle} />
     </div>
   )
 }

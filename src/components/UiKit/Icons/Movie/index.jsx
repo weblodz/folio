@@ -1,12 +1,12 @@
 import T from 'prop-types'
 
-export function MovieIcon({ styles, className, width, height, viewBox, fill }) {
+export function MovieIcon({ styles, className, size = '24', fill = 'none' }) {
   return (
     <svg
       className={className}
-      width={width}
-      height={height}
-      viewBox={viewBox}
+      width={size}
+      height={size}
+      viewBox={'0 0 ' + size + ' ' + size}
       fill={fill}
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -28,8 +28,6 @@ export function MovieIcon({ styles, className, width, height, viewBox, fill }) {
 MovieIcon.propTypes = {
   styles: T.object,
   className: T.string,
-  fill: T.string.isRequired,
-  width: T.string.isRequired,
-  height: T.string.isRequired,
-  viewBox: T.string.isRequired,
+  fill: T.string,
+  size: T.string,
 }

@@ -10,14 +10,7 @@ export default function FullMovieLink() {
     <div className={styles.linkContainer}>
       <a className={styles.fullMovieLink} onClick={() => setIsModalOpen(true)}>
         <span className={styles.linkIconContainer}>
-          <MovieIcon
-            styles={styles}
-            className={styles.icon}
-            width={'24'}
-            height={'24'}
-            fill={'none'}
-            viewBox={'0 0 24 24'}
-          />
+          <MovieIcon styles={styles} className={styles.icon} />
         </span>
         <span className={styles.linkText}>PLAY A FULL MOVIE</span>
       </a>

@@ -1,15 +1,13 @@
 import T from 'prop-types'
 
-export default function LogoIcon({ width, height, viewBox, fill, className }) {
+export default function LogoIcon({ size = '94', fill = 'var(--common-color-text-inverse-primary)', className }) {
   return (
     <svg
       className={className}
-      role="img"
-      aria-label="AFEELA"
-      width={width}
-      height={height}
-      viewBox={viewBox}
       fill={fill}
+      width={size}
+      height={size / 6}
+      viewBox={'0 0 ' + size + ' ' + size / 6}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M19.6205 0H28.6073V2.71062H22.8452V6.53661H27.8681V9.12186H22.8452V15.9957H19.6248V0H19.6205Z"></path>
@@ -24,8 +22,6 @@ export default function LogoIcon({ width, height, viewBox, fill, className }) {
 
 LogoIcon.propTypes = {
   className: T.string,
-  fill: T.string.isRequired,
-  width: T.string.isRequired,
-  height: T.string.isRequired,
-  viewBox: T.string.isRequired,
+  fill: T.string,
+  size: T.string,
 }

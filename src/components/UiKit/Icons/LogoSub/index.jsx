@@ -1,14 +1,14 @@
 import T from 'prop-types'
 
-export default function LogoSubIcon({ className, height, width, fill, viewBox }) {
+export default function LogoSubIcon({ className, size = '181', fill = 'var(--common-color-text-inverse-primary)' }) {
   return (
     <svg
       className={className}
       role="img"
       aria-label="Sony Honda Mobility"
-      width={width}
-      height={height}
-      viewBox={viewBox}
+      width={size}
+      height={size / 10.5}
+      viewBox={'0 0 ' + size + ' ' + size / 10.5}
       fill={fill}
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -35,8 +35,6 @@ export default function LogoSubIcon({ className, height, width, fill, viewBox })
 
 LogoSubIcon.propTypes = {
   className: T.string,
-  fill: T.string.isRequired,
-  height: T.string.isRequired,
-  width: T.string.isRequired,
-  viewBox: T.string.isRequired,
+  fill: T.string,
+  size: T.string,
 }

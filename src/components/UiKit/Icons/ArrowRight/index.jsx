@@ -1,13 +1,13 @@
 import T from 'prop-types'
 
-export default function ArrowRightIcon({ className, fill, width, height, viewBox }) {
+export default function ArrowRightIcon({ className, fill = 'var(--common-color-text-inverse-primary)', size = '18' }) {
   return (
     <svg
       className={className}
       fill={fill}
-      width={width}
-      height={height}
-      viewBox={viewBox}
+      width={size}
+      height={size / 2}
+      viewBox={'0 0 ' + size + ' ' + size / 2}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -21,8 +21,6 @@ export default function ArrowRightIcon({ className, fill, width, height, viewBox
 
 ArrowRightIcon.propTypes = {
   className: T.string,
-  fill: T.string.isRequired,
-  width: T.string.isRequired,
-  height: T.string.isRequired,
-  viewBox: T.string.isRequired,
+  fill: T.string,
+  size: T.string,
 }

@@ -16,14 +16,7 @@ export default function PlayButton({ isBgPlaying, setBgPlaying }) {
             handleClick()
           }}
         >
-          <PlayIcon
-            isBgPlaying={isBgPlaying}
-            className={styles.icon}
-            width={'16'}
-            height={'16'}
-            fill={'none'}
-            viewBox={'0 0 16 16'}
-          />
+          <PlayIcon isBgPlaying={isBgPlaying} className={styles.icon} />
         </button>
         <button className={styles.buttonOff}></button>
       </div>

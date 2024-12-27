@@ -8,20 +8,10 @@ function Logo() {
     <div>
       <Link className={styles.logo_link} to="/">
         <span className={styles.img_wrapper}>
-          <LogoIcon
-            height={'16'}
-            width={'94'}
-            viewBox={'0 0 94 16'}
-            fill={'var(--common-color-text-inverse-primary)'}
-          />
+          <LogoIcon />
         </span>
         <span className={styles.img_wrapper__sub}>
-          <LogoSubIcon
-            height={'17'}
-            width={'181'}
-            fill={'var(--common-color-text-inverse-primary)'}
-            viewBox={'0 0 181 17'}
-          />
+          <LogoSubIcon />
         </span>
       </Link>
     </div>
