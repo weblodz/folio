@@ -20,7 +20,12 @@ function Language({ isHovered }) {
   return (
     <div className={styles.icon}>
       <button className={styles.lang} type="button" onClick={toggleDropdown}>
-        <LanguageIcon />
+        <LanguageIcon
+          width={'20'}
+          height={'20'}
+          viewBox={'0 0 20 20'}
+          fill={'var(--common-color-text-inverse-primary)'}
+        />
       </button>
 
       <div className={cls(styles.buttons_container, { [styles.hovered]: isHovered && isDropdownVisible })}>
