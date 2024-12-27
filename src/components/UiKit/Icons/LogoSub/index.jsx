@@ -1,9 +1,9 @@
 import T from 'prop-types'
 
-export default function LogoSubIcon({ styles, height, width, fill, viewBox }) {
+export default function LogoSubIcon({ className, height, width, fill, viewBox }) {
   return (
     <svg
-      className={styles.logo_subtitle}
+      className={className}
       role="img"
       aria-label="Sony Honda Mobility"
       width={width}
@@ -34,7 +34,7 @@ export default function LogoSubIcon({ styles, height, width, fill, viewBox }) {
 }
 
 LogoSubIcon.propTypes = {
-  styles: T.object,
+  className: T.string,
   fill: T.string.isRequired,
   height: T.string.isRequired,
   width: T.string.isRequired,

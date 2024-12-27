@@ -1,9 +1,9 @@
 import T from 'prop-types'
 
-export default function LogoIcon({ styles, width, height, viewBox, fill }) {
+export default function LogoIcon({ width, height, viewBox, fill, className }) {
   return (
     <svg
-      className={styles.logo_title}
+      className={className}
       role="img"
       aria-label="AFEELA"
       width={width}
@@ -23,7 +23,7 @@ export default function LogoIcon({ styles, width, height, viewBox, fill }) {
 }
 
 LogoIcon.propTypes = {
-  styles: T.object,
+  className: T.string,
   fill: T.string.isRequired,
   width: T.string.isRequired,
   height: T.string.isRequired,

@@ -1,8 +1,15 @@
 import T from 'prop-types'
 
-export default function LanguageIcon({ width, height, viewBox, fill }) {
+export default function LanguageIcon({ className, width, height, viewBox, fill }) {
   return (
-    <svg width={width} height={height} viewBox={viewBox} fill={fill} xmlns="http://www.w3.org/2000/svg">
+    <svg
+      className={className}
+      width={width}
+      height={height}
+      viewBox={viewBox}
+      fill={fill}
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -18,6 +25,7 @@ export default function LanguageIcon({ width, height, viewBox, fill }) {
 }
 
 LanguageIcon.propTypes = {
+  className: T.string,
   fill: T.string.isRequired,
   width: T.string.isRequired,
   height: T.string.isRequired,

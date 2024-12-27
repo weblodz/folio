@@ -1,16 +1,13 @@
-import styles from '@pages/Home/sections/Hero/components/FullMovieLink/fullMovieLink.module.scss'
+import T from 'prop-types'
 
-// !-- This import statement was made intentionally.
-// !-- It is needed for parent style to affect the style of the child.
-
-export function MovieIcon() {
+export function MovieIcon({ styles, className, width, height, viewBox, fill }) {
   return (
     <svg
-      className={styles.icon}
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
+      className={className}
+      width={width}
+      height={height}
+      viewBox={viewBox}
+      fill={fill}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -26,4 +23,13 @@ export function MovieIcon() {
       ></path>
     </svg>
   )
+}
+
+MovieIcon.propTypes = {
+  styles: T.object,
+  className: T.string,
+  fill: T.string.isRequired,
+  width: T.string.isRequired,
+  height: T.string.isRequired,
+  viewBox: T.string.isRequired,
 }

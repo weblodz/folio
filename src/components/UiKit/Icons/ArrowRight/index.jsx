@@ -1,9 +1,9 @@
 import T from 'prop-types'
 
-export default function ArrowRightIcon({ styles, fill, width, height, viewBox }) {
+export default function ArrowRightIcon({ className, fill, width, height, viewBox }) {
   return (
     <svg
-      className={styles.icon}
+      className={className}
       fill={fill}
       width={width}
       height={height}
@@ -20,7 +20,7 @@ export default function ArrowRightIcon({ styles, fill, width, height, viewBox })
 }
 
 ArrowRightIcon.propTypes = {
-  styles: T.object.isRequired,
+  className: T.string,
   fill: T.string.isRequired,
   width: T.string.isRequired,
   height: T.string.isRequired,

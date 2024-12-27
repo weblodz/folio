@@ -1,7 +1,6 @@
 import T from 'prop-types'
-import styles from './playButton.module.scss'
 
-export default function PlayIcon({ isBgPlaying }) {
+export default function PlayIcon({ isBgPlaying, width, height, fill, viewBox, className }) {
   let icon = null
 
   if (isBgPlaying) {
@@ -23,11 +22,11 @@ export default function PlayIcon({ isBgPlaying }) {
 
   return (
     <svg
-      className={styles.icon}
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
+      className={className}
+      width={width}
+      height={height}
+      viewBox={viewBox}
+      fill={fill}
       xmlns="http://www.w3.org/2000/svg"
     >
       {icon}
@@ -36,5 +35,10 @@ export default function PlayIcon({ isBgPlaying }) {
 }
 
 PlayIcon.propTypes = {
+  className: T.string.isRequired,
   isBgPlaying: T.bool.isRequired,
+  fill: T.string.isRequired,
+  width: T.string.isRequired,
+  height: T.string.isRequired,
+  viewBox: T.string.isRequired,
 }

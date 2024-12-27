@@ -6,14 +6,14 @@ function Logo() {
   return (
     <div className={styles.container}>
       <LogoIcon
-        styles={styles}
+        className={styles.logo_title}
         width={'294'}
         height={'36'}
         viewBox={'0 0 94 16'}
         fill={'var(--common-color-text-inverse-primary)'}
       />
       <LogoSubIcon
-        styles={styles}
+        className={styles.logo_subtitle}
         height={'17'}
         width={'175'}
         fill={'var(--common-color-text-inverse-primary)'}

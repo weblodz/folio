@@ -9,7 +9,6 @@ function Logo() {
       <Link className={styles.logo_link} to="/">
         <span className={styles.img_wrapper}>
           <LogoIcon
-            styles={styles}
             height={'16'}
             width={'94'}
             viewBox={'0 0 94 16'}
@@ -18,7 +17,6 @@ function Logo() {
         </span>
         <span className={styles.img_wrapper__sub}>
           <LogoSubIcon
-            styles={styles}
             height={'17'}
             width={'181'}
             fill={'var(--common-color-text-inverse-primary)'}

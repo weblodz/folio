@@ -9,8 +9,8 @@ export default function PrototypeLink() {
         <div className={styles.pageLinkContainer}>
           <span data-type="icon">
             <ArrowRightIcon
-              styles={styles}
-              fill={'--color-inverse-primary'}
+              className={styles.icon}
+              fill={'var(--common-color-bg-inverse-primary)'}
               height={'10'}
               width={'18'}
               viewBox={'0 0 18 10'}
