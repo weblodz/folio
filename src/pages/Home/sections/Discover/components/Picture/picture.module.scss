@@ -1,9 +1,14 @@
 .container {
-  text-align: right;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  flex-direction: row;
+  width: 90%;
+  padding-left: 120px;
 }
 
 .image {
-  width: 80%;
+  width: 95%;
   height: auto;
   opacity: 0;
   transform: translateY(20px);
@@ -15,4 +20,16 @@
 .visible .image {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .container {
+    justify-content: center;
+    width: 90%;
+    margin-left: 0;
+  }
+
+  .image {
+    width: 100%;
+  }
 }

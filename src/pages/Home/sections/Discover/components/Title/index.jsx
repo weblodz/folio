@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import styles from './content.module.scss'
+import styles from './title.module.scss'
 
-function Content() {
+function Title() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -14,14 +13,12 @@ function Content() {
           }
         })
       },
-      { threshold: 0.4 },
+      { threshold: 0.4 }
     )
 
     const elements = document.querySelectorAll(`
-      .${styles.textContainer},
-      .${styles.subtitle},
-      .${styles.description},
-      .${styles.link}
+      .${styles.title},
+      .${styles.hashtag}
     `)
 
     elements.forEach((el) => observer.observe(el))
@@ -29,13 +26,10 @@ function Content() {
 
   return (
     <div className={styles.container}>
-      <h3 className={styles.subtitle}>Future Voice vol.6 AFEELA: The Entertainment Destination</h3>
-      <p className={styles.description}>Future Voice vol.6 AFEELA: The Entertainment Destination</p>
-      <Link to="/stories" className={styles.link}>
-        Read more
-      </Link>
+      <h2 className={styles.title}>Discover</h2>
+      <div className={styles.hashtag}>#voice</div>
     </div>
   )
 }
 
-export default Content
+export default Title
