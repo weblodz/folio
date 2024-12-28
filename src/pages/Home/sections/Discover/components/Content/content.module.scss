@@ -1,10 +1,12 @@
+@use '/src/styles/_variables' as *;
+
 .container {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin-top: clamp(0px, 10vw, 200px);
   gap: 1rem;
-  color: #000;
+  color: var(--common-color-bg-inverse-primary);
   width: 100%;
 }
 
@@ -37,20 +39,20 @@
 
 .link {
   font-size: 1.1rem;
-  color: #000;
+  color: var(--common-color-bg-inverse-primary);
   text-decoration: underline;
   text-underline-offset: 5px;
   line-height: 1.5;
   margin-top: clamp(0px, 10vw, 200px);
 }
 
-@media (max-width: 1444px) {
+@media (max-width: $screen-laptop-l) {
   .link {
     margin-top: clamp(0px, 8vw, 50px);
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: $screen-laptop-l) {
   .container {
     margin-top: clamp(0px, 5vw, 50px);
   }
@@ -60,7 +62,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: $screen-tablet-l) {
   .container {
     display: flex;
     flex-direction: column;

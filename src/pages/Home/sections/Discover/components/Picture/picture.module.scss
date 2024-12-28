@@ -1,3 +1,5 @@
+@use '/src/styles/_variables' as *;
+
 .container {
   display: flex;
   justify-content: right;
@@ -22,7 +24,7 @@
   transform: translateY(0);
 }
 
-@media (max-width: 900px) {
+@media (max-width: $screen-tablet-l) {
   .container {
     justify-content: center;
     width: 90%;

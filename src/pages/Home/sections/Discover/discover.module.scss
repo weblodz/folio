@@ -1,6 +1,8 @@
+@use '/src/styles/_variables' as *;
+
 .section {
   max-height: 850px;
-  background-color: #ffffff;
+  background-color: var(--common-color-bg-primary);
   position: relative;
   padding: 2rem 4rem;
   display: flex;
@@ -24,7 +26,7 @@
   flex-direction: column;
   width: 100%;
 
-  @media (max-width: 900px) {
+  @media (max-width: $screen-tablet-l) {
     display: contents;
   }
 }
@@ -33,7 +35,7 @@
   flex: 0 0 50%;
 }
 
-@media (max-width: 900px) {
+@media (max-width: $screen-tablet-l) {
   .section {
     padding: 0;
   }
