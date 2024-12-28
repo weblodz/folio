@@ -1,28 +1,8 @@
-import { useEffect } from 'react'
+import useVisibilityObserver from '@hooks/useVisibilityObserver'
 import styles from './title.module.scss'
 
 function Title() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(styles.visible)
-          } else if (entry.boundingClientRect.top > 0) {
-            entry.target.classList.remove(styles.visible)
-          }
-        })
-      },
-      { threshold: 0.4 }
-    )
-
-    const elements = document.querySelectorAll(`
-      .${styles.title},
-      .${styles.hashtag}
-    `)
-
-    elements.forEach((el) => observer.observe(el))
-  }, [])
+  useVisibilityObserver(`.${styles.title}, .${styles.hashtag}`, styles.visible)
 
   return (
     <div className={styles.container}>

@@ -1,31 +1,9 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import useVisibilityObserver from '@hooks/useVisibilityObserver'
 import styles from './content.module.scss'
 
 function Content() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(styles.visible)
-          } else if (entry.boundingClientRect.top > 0) {
-            entry.target.classList.remove(styles.visible)
-          }
-        })
-      },
-      { threshold: 0.4 },
-    )
-
-    const elements = document.querySelectorAll(`
-      .${styles.textContainer},
-      .${styles.subtitle},
-      .${styles.description},
-      .${styles.link}
-    `)
-
-    elements.forEach((el) => observer.observe(el))
-  }, [])
+  useVisibilityObserver(`.${styles.subtitle}, .${styles.description}, .${styles.link}`, styles.visible)
 
   return (
     <div className={styles.container}>
