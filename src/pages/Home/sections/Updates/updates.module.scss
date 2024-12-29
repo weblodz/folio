@@ -4,25 +4,22 @@
   height: 1100px;
   background-color: var(--common-color-bg-inverse-primary);
   position: relative;
-  //padding: 144px 0;
-  //align-items: flex-start;
-
+  padding: 20px;
 }
 
-.section{
+.section {
   width: 80%;
   max-width: 1600px;
   height: 80%;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin: auto;
+  position: relative; /* Needed for absolute positioning inside */
 }
 
 .name {
   font-size: 2.25rem;
   line-height: 1.55;
   letter-spacing: 0.03em;
+  margin-bottom: 20px;
 }
 
 h1 {
@@ -34,4 +31,63 @@ h1 {
   padding-top: 50px;
   height: 520px;
   width: 520px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 63%;
+  color: white;
+}
+
+.date {
+  padding-top: 47px;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.description {
+  margin-top: 16px;
+  font-size: 1.25rem;
+  line-height: 1.9;
+  letter-spacing: 0.03em;
+}
+
+.readMore {
+  font-size: 1rem;
+  text-decoration: underline;
+  color: white;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+.mainContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.infoGrid {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  top: 120px;
+  gap: 20px;
+}
+
+.gridColumn {
+  display: flex;
+  gap: 20px;
+}
+
+.gridItem {
+  width: 300px;
+  height: 260px;
+}
+
+.gridItem img {
+  width: 300px;
+  height: 260px;
 }
