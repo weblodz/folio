@@ -1,0 +1,40 @@
+@use '/src/styles/_variables' as *;
+
+.container {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  flex-direction: row;
+  width: 90%;
+  padding-left: 120px;
+}
+
+.image {
+  width: 90%;
+  height: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+.visible .image {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: $screen-tablet-l) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+  }
+
+  .image {
+    max-width: 90%;
+    width: auto;
+    margin: 0 auto;
+  }
+}
