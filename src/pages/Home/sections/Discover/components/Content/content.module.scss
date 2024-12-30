@@ -45,11 +45,35 @@
   text-underline-offset: 8px;
   line-height: 1.5;
   margin-top: clamp(0px, 8vw, 300px);
+  width: clamp(11%, 5vw, 50%);
+}
+
+.link:hover {
+  animation: 0.1s linear 0s 1 forwards fade-in-out;
+}
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: $screen-laptop-4k) {
+  .link {
+    width: clamp(11%, 9vw, 50%);
+  }
 }
 
 @media (max-width: $screen-laptop-l) {
   .link {
     margin-top: clamp(0px, 5vw, 80px);
+    width: clamp(11%, 13vw, 50%);
   }
 
   .description {
@@ -65,10 +89,15 @@
 
   .link {
     margin-top: clamp(0px, 0vw, 50px);
+    width: clamp(11%, 14vw, 50%);
   }
 }
 
 @media (max-width: $screen-tablet-l) {
+  .link {
+    width: clamp(20%, 10vw, 70%);
+  }
+
   .container {
     display: flex;
     flex-direction: column;
@@ -96,5 +125,11 @@
   .description {
     font-size: 0.75rem;
     margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: $screen-tablet-l) {
+  .link {
+    width: clamp(30%, 13vw, 70%);
   }
 }
