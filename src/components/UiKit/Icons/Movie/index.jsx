@@ -1,13 +1,13 @@
-import styles from './movieIcon.module.scss'
+import T from 'prop-types'
 
-export default function MovieIcon() {
+export function MovieIcon({ styles, className, size = '24', fill = 'none' }) {
   return (
     <svg
-      className={styles.icon}
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
+      className={className}
+      width={size}
+      height={size}
+      viewBox={'0 0 ' + size + ' ' + size}
+      fill={fill}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -23,4 +23,11 @@ export default function MovieIcon() {
       ></path>
     </svg>
   )
+}
+
+MovieIcon.propTypes = {
+  styles: T.object,
+  className: T.string,
+  fill: T.string,
+  size: T.string,
 }

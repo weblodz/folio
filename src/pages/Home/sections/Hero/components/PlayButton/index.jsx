@@ -1,5 +1,5 @@
 import T from 'prop-types'
-import PlayIcon from './Icon.jsx'
+import PlayIcon from '@components/UiKit/Icons/Play/'
 import styles from './playButton.module.scss'
 
 export default function PlayButton({ isBgPlaying, setBgPlaying }) {
@@ -16,7 +16,7 @@ export default function PlayButton({ isBgPlaying, setBgPlaying }) {
             handleClick()
           }}
         >
-          <PlayIcon isBgPlaying={isBgPlaying} />
+          <PlayIcon isBgPlaying={isBgPlaying} className={styles.icon} />
         </button>
         <button className={styles.buttonOff}></button>
       </div>

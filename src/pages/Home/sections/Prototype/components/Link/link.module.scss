@@ -23,10 +23,6 @@
       color: var(--common-color-bg-primary);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     }
-
-    svg {
-      margin-right: 8px;
-    }
   }
 
   .pageLinkContainer {
@@ -49,11 +45,6 @@
         background-color: #f0f0f0;
         border-color: var(--common-color-bg-inverse-primary);
       }
-
-      svg {
-        margin: 0;
-        color: var(--common-color-bg-inverse-primary);
-      }
     }
 
     p.pageLinkText {
@@ -66,10 +57,15 @@
       opacity: 0;
       transform: translateX(-20px);
     }
-  
+
     to {
       opacity: 1;
       transform: translateX(0);
     }
   }
 }
+
+.icon {
+  margin: 0;
+}
+
