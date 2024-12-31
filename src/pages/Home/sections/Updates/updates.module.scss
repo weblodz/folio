@@ -1,5 +1,133 @@
+@use '/src/styles/_variables' as *;
+
 .container {
-  height: 700px;
-  background-color: green;
+  display: flex;
+  flex-direction: column;
+  padding: 144px 0;
+  width: 100%;
+  background-color: var(--common-color-bg-inverse-primary);
   position: relative;
+
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 1600px;
+  margin: auto;
+  position: relative;
+
+  .news_wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 20px;
+
+    .column {
+      flex-direction: column;
+      width: 33%;
+      cursor: pointer;
+  
+      @media (max-width: $screen-tablet) {
+        width: 100%;
+        padding-bottom: 100px;
+      }
+    }
+
+    @media (max-width: $screen-tablet) {
+      flex-direction: column;
+    }
+  }
+}
+
+.main_image_wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  .image {
+    width: 100%;
+    height: auto;
+    transition: scale 0.7s linear;
+
+    &:hover {
+      scale: 1.2;
+    }
+
+    &.hovered {
+      scale: 1.2;
+    }
+  }
+}
+
+.name {
+  font-size: 2.25rem;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+  padding-bottom: 56px;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  gap: 20px;
+}
+
+.date {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  font-size: 0.9rem;
+  color: var(--common-color-text-inverse-secondary);
+}
+
+.description {
+  font-size: 1.25rem;
+  line-height: 1.9;
+  letter-spacing: 0.03em;
+}
+
+.read_more {
+  font-size: 1rem;
+  text-decoration: underline;
+  color: white;
+  cursor: pointer;
+}
+
+.news_grid {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.grid_column {
+  display: flex;
+  gap: 20px;
+}
+
+.grid_item {
+  width: 50%;
+  height: auto;
+  overflow: hidden;
+  opacity: 1;
+
+  img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.7s linear;
+    transition: scale 0.3s linear;
+    top: 0;
+    left: 0;
+  
+    &:hover {
+      scale: 1.2;
+    }
+  }
 }
