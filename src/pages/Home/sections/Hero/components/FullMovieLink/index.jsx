@@ -1,10 +1,14 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import VideoModal from '@components/Modals/VideoModal'
 import { MovieIcon } from '@components/UiKit/Icons/Movie'
 import styles from './fullMovieLink.module.scss'
 
 export default function FullMovieLink() {
   const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const onClose = useCallback(() => {
+    setIsModalOpen(false)
+  }, [])
 
   return (
     <div className={styles.linkContainer}>
@@ -16,7 +20,7 @@ export default function FullMovieLink() {
       </a>
       <VideoModal
         isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        onClose={onClose}
         videoLink="https://www.youtube.com/embed/4Oj_fenobDw?enablejsapi=1"
       />
     </div>

@@ -19,7 +19,7 @@ function Modal({ isOpen, onClose, videoLink = VIDEO_LINK }) {
     window.addEventListener('keydown', close)
 
     return () => window.removeEventListener('keydown', close)
-  })
+  }, [onClose])
 
   if (elementModal === null) return null
 
