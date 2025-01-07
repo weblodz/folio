@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import ArrowRightIcon from '@components/UiKit/Icons/ArrowRight/index.jsx'
+import ArrowRightButton from '@components/UiKit/buttons/ArrowRight/index'
 import styles from './link.module.scss'
 
 export default function PrototypeLink() {
@@ -7,9 +7,12 @@ export default function PrototypeLink() {
     <div className={styles.pageLink}>
       <Link to="/prototype">
         <div className={styles.pageLinkContainer}>
-          <span data-type="icon">
-            <ArrowRightIcon className={styles.icon} fill={'var(--common-color-bg-inverse-primary)'} size={'20'} />
-          </span>
+          <ArrowRightButton
+            className={styles.icon}
+            icon={styles.iconContainer}
+            fill={'var(--common-color-bg-inverse-primary)'}
+            size={'20'}
+          />
           <p className={styles.pageLinkText}>EXPLORE PROTOTYPE</p>
         </div>
       </Link>

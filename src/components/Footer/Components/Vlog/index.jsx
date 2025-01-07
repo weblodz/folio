@@ -1,4 +1,4 @@
-import { IoIosArrowRoundForward } from 'react-icons/io'
+import ArrowRightButton from '@components/UiKit/buttons/ArrowRight/index'
 import styles from './vlog.module.scss'
 
 function Vlog() {
@@ -7,9 +7,7 @@ function Vlog() {
       <h2 className={styles.title}>Stay in the loop</h2>
       <p className={styles.description}>Subscribe to get our news, updates, and event information.</p>
       <a href="#" className={styles.link}>
-        <div className={styles.icon}>
-          <IoIosArrowRoundForward />
-        </div>
+        <ArrowRightButton className={styles.icon} icon={styles.iconContainer} size={'20'} />
         <div className={styles.text}>SUBSCRIBE</div>
       </a>
     </div>
