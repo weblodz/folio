@@ -1,4 +1,3 @@
-//import ArrowRightIcon from '@components/UiKit/Icons/ArrowRight/index.jsx'
 import ArrowRightButton from '@components/UiKit/buttons/ArrowRight/index'
 import styles from './newsletter.module.scss'
 
@@ -12,7 +11,7 @@ export default function NewsletterLink() {
           and event information
         </dd>
       </dl>
-      <ArrowRightButton className={styles.icon} icon={styles.iconContainer} />
+      <ArrowRightButton className={styles.arrow} icon={styles.icon} />
     </div>
   )
 }

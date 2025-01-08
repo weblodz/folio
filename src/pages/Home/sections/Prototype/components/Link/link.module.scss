@@ -1,11 +1,11 @@
-.pageLink {
+.container {
   margin-top: 3rem;
   opacity: 0;
   transform: translateY(20px);
   font-family: var(--common-font-en), sans-serif;
   animation: fade-in-right 0.6s ease-out 0.2s forwards;
 
-  a {
+  .link {
     display: inline-flex;
     align-items: center;
     padding: 14px 25px;
@@ -25,13 +25,26 @@
       color: var(--common-color-bg-primary);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     }
+
+    &:hover {
+      .arrow {
+        transform: translateX(3px);
+        fill: var(--common-color-text-primary);
+      }
+    }
   }
 
-  .pageLinkContainer {
+  .arrow {
+    margin: 0;
+    padding-left: 2px;
+    transition: 0.5s ease;
+  }
+
+  .content {
     display: flex;
     align-items: center;
 
-    .iconContainer {
+    .icon {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -51,7 +64,7 @@
       }
     }
 
-    p.pageLinkText {
+    .text {
       margin: 0;
     }
   }
@@ -67,8 +80,4 @@
       transform: translateX(0);
     }
   }
-}
-
-.icon {
-  margin: 0;
 }

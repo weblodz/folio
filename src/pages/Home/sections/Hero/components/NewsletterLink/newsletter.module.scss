@@ -28,11 +28,11 @@
   }
 
   &:hover {
-    .iconContainer {
+    .icon {
       background-color: #fff;
     }
 
-    .icon {
+    .arrow {
       transform: translateX(3px);
       fill: var(--common-color-text-primary);
     }
@@ -68,7 +68,7 @@
   line-height: 1.4;
 }
 
-.iconContainer {
+.icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,7 +80,7 @@
   transition: background-color 0.5s ease;
 }
 
-.icon {
+.arrow {
   width: 20px;
   height: auto;
   transition: 0.5s ease;

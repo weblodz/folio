@@ -4,16 +4,16 @@ import styles from './link.module.scss'
 
 export default function PrototypeLink() {
   return (
-    <div className={styles.pageLink}>
-      <Link to="/prototype">
-        <div className={styles.pageLinkContainer}>
+    <div className={styles.container}>
+      <Link to="/prototype" className={styles.link}>
+        <div className={styles.content}>
           <ArrowRightButton
-            className={styles.icon}
-            icon={styles.iconContainer}
+            className={styles.arrow}
+            icon={styles.icon}
             fill={'var(--common-color-bg-inverse-primary)'}
             size={'20'}
           />
-          <p className={styles.pageLinkText}>EXPLORE PROTOTYPE</p>
+          <p className={styles.text}>EXPLORE PROTOTYPE</p>
         </div>
       </Link>
     </div>
