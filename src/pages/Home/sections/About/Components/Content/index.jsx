@@ -7,19 +7,14 @@ function Content() {
 
   return (
     <>
-
-        <p className={styles.content}>
-          Our company is a forward-thinking electric vehicle manufacturer dedicated to revolutionizing urban and
-          long-distance travel. With a commitment to sustainability, innovation, and cutting-edge technology, We design
-          sleek, energy-efficient vehicles that prioritize both performance and environmental impact. Our vehicles
-          feature advanced battery systems, rapid charging capabilities, and smart connectivity, offering drivers an
-          unparalleled blend of efficiency and convenience.
-        </p>
-
-        <div className={styles.linkContainer}>
-          <MoreLink />
-        </div>
-        {/*<VideoBG isBgPlaying={true} src={"src/assets/videos/top_corporate_bg_pc.webm"}/>*/}
+      <p className={styles.content}>
+        Our company is a forward-thinking electric vehicle manufacturer dedicated to revolutionizing urban and
+        long-distance travel. With a commitment to sustainability, innovation, and cutting-edge technology, We design
+        sleek, energy-efficient vehicles that prioritize both performance and environmental impact. Our vehicles
+        feature advanced battery systems, rapid charging capabilities, and smart connectivity, offering drivers an
+        unparalleled blend of efficiency and convenience.
+      </p>
+      {/*<VideoBG isBgPlaying={true} src={"src/assets/videos/top_corporate_bg_pc.webm"}/>*/}
     </>
   )
 }
