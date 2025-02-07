@@ -1,8 +1,9 @@
 import useVisibilityObserver from '@hooks/useVisibilityObserver.js'
+import MoreLink from '@pages/Home/sections/About/Components/Link/index.jsx'
 import styles from './content.module.scss'
 
 function Content() {
-  useVisibilityObserver(`.${styles.heading}, .${styles.description}`, styles.visible)
+  useVisibilityObserver(`.${styles.heading}, .${styles.description}, .${styles.linkContainer}`, styles.visible)
 
   return (
     <>
@@ -15,6 +16,10 @@ function Content() {
           feature advanced battery systems, rapid charging capabilities, and smart connectivity, offering drivers an
           unparalleled blend of efficiency and convenience.
         </p>
+
+        <div className={styles.linkContainer}>
+          <MoreLink />
+        </div>
       </div>
     </>
   )
