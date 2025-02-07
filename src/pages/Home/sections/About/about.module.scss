@@ -1,6 +1,7 @@
 @use '/src/styles/variables' as *;
 
 .container {
+  background-color: var(--common-color-bg-primary-inverse);
   padding-top: 50px;
   padding-left: 50px;
   height: 700px;
@@ -30,4 +31,18 @@
 .visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.smallVideoContainer{
+  display: block;
+  @media(max-width:$screen-tablet-l){
+    display: none;
+  }
+}
+
+.bigVideoContainer{
+  display: none;
+  @media(max-width:$screen-tablet-l){
+    display: block;
+  }
 }

@@ -29,4 +29,4 @@ VideoBG.propTypes = {
   src: T.string.isRequired,
 }
 
-export default VideoBG
+export default  VideoBG
