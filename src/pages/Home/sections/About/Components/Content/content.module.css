@@ -1,4 +1,5 @@
 .content {
+  z-index: 1;
   opacity: 0;
   transform: translateY(20px);
   font-family: var(--common-font-en), sans-serif;

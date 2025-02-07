@@ -1,5 +1,4 @@
 import useVisibilityObserver from '@hooks/useVisibilityObserver.js'
-import MoreLink from '@pages/Home/sections/About/Components/Link/index.jsx'
 import styles from './content.module.scss'
 
 function Content() {
@@ -14,7 +13,6 @@ function Content() {
         feature advanced battery systems, rapid charging capabilities, and smart connectivity, offering drivers an
         unparalleled blend of efficiency and convenience.
       </p>
-      {/*<VideoBG isBgPlaying={true} src={"src/assets/videos/top_corporate_bg_pc.webm"}/>*/}
     </>
   )
 }
