@@ -8,6 +8,8 @@ import styles from './about.module.scss'
 function About() {
   useVisibilityObserver(`.${styles.linkContainer}`, styles.visible)
 
+  
+
   return (
     <div className={styles.container}>
       <div className={styles.ContentContainer}>
