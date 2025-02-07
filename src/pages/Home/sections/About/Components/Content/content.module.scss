@@ -3,6 +3,10 @@
   margin-right: 70px;
   display: flex;
   flex-direction: column;
+
+  @media(max-width:900px){
+    margin-left: 0;
+  }
 }
 
 .linkContainer {
@@ -27,6 +31,10 @@
   transition:
           opacity 0.6s ease-out,
           transform 0.6s ease-out;
+
+  @media(max-width:900px){
+    font-size: 1.39rem;
+  }
 }
 
 .description {
@@ -41,10 +49,14 @@
   transition:
           opacity 0.6s ease-out,
           transform 0.6s ease-out;
+
+  @media(max-width:900px){
+    margin-top: 0;
+    font-size: 1rem;
+  }
 }
 
 .visible {
   opacity: 1;
   transform: translateY(0);
 }
-//calc(32% + (900px - 100vw) * 0.1)//
