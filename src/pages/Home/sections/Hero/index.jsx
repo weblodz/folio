@@ -13,7 +13,7 @@ function HeroSection() {
       <div className={styles.contentContainer}>
         <MainText />
         <NewsletterLink />
-        <VideoBG isBgPlaying={isBgPlaying} />
+        <VideoBG isBgPlaying={isBgPlaying} src={"src/assets/videos/top_topbanner_01_pc.mp4"}/>
         <PlayButton isBgPlaying={isBgPlaying} setBgPlaying={setBgPlaying} />
       </div>
     </div>
