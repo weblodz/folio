@@ -2,7 +2,7 @@ import { useState } from 'react'
 import MainText from '@pages/Home/sections/Hero/components/MainText'
 import NewsletterLink from '@pages/Home/sections/Hero/components/NewsletterLink'
 import PlayButton from '@pages/Home/sections/Hero/components/PlayButton'
-import VideoBG from 'src/components/VideoBG'
+import VideoBG from '@components/VideoBG'
 import styles from './hero.module.scss'
 
 function HeroSection() {

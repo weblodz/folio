@@ -2,7 +2,7 @@ import T from 'prop-types'
 import { useRef } from 'react'
 import styles from './videoBG.module.scss'
 
-export default function VideoBG({ isBgPlaying, src }) {
+function VideoBG({ isBgPlaying, src }) {
   const videoRef = useRef(null)
 
   if (videoRef.current) {
@@ -28,3 +28,5 @@ VideoBG.propTypes = {
   isBgPlaying: T.bool.isRequired,
   src: T.string.isRequired,
 }
+
+export default VideoBG
