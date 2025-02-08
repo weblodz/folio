@@ -1,6 +1,5 @@
 .header {
   position: fixed;
-  z-index: 9;
   top: 0;
   left: 0;
   width: 100%;
@@ -11,16 +10,38 @@
   background-color: var(--common-header-bg-color);
   font-family: var(--common-font-en);
   font-weight: normal;
-  z-index: 100;
+  z-index: 1;
 
   &:hover {
     background-color: var(--common-color-bg-inverse-primary);
   }
+  
   .container {
     width: 80%;
     max-width: 1600px;
     display: flex;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .hamburger {
+    display: none;
+    transform: translateY(-20%);
+  }
+  
+  @media (max-width: 900px) {
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .hamburger {
+      display: flex;
+      position: absolute;
+      right: 20px;
+      top: 24px;
+      z-index: 1;
+      overflow: hidden;
+    }
   }
 }

@@ -24,3 +24,9 @@
 .link:hover {
   border-bottom-color: var(--common-color-text-inverse-primary);
 }
+
+@media (max-width: 900px) {
+  .container {
+    display: none;
+  }
+}
