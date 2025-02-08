@@ -1,7 +1,11 @@
 {
-  "English": "Angielski",
-  "Polish": "Polski",
-  "Prototype": "Prototyp",
-  "Discover": "Odkryj",
-  "About Us": "O Nas"
+  "header": {
+    "english": "Angielski",
+    "polish": "Polski"
+  },
+  "navigation": {
+    "prototype": "Prototyp",
+    "discover": "Odkryj",
+    "about Us": "O Nas"
+  }
 }

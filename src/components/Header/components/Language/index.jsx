@@ -2,6 +2,7 @@ import { useState } from 'react'
 import T from 'prop-types'
 import cls from 'classnames'
 import LanguageIcon from '@components/UiKit/Icons/Language/index.jsx'
+import { useTranslation } from "react-i18next"
 import styles from './language.module.scss'
 
 const LANGUAGES = {
@@ -11,10 +12,14 @@ const LANGUAGES = {
 
 function Language({ isHovered }) {
   const [isDropdownVisible, setDropdownVisible] = useState(false)
-  const [currentLanguage, setCurrentLanguage] = useState(LANGUAGES.english)
+  const { t, i18n } = useTranslation()
 
   const toggleDropdown = () => {
     setDropdownVisible(!isDropdownVisible)
+  }
+
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang)
   }
 
   return (
@@ -29,18 +34,18 @@ function Language({ isHovered }) {
             <ul className={styles.language_list}>
               <li className={styles.language_item}>
                 <button
-                  className={cls(styles.language_button, { [styles.active]: currentLanguage === LANGUAGES.english })}
-                  onClick={() => setCurrentLanguage(LANGUAGES.english)}
+                  className={cls(styles.language_button, { [styles.active]: i18n.language === LANGUAGES.english })}
+                  onClick={() => changeLanguage(LANGUAGES.english)}
                 >
-                  English
+                  {t("header.english")}
                 </button>
               </li>
               <li className={styles.language_item}>
                 <button
-                  className={cls(styles.language_button, { [styles.active]: currentLanguage === LANGUAGES.polish })}
-                  onClick={() => setCurrentLanguage(LANGUAGES.polish)}
+                  className={cls(styles.language_button, { [styles.active]: i18n.language === LANGUAGES.polish })}
+                  onClick={() => changeLanguage(LANGUAGES.polish)}
                 >
-                  Polish
+                  {t("header.polish")}
                 </button>
               </li>
             </ul>
