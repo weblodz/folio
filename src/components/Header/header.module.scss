@@ -25,8 +25,9 @@
   }
 
   .hamburger {
-    display: none;
-    transform: translateY(-20%);
+    position: absolute;
+    left: 50px;
+    transform: translateY(-5%);
   }
   
   @media (max-width: 900px) {
