@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import ArrowRightIcon from '@components/UiKit/Icons/ArrowRight/index.jsx'
+import ArrowRightIcon from '@components/UiKit/Icons/ArrowRight'
 import styles from './link.module.scss'
 
 function MoreLink() {

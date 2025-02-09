@@ -1,8 +1,8 @@
-import Content from '@pages/Home/sections/About/Components/Content/index.jsx'
-import TitleAbout from '@pages/Home/sections/About/Components/Title/index.jsx'
-import MoreLink from '@pages/Home/sections/About/Components/Link/index.jsx'
+import Content from '@pages/Home/sections/About/Components/Content'
+import TitleAbout from '@pages/Home/sections/About/Components/Title'
+import MoreLink from '@pages/Home/sections/About/Components/Link'
+import VideoBG from '@components/VideoBG'
 import useVisibilityObserver from '@hooks/useVisibilityObserver.js'
-import VideoBG from '@components/VideoBG/index.jsx'
 import styles from './about.module.scss'
 
 function About() {
