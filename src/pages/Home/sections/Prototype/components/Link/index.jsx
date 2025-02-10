@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import ArrowRightButton from '@components/UiKit/buttons/ArrowRight/index'
+import ArrowRightButton from '@components/UiKit/buttons/ArrowRight'
 import styles from './link.module.scss'
 
 export default function PrototypeLink() {

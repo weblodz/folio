@@ -1,4 +1,4 @@
-import ArrowRightButton from '@components/UiKit/buttons/ArrowRight/index'
+import ArrowRightButton from '@components/UiKit/buttons/ArrowRight'
 import styles from './vlog.module.scss'
 
 function Vlog() {
