@@ -19,7 +19,7 @@ function Navbar() {
         </li>
         <li className={styles.item}>
           <a className={styles.link} href="#">
-            {t("aboutUs")}
+            {t("about")}
           </a>
         </li>
       </ul>

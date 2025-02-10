@@ -10,7 +10,7 @@ export default function NewsletterLink() {
       <dl className={styles.content}>
         <dt className={styles.header}>{t('stayInLoop')}</dt>
         <dd className={styles.text}>
-          {t('subscribe')} <br />
+          {t('subscribeNews')} <br />
           {t('eventInfo')}
         </dd>
       </dl>

@@ -1,42 +1,42 @@
 const LINKS = [
   {
-    name: 'Home',
+    name: 'home',
     path: '#',
   },
   {
-    name: 'Prototype',
+    name: 'prototype',
     path: '#',
   },
   {
-    name: 'Discover',
+    name: 'discover',
     path: '#',
   },
   {
-    name: 'About Us',
+    name: 'about',
     path: '#',
   },
   {
-    name: 'Careers',
+    name: 'careers',
     path: '#',
   },
   {
-    name: 'Contact',
+    name: 'contact',
     path: '#',
   },
   {
-    name: 'Terms and Conditions',
+    name: 'terms',
     path: '#',
   },
   {
-    name: 'Privacy Policy',
+    name: 'privacy',
     path: '#',
   },
   {
-    name: 'Cookie Policy',
+    name: 'cookie',
     path: '#',
   },
   {
-    name: 'Do Not Sell or Share My Personal Information',
+    name: 'personalInfo',
     path: '#',
   },
 ]
