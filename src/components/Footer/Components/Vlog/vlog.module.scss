@@ -60,22 +60,14 @@
 
 .arrow {
   width: 20px;
-  padding-left: 2px;
   height: auto;
   transition: all 0.3s;
   transform: translateX(0);
 }
 
 .icon {
-  width: 33px;
-  height: 33px;
-  border: 1px solid var(--common-color-bg-primary);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--common-color-bg-primary);
-  transition: all 0.3s;
+  width: 33px !important;
+  height: 33px !important;
 }
 
 .text {

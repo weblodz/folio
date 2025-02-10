@@ -7,7 +7,7 @@ function Vlog() {
       <h2 className={styles.title}>Stay in the loop</h2>
       <p className={styles.description}>Subscribe to get our news, updates, and event information.</p>
       <a href="#" className={styles.link}>
-        <ArrowRightButton className={styles.arrow} icon={styles.icon} size={'20'} />
+        <ArrowRightButton className={styles.arrow} icon={styles.icon} size={'21'} />
         <div className={styles.text}>SUBSCRIBE</div>
       </a>
     </div>
