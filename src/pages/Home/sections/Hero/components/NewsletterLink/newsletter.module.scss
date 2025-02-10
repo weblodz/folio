@@ -28,11 +28,11 @@
   }
 
   &:hover {
-    .iconContainer {
+    .icon {
       background-color: #fff;
     }
 
-    .icon {
+    .arrow {
       transform: translateX(3px);
       fill: var(--common-color-text-primary);
     }
@@ -66,28 +66,4 @@
   font-size: 0.875rem;
   font-weight: normal;
   line-height: 1.4;
-}
-
-.iconContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  margin-left: 24px;
-  border: solid 1px var(--common-color-text-inverse-primary);
-  border-radius: 50%;
-  transition: background-color 0.5s ease;
-}
-
-.icon {
-  width: 20px;
-  height: auto;
-  transition: 0.5s ease;
-  transform: translateX(0);
-
-  @media (max-width: $screen-tablet-l) {
-    visibility: hidden;
-    transition: none;
-  }
 }

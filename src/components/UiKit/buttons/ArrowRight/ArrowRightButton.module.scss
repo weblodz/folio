@@ -1,0 +1,39 @@
+@use '/src/styles/variables' as *;
+
+.button {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  border: solid 1px var(--common-color-text-inverse-primary);
+  border-radius: 50%;
+  transition: background-color 0.5s ease;
+}
+
+.arrow {
+  padding-top: 10px;
+  padding-left: 2px;
+  transition: transform 0.5s ease, fill 0.5s ease;
+  transform: translateX(0);
+}
+
+.button:hover {
+  .icon {
+    background-color: #fff;
+  }
+
+  .arrow {
+    transform: translateX(3px);
+    fill: var(--common-color-text-primary);
+  }
+}

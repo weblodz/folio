@@ -1,73 +1,78 @@
 @use '/src/styles/_variables' as *;
 
-.container{
-    width: 100%;
+.container {
+  width: 100%;
 }
 
 .title {
-    margin: 0px;
-    padding: 0px;
-    font-size: 1.45rem;
-    font-weight: normal;
-    line-height: 1.9;
-    letter-spacing: 0.03em;
-    width: 100%;
-    font-family: var(--common-font-en), sans-serif;
-    
-    @media (max-width: $screen-tablet-l){
-        font-size: 1.25rem;
-    }
+  margin: 0px;
+  padding: 0px;
+  font-size: 1.45rem;
+  font-weight: normal;
+  line-height: 1.9;
+  letter-spacing: 0.03em;
+  width: 100%;
+  font-family: var(--common-font-en), sans-serif;
+
+  @media (max-width: $screen-tablet-l) {
+    font-size: 1.25rem;
+  }
 }
 
 .description {
-    margin: 0px;
-    padding: 0px;
-    max-width: 515px;
-    margin-top: 16px;
-    font-size: 1rem;
-    font-weight: normal;
-    line-height: 1.4;
-    color: var(--common-color-text-inverse-secondary);
-    font-family: var(--common-font-en), sans-serif;
+  margin: 0px;
+  padding: 0px;
+  max-width: 515px;
+  margin-top: 16px;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.4;
+  color: var(--common-color-text-inverse-secondary);
+  font-family: var(--common-font-en), sans-serif;
 
-    @media (max-width: $screen-tablet-l){
-        font-size: 0.9rem;
-        max-width: calc(14.5% + (900px - 60vw) * 0.3);
-    }
+  @media (max-width: $screen-tablet-l) {
+    font-size: 0.9rem;
+    max-width: calc(14.5% + (900px - 60vw) * 0.3);
+  }
 }
 
 .link {
-    display: flex;
-    align-items: center;
-    margin-top: 24px;
-    font-size: 1.8rem;
-    font-weight: normal;
-    line-height: 1.4;
-    gap: 12px;
-    text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+  font-size: 1.8rem;
+  font-weight: normal;
+  line-height: 1.4;
+  gap: 12px;
+  text-decoration: none;
+
+  &:hover {
+    .icon {
+      background-color: var(--common-color-bg-primary);
+    }
+
+    .arrow {
+      fill: var(--common-color-text-primary);
+      transform: translateX(3px);
+    }
+  }
+}
+
+.arrow {
+  width: 20px;
+  height: auto;
+  transition: all 0.3s;
+  transform: translateX(0);
 }
 
 .icon {
-    width: 33px;
-    height: 33px;
-    border: 1px solid var(--common-color-bg-primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--common-color-bg-primary);
-    transition: all 0.3s;
-}
-
-.icon:hover {
-    background-color: var(--common-color-bg-primary);
-    color: var(--common-color-text-primary);
-    border-color: var(--common-color-bg-primary);
+  width: 33px !important;
+  height: 33px !important;
 }
 
 .text {
-    color: var(--common-color-bg-primary);
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-    font-family: var(--common-font-en), sans-serif;
+  color: var(--common-color-bg-primary);
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  font-family: var(--common-font-en), sans-serif;
 }
