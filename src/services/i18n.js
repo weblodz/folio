@@ -14,6 +14,10 @@ import plPrototype from './translations/locales/pl/nsPrototype.json'
 import enUpdates from './translations/locales/en/nsUpdates.json'
 import plUpdates from './translations/locales/pl/nsUpdates.json'
 
+import enDiscover from './translations/locales/en/nsDiscover.json'
+import plDiscover from './translations/locales/pl/nsDiscover.json'
+
+
 
 i18n
   .use(LanguageDetector)
@@ -25,17 +29,19 @@ i18n
         nsHero: enHero,
         nsPrototype: enPrototype,
         nsUpdates: enUpdates,
+        nsDiscover: enDiscover,
       },
       pl: {
         nsCommon: plCommon,
         nsHero: plHero,
         nsPrototype: plPrototype,
         nsUpdates: plUpdates,
+        nsDiscover: plDiscover,
       },
     },
     lng: 'en',
     fallbackLng: 'en',
-    ns: ['nsCommon, nsHero, nsPrototype, nsUpdates'],
+    ns: ['nsCommon, nsHero, nsPrototype, nsUpdates, nsDiscover'],
     defaultNS: 'nsCommon',
     detection: {
       order: ["navigator", "localStorage"],
