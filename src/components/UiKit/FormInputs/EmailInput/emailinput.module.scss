@@ -24,7 +24,7 @@
       }
 
       &:focus + .labelText {
-        transform: translateY(-100%) translateX(-10%) scale(0.9);
+        transform: translateY(-100%) translateX(-7%) scale(0.9);
       }
 
       &.invalidEmailInput {
@@ -48,7 +48,7 @@
       transition: top 0.2s, font-size 0.2s, color 0.2s, transform 0.2s;
 
       &.focusedLabelText {
-        transform: translateY(-100%) translateX(-10%) scale(0.9);
+        transform: translateY(-100%) translateX(-7%) scale(0.9);
       }
     }
   }
