@@ -31,9 +31,9 @@ function Updates() {
             >
               <div className={styles.date}>12.20.2024</div>
               <div className={styles.description}>
-                <p>{t('line1')}</p>
-                <p>{t('line2')}</p>
-                <p>{t('line3')}</p>
+                <p>{t('prototypeIntro')}</p>
+                <p>{t('eventFeature')}</p>
+                <p>{t('eventName')}</p>
               </div>
               <Link to="/news" className={styles.read_more}>
                 {t('readMore', { ns: 'nsCommon' })}

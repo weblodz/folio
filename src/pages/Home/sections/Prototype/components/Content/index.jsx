@@ -8,12 +8,12 @@ export default function Content() {
     <>
       <h2 className={styles.title}>{t('affelaTitle')}</h2>
       <p className={styles.description}>
-        {t('line1')} <br />
-        {t('line2')}
+        {t('mobilityIntro')} <br />
+        {t('techOverview')}
         <br />
-        {t('line3')}
+        {t('expandMobility')}
         <br />
-        {t('line4')}
+        {t('futureVision')}
       </p>
     </>
   )
