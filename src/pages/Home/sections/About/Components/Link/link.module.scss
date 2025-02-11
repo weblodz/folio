@@ -1,0 +1,61 @@
+.pageLink {
+  margin-top: 3rem;
+  font-family: var(--common-font-en), sans-serif;
+  animation: fade-in-right 0.6s ease-out 0.2s forwards;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 25px 14px 0;
+    background: transparent;
+    color: var(--common-color-bg);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 1px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.4s ease;
+
+    .icon {
+      margin: 0;
+      transition: transform 0.4s ease;
+    }
+
+    &:hover {
+        transform: translateX(20px) scale(1.05);
+      color: var(--common-color-bg-primary);
+
+      .icon{
+        transform: translateX(3px);
+      }
+    }
+  }
+
+  .pageLinkContainer {
+    display: flex;
+    align-items: center;
+
+    span[data-type='icon'] {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background-color: var(--common-color-bg-primary);
+      border: 1px solid var(--common-color-bg-inverse-primary);
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+  }
+
+  @keyframes fade-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}

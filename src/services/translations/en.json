@@ -1,0 +1,11 @@
+{
+  "header": {
+  "english": "English",
+  "polish": "Polish"
+  },
+  "navigation": {
+    "prototype": "Prototype",
+    "discover": "Discover",
+    "about Us": "About Us"
+  }
+}
