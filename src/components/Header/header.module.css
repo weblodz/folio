@@ -1,0 +1,27 @@
+.header {
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--common-header-bg-color);
+  font-family: var(--common-font-en);
+  font-weight: normal;
+  z-index: 100;
+}
+.header:hover {
+  background-color: var(--common-color-bg-inverse-primary);
+}
+.header .container {
+  width: 80%;
+  max-width: 1600px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*# sourceMappingURL=header.module.css.map */
