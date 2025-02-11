@@ -11,7 +11,7 @@ function EmailInput({ value="", onChange, onBlur=null, isValid=true, errorMessag
         <input className={emailStyle} value={value} type="text" onChange={onChange} onBlur={onBlur}/>
         <label className={isInputFocused}>{"Email address"}</label>
       </div>
-      {isValid ? null : <span className={styles.errorMessage}>{"Please retype your email"}</span>}
+      {isValid ? null : <span className={styles.errorMessage}>{errorMessage}</span>}
     </div>
   )
 }
