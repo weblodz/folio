@@ -7,7 +7,7 @@ function EyeHidden({ className, size = '64', fill = 'var(--common-color-text-inv
       fill={fill}
       width={size}
       height={size}
-      viewBox={'0 0 ' + size + ' ' + size}
+      viewBox={'0 0 59 59'}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -29,7 +29,7 @@ function EyeHidden({ className, size = '64', fill = 'var(--common-color-text-inv
 export default EyeHidden
 
 EyeHidden.propTypes = {
-  className: T.string.isRequired,
+  className: T.string,
   fill: T.string,
   size: T.string,
 }
