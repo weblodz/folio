@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import styles from './content.module.scss'
 
 export default function Content() {
-  const { t } = useTranslation('nsPrototype')
+  const { t } = useTranslation('nsHome')
 
   return (
     <>

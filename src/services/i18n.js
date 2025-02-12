@@ -3,14 +3,8 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
 import enCommon from './translations/locales/en/nsCommon.json'
 import plCommon from './translations/locales/pl/nsCommon.json'
-import enHero from './translations/locales/en/nsHero.json'
-import plHero from './translations/locales/pl/nsHero.json'
-import enPrototype from './translations/locales/en/nsPrototype.json'
-import plPrototype from './translations/locales/pl/nsPrototype.json'
-import enUpdates from './translations/locales/en/nsUpdates.json'
-import plUpdates from './translations/locales/pl/nsUpdates.json'
-import enDiscover from './translations/locales/en/nsDiscover.json'
-import plDiscover from './translations/locales/pl/nsDiscover.json'
+import enHome from './translations/locales/en/nsHome.json'
+import plHome from './translations/locales/pl/nsHome.json'
 
 i18n
   .use(LanguageDetector)
@@ -19,22 +13,16 @@ i18n
     resources: {
       en: {
         nsCommon: enCommon,
-        nsHero: enHero,
-        nsPrototype: enPrototype,
-        nsUpdates: enUpdates,
-        nsDiscover: enDiscover,
+        nsHome: enHome,
       },
       pl: {
         nsCommon: plCommon,
-        nsHero: plHero,
-        nsPrototype: plPrototype,
-        nsUpdates: plUpdates,
-        nsDiscover: plDiscover,
+        nsHome: plHome,
       },
     },
     lng: 'en',
     fallbackLng: 'en',
-    ns: ['nsCommon', 'nsHero', 'nsPrototype', 'nsUpdates', 'nsDiscover'],
+    ns: ['nsCommon', 'nsHome'],
     defaultNS: 'nsCommon',
     detection: {
       order: ["navigator", "localStorage"],

@@ -3,7 +3,7 @@ import FullMovieLink from '@pages/Home/sections/Hero/components/FullMovieLink'
 import styles from './mainText.module.scss'
 
 export default function MainText() {
-  const { t } = useTranslation('nsHero')
+  const { t } = useTranslation('nsHome')
 
   return (
     <div className={styles.container}>

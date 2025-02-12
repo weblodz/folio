@@ -4,7 +4,7 @@ import styles from './title.module.scss'
 
 function Title() {
   useVisibilityObserver(`.${styles.title}, .${styles.hashtag}`, styles.visible)
-  const { t } = useTranslation('nsDiscover')
+  const { t } = useTranslation('nsHome')
 
   return (
     <div className={styles.container}>

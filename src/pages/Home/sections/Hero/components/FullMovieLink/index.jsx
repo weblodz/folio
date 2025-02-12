@@ -6,7 +6,7 @@ import styles from './fullMovieLink.module.scss'
 
 export default function FullMovieLink() {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const { t } = useTranslation('nsHero')
+  const { t } = useTranslation('nsHome')
 
   const onClose = useCallback(() => {
     setIsModalOpen(false)

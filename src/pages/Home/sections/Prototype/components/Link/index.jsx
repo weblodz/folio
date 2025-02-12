@@ -4,7 +4,7 @@ import ArrowRightButton from '@components/UiKit/buttons/ArrowRight'
 import styles from './link.module.scss'
 
 export default function PrototypeLink() {
-  const { t } = useTranslation('nsPrototype')
+  const { t } = useTranslation('nsHome')
 
   return (
     <div className={styles.container}>

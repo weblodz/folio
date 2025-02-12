@@ -5,7 +5,7 @@ import styles from './content.module.scss'
 
 function Content() {
   useVisibilityObserver(`.${styles.subtitle}, .${styles.description}, .${styles.link}`, styles.visible)
-  const { t } = useTranslation('nsDiscover')
+  const { t } = useTranslation('nsHome')
 
   return (
     <div className={styles.container}>

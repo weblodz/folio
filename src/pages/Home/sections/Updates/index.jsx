@@ -11,7 +11,7 @@ import styles from './updates.module.scss'
 
 function Updates() {
   const [isHovered, setIsHovered] = useState(false)
-  const { t } = useTranslation('nsUpdates')
+  const { t } = useTranslation('nsHome')
 
   return (
     <div className={styles.container}>
