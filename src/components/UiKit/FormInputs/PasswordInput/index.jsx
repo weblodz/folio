@@ -1,61 +1,69 @@
-import T from 'prop-types'
-import EyeShown from '@components/UiKit/Icons/EyeShown/index.jsx'
-import EyeHidden from '@components/UiKit/Icons/EyeHidden/index.jsx'
-import { useState } from 'react'
-import styles from './password.module.scss'
+import { useState, forwardRef } from "react"
+import T from "prop-types"
+import EyeShown from "@components/UiKit/Icons/EyeShown/index.jsx"
+import EyeHidden from "@components/UiKit/Icons/EyeHidden/index.jsx"
+import styles from "./password.module.scss"
 
-function PasswordInput({ value="", onChange, onBlur=null, isValid=true, errorMessage }) {
-  const inputStyle = isValid ? `${styles.inputField}` : `${styles.inputField} ${styles.invalidEmailInput}`
-  const [isInputFocused, setIsInputFocused] = useState(value !== "")
+const PasswordInput = forwardRef(({ isValid = true, errorMessage, ...rest }, ref) => {
+  const [isInputFocused, setIsInputFocused] = useState(false)
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
-  const inputType = isPasswordVisible ? "text" : "password"
 
-  function handleToggleClick() {
-    setIsPasswordVisible(!isPasswordVisible)
-  }
+  const inputStyle = isValid
+    ? `${styles.input_field}`
+    : `${styles.input_field} ${styles.invalid_email_input}`
 
-  function handleBlur() {
-    if(value === "") {
-      setIsInputFocused(false)
-    }
-    onBlur?.()
-  }
+  const labelStyle = isInputFocused
+    ? `${styles.label_text} ${styles.focused_label_text}`
+    : `${styles.label_text}`
 
-  function handleFocus() {
-    if(!isInputFocused) {
-      setIsInputFocused(true)
-    }
-  }
+  const inputType = isPasswordVisible
+    ? "text"
+    : "password"
 
   return (
-    <div className={styles.componentContainer}>
-      <div className={styles.inputContainer} tabIndex={0}>
-        <label className={isInputFocused ?  `${styles.labelText} ${styles.focusedLabelText}` : `${styles.labelText}`}>{'Password'}</label>
-        <div className={styles.inputWrapper}>
-          <div className={styles.iconField}>
-            <input className={inputStyle} value={value} type={inputType} onChange={onChange}
-              onFocus={() => {handleFocus()}}
-              onBlur={() => {handleBlur()}}
+    <div className={styles.container}>
+      <div className={styles.input_container} tabIndex={0}>
+        <label className={labelStyle}>
+          Password
+        </label>
+        <div className={styles.input_wrapper}>
+          <div className={styles.icon_field}>
+            <input
+              className={inputStyle}
+              type={inputType}
+              ref={ref}
+              {...rest}
+              onFocus={(event) => {
+                setIsInputFocused(true)
+                rest.onFocus?.(event)
+              }}
+              onBlur={(event) => {
+                if (!event.target.value) {
+                  setIsInputFocused(false)
+                }
+                rest.onBlur?.(event)
+              }}
             />
-            <span className={styles.toggleWrapper}>
-              <button className={styles.toggleButton} onClick={handleToggleClick}>
-                {isPasswordVisible ? <EyeShown size={'24'} fill={'var(--common-color-bg-inverse-primary)'} /> : <EyeHidden size={'24'} fill={'var(--common-color-bg-inverse-primary)'} />}
+            <span className={styles.toggle_wrapper}>
+              <button type="button" className={styles.toggle_button} onClick={() => {
+                setIsPasswordVisible((prev) => !prev)
+              }}>
+                {isPasswordVisible ? <EyeShown size={"24"} fill={"var(--common-color-bg-inverse-primary)"} /> : <EyeHidden size={"24"} fill={"var(--common-color-bg-inverse-primary)"} />}
               </button>
             </span>
           </div>
         </div>
       </div>
-      {isValid ? null : <span className={styles.errorMessage}>{errorMessage}</span>}
+      {!isValid && <span className={styles.error_message}>{errorMessage}</span>}
     </div>
   )
+})
+
+PasswordInput.displayName = "PasswordInput"
+
+PasswordInput.propTypes = {
+  isValid: T.bool.isRequired,
+  errorMessage: T.string.isRequired,
 }
 
 export default PasswordInput
-
-PasswordInput.propTypes = {
-  value: T.string.isRequired,
-  onChange: T.func.isRequired,
-  isValid: T.bool.isRequired,
-  errorMessage: T.string.isRequired,
-  onBlur: T.func
-}
