@@ -1,27 +1,42 @@
-import T from 'prop-types'
-import styles from './emailinput.module.scss'
+import { useState, forwardRef } from "react"
+import T from "prop-types"
+import styles from "./emailinput.module.scss"
 
-function EmailInput({ value="", onChange, onBlur=null, isValid=true, errorMessage }) {
-  const emailStyle = isValid ? `${styles.emailInput}` : `${styles.emailInput} ${styles.invalidEmailInput}`
-  const isInputFocused = value === "" ? `${styles.labelText}` : `${styles.labelText} ${styles.focusedLabelText}`
+const EmailInput = forwardRef(({ isValid = true, errorMessage, ...rest }, ref) => {
+  const [hasValue, setHasValue] = useState(false)
+
+  const emailStyle = isValid
+    ? `${styles.email_input}`
+    : `${styles.email_input} ${styles.invalid_email_input}`
+
+  const labelStyle = hasValue
+    ? `${styles.label_text} ${styles.focused_label_text}`
+    : styles.label_text
 
   return (
-    <div className={styles.componentContainer}>
-      <div className={styles.inputContainer} tabIndex={0}>
-        <input className={emailStyle} value={value} type="text" onChange={onChange} onBlur={onBlur}/>
-        <label className={isInputFocused}>{"Email address"}</label>
+    <div className={styles.container}>
+      <div className={styles.input_container} tabIndex={0}>
+        <input
+          className={emailStyle}
+          type="text"
+          ref={ref}
+          {...rest}
+          onInput={(e) => {
+            setHasValue(e.target.value.trim() !== "")
+          }}
+        />
+        <label className={labelStyle}>{"Email address"}</label>
       </div>
-      {isValid ? null : <span className={styles.errorMessage}>{errorMessage}</span>}
+      {!isValid && <span className={styles.error_message}>{errorMessage}</span>}
     </div>
   )
+})
+
+EmailInput.displayName = "EmailInput"
+
+EmailInput.propTypes = {
+  isValid: T.bool.isRequired,
+  errorMessage: T.string.isRequired,
 }
 
 export default EmailInput
-
-EmailInput.propTypes = {
-  value: T.string.isRequired,
-  onChange: T.func.isRequired,
-  isValid: T.bool.isRequired,
-  errorMessage: T.string.isRequired,
-  onBlur: T.func
-}
