@@ -61,9 +61,9 @@ const PasswordInput = forwardRef(({ isValid = true, errorMessage, ...rest }, ref
 
 PasswordInput.displayName = "PasswordInput"
 
+export default PasswordInput
+
 PasswordInput.propTypes = {
   isValid: T.bool.isRequired,
   errorMessage: T.string.isRequired,
 }
-
-export default PasswordInput

@@ -34,9 +34,10 @@ const EmailInput = forwardRef(({ isValid = true, errorMessage, ...rest }, ref) =
 
 EmailInput.displayName = "EmailInput"
 
+export default EmailInput
+
 EmailInput.propTypes = {
   isValid: T.bool.isRequired,
   errorMessage: T.string.isRequired,
 }
 
-export default EmailInput
