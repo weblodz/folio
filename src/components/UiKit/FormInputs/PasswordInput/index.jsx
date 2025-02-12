@@ -48,7 +48,9 @@ const PasswordInput = forwardRef(({ isValid = true, errorMessage, ...rest }, ref
               <button type="button" className={styles.toggle_button} onClick={() => {
                 setIsPasswordVisible((prev) => !prev)
               }}>
-                {isPasswordVisible ? <EyeShown size={"24"} fill={"var(--common-color-bg-inverse-primary)"} /> : <EyeHidden size={"24"} fill={"var(--common-color-bg-inverse-primary)"} />}
+                {isPasswordVisible
+                  ? <EyeShown size={"24"} />
+                  : <EyeHidden size={"24"} />}
               </button>
             </span>
           </div>
