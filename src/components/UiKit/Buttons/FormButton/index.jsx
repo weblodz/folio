@@ -1,10 +1,17 @@
 import T from 'prop-types'
+import LoadingIcon from '@components/UiKit/Icons/LoadingIcon/index.jsx'
 import styles from './formbuttom.module.scss'
 
-function FormButton({ text, isActive, onClick }) {
+function FormButton({ text, isActive, onClick, isLoading }) {
+  const buttonStyle = isActive && !isLoading
+    ? styles.activeButton
+    : styles.inactiveButton
+
   return (
-    <button className={isActive ? styles.activeButton : styles.inactiveButton}
-      onClick={() => {onClick()}} disabled={!isActive}>{text}</button>
+    <button className={buttonStyle}
+      onClick={() => {onClick()}} disabled={!isActive}>
+      {!isLoading ? text : <LoadingIcon size={"25"}/> }
+    </button>
   )
 }
 
@@ -14,4 +21,5 @@ FormButton.propTypes = {
   text: T.string.isRequired,
   isActive: T.bool.isRequired,
   onClick: T.func.isRequired,
+  isLoading: T.bool.isRequired,
 }
