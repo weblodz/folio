@@ -1,10 +1,12 @@
 import T from "prop-types"
 
-function EyeHidden({ className, size = '64', fill = 'var(--common-color-text-inverse-primary)' }) {
+function EyeHidden({ className, size = '64', isLight=true }) {
+  const color = isLight ? 'var(--common-color-bg-primary)' : 'var(--common-color-bg-inverse-primary)'
+
   return (
     <svg
       className={className}
-      fill={fill}
+      fill={color}
       width={size}
       height={size}
       viewBox={'0 0 59 59'}
@@ -30,6 +32,6 @@ export default EyeHidden
 
 EyeHidden.propTypes = {
   className: T.string,
-  fill: T.string,
+  isLight: T.bool,
   size: T.string,
 }
