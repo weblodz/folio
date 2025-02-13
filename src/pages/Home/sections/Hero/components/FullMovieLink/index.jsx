@@ -1,10 +1,12 @@
 import { useState, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import VideoModal from '@components/Modals/VideoModal'
 import { MovieIcon } from '@components/UiKit/Icons/Movie'
 import styles from './fullMovieLink.module.scss'
 
 export default function FullMovieLink() {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const { t } = useTranslation('nsHome')
 
   const onClose = useCallback(() => {
     setIsModalOpen(false)
@@ -16,7 +18,7 @@ export default function FullMovieLink() {
         <span className={styles.linkIconContainer}>
           <MovieIcon styles={styles} className={styles.icon} />
         </span>
-        <span className={styles.linkText}>PLAY A FULL MOVIE</span>
+        <span className={styles.linkText}>{t("playFullMovie")}</span>
       </a>
       <VideoModal
         isOpen={isModalOpen}

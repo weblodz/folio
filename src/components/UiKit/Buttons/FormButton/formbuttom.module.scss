@@ -1,0 +1,27 @@
+.active_button {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: var(--common-color-button);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover{
+    background-color: var(--common-color-button-hover);
+  }
+
+  &:active{
+    background-color: var(--common-color-button);
+  }
+}
+
+.inactive_button {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: var(--common-color-button);
+  color: var(--common-color-text-secondary);
+  border: none;
+  opacity: 1;
+  border-radius: 4px;
+}

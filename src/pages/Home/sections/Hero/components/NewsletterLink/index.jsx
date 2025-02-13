@@ -1,19 +1,20 @@
-import ArrowRightIcon from '@components/UiKit/Icons/ArrowRight/index.jsx'
+import { useTranslation } from 'react-i18next'
+import ArrowRightButton from '@components/UiKit/buttons/ArrowRight'
 import styles from './newsletter.module.scss'
 
 export default function NewsletterLink() {
+  const { t } = useTranslation('nsCommon')
+
   return (
     <div className={styles.container}>
       <dl className={styles.content}>
-        <dt className={styles.header}>STAY IN THE LOOP</dt>
+        <dt className={styles.header}>{t('stayInLoop')}</dt>
         <dd className={styles.text}>
-          Subscribe to get our news, updates, <br />
-          and event information
+          {t('subscribeNews')} <br />
+          {t('eventInfo')}
         </dd>
       </dl>
-      <span className={styles.iconContainer}>
-        <ArrowRightIcon className={styles.icon} />
-      </span>
+      <ArrowRightButton className={styles.arrow} icon={styles.icon} />
     </div>
   )
 }

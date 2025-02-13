@@ -1,16 +1,17 @@
-import { IoIosArrowRoundForward } from 'react-icons/io'
+import { useTranslation } from 'react-i18next'
+import ArrowRightButton from '@components/UiKit/buttons/ArrowRight'
 import styles from './vlog.module.scss'
 
 function Vlog() {
+  const { t } = useTranslation('nsCommon')
+
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Stay in the loop</h2>
-      <p className={styles.description}>Subscribe to get our news, updates, and event information.</p>
+      <h2 className={styles.title}>{t("stayInLoop")}</h2>
+      <p className={styles.description}>{t("subscribeNews")} {t("eventInfo")}</p>
       <a href="#" className={styles.link}>
-        <div className={styles.icon}>
-          <IoIosArrowRoundForward />
-        </div>
-        <div className={styles.text}>SUBSCRIBE</div>
+        <ArrowRightButton className={styles.arrow} icon={styles.icon} size={'21'} />
+        <div className={styles.text}>{t("subscribe")}</div>
       </a>
     </div>
   )
