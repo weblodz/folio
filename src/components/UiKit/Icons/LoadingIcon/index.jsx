@@ -1,7 +1,9 @@
 import T from 'prop-types'
 
 function LoadingIcon({ size="50", isLight=true }) {
-  const color = isLight ? 'var(--common-color-bg-primary)' : 'var(--common-color-bg-inverse-primary)'
+  const color = isLight
+    ? 'var(--common-color-bg-primary)'
+    : 'var(--common-color-bg-inverse-primary)'
 
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width={size} height={size}>

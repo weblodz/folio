@@ -4,8 +4,8 @@ import styles from './formbuttom.module.scss'
 
 function FormButton({ text, isActive, onClick, isLoading }) {
   const buttonStyle = isActive && !isLoading
-    ? styles.activeButton
-    : styles.inactiveButton
+    ? styles.active_button
+    : styles.inactive_buttondcd
 
   return (
     <button className={buttonStyle}
