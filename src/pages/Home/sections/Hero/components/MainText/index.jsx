@@ -1,11 +1,14 @@
+import { useTranslation } from 'react-i18next'
 import FullMovieLink from '@pages/Home/sections/Hero/components/FullMovieLink'
 import styles from './mainText.module.scss'
 
 export default function MainText() {
+  const { t } = useTranslation('nsHome')
+
   return (
     <div className={styles.container}>
       <h1 className={styles.mainText}>
-        Mobility with <br /> an Emotional Connection
+        {t("mobility")} <br /> {t("emotionalConnection")}
       </h1>
       <FullMovieLink />
     </div>

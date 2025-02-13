@@ -2,24 +2,24 @@ import { useTranslation } from "react-i18next"
 import styles from './navbar.module.scss'
 
 function Navbar() {
-  const { t } = useTranslation()
+  const { t } = useTranslation("nsCommon")
 
   return (
     <div className={styles.container}>
       <ul className={styles.list}>
         <li className={styles.item}>
           <a className={styles.link} href="#">
-            {t("navigation.prototype")}
+            {t("prototype")}
           </a>
         </li>
         <li className={styles.item}>
           <a className={styles.link} href="#">
-            {t("navigation.discover")}
+            {t("discover")}
           </a>
         </li>
         <li className={styles.item}>
           <a className={styles.link} href="#">
-            {t("navigation.about Us")}
+            {t("about")}
           </a>
         </li>
       </ul>

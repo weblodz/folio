@@ -1,8 +1,10 @@
 import i18n from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
-import enTranslations from './translations/en.json'
-import plTranslations from  './translations/pl.json'
+import enCommon from './translations/locales/en/nsCommon.json'
+import plCommon from './translations/locales/pl/nsCommon.json'
+import enHome from './translations/locales/en/nsHome.json'
+import plHome from './translations/locales/pl/nsHome.json'
 
 i18n
   .use(LanguageDetector)
@@ -10,14 +12,18 @@ i18n
   .init({
     resources: {
       en: {
-        translation: enTranslations
+        nsCommon: enCommon,
+        nsHome: enHome,
       },
       pl: {
-        translation: plTranslations
-      }
+        nsCommon: plCommon,
+        nsHome: plHome,
+      },
     },
     lng: 'en',
     fallbackLng: 'en',
+    ns: ['nsCommon', 'nsHome'],
+    defaultNS: 'nsCommon',
     detection: {
       order: ["navigator", "localStorage"],
       caches: ["localStorage"]

@@ -12,7 +12,7 @@ const LANGUAGES = {
 
 function Language({ isHovered }) {
   const [isDropdownVisible, setDropdownVisible] = useState(false)
-  const { t, i18n } = useTranslation()
+  const { t, i18n } = useTranslation("nsCommon")
 
   const toggleDropdown = () => {
     setDropdownVisible(!isDropdownVisible)
@@ -37,7 +37,7 @@ function Language({ isHovered }) {
                   className={cls(styles.language_button, { [styles.active]: i18n.language === LANGUAGES.english })}
                   onClick={() => changeLanguage(LANGUAGES.english)}
                 >
-                  {t("header.english")}
+                  {t("english")}
                 </button>
               </li>
               <li className={styles.language_item}>
@@ -45,7 +45,7 @@ function Language({ isHovered }) {
                   className={cls(styles.language_button, { [styles.active]: i18n.language === LANGUAGES.polish })}
                   onClick={() => changeLanguage(LANGUAGES.polish)}
                 >
-                  {t("header.polish")}
+                  {t("polish")}
                 </button>
               </li>
             </ul>
