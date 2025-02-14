@@ -24,11 +24,11 @@ export default function MenuList({ MENU_LINKS, activeSubMenu, toggleSubMenu }) {
     <nav className={styles.nav}>
       <ul className={styles.list}>
         {MENU_LINKS.map((link) => (
-          <div key={link.name} className={styles.menuWrapper}>
+          <div key={link.name} className={styles.menu}>
             <li className={styles.item} data-name={link.name}>
               {link.submenu?.length ? (
                 <button
-                  className={`${styles.itemButton} ${activeSubMenu === link.name ? styles.active : ''}`}
+                  className={`${styles.item_button} ${activeSubMenu === link.name ? styles.active : ''}`}
                   onClick={() => handleToggleSubMenu(link.name)}
                   data-name={link.dataName || ''}
                   aria-expanded={activeSubMenu === link.name}
@@ -60,17 +60,17 @@ export default function MenuList({ MENU_LINKS, activeSubMenu, toggleSubMenu }) {
                 {link.submenu.map((subItem) => (
                   <li
                     key={subItem.name}
-                    className={`${styles.submenuItem} ${!subItem.image ? styles.withSubmenuBorder : ''}`}
+                    className={`${styles.submenu_item} ${!subItem.image ? styles.border : ''}`}
                     data-name={subItem.dataName}
                   >
-                    <a href={subItem.url} className={styles.submenuLink}>
+                    <a href={subItem.url} className={styles.submenu_link}>
                       {subItem.image ? (
-                        <div className={styles.imageContainer}>
-                          <img src={subItem.image} alt={subItem.name} className={styles.submenuImage} />
-                          <div className={styles.overlayText}>{subItem.name}</div>
+                        <div className={styles.image_container}>
+                          <img src={subItem.image} alt={subItem.name} className={styles.image} />
+                          <div className={styles.image_text}>{subItem.name}</div>
                         </div>
                       ) : (
-                        <span className={styles.submenuText}>{subItem.name}</span>
+                        <span className={styles.submenu_text}>{subItem.name}</span>
                       )}
                     </a>
                   </li>

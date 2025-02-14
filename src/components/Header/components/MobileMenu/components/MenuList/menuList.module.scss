@@ -8,7 +8,7 @@
   margin-bottom: 80px;
 }
 
-.menuWrapper {
+.menu {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -20,7 +20,7 @@
 }
 
 .link,
-.itemButton {
+.item_button {
   text-decoration: none;
   font-size: 24px;
   font-weight: normal;
@@ -38,12 +38,12 @@
   cursor: pointer;
 }
 
-.nav:hover .itemButton,
+.nav:hover .item_button,
 .nav:hover .link {
   color: gray;
 }
 
-.nav .itemButton:hover,
+.nav .item_button:hover,
 .nav .link:hover {
   color: black !important;
 }
@@ -66,14 +66,14 @@
   margin-bottom: 30px;
 }
 
-.submenuItem {
+.submenu_item {
   position: relative;
   width: 100%;
   display: flex;
   align-items: center;
 }
 
-.submenuImage {
+.image {
   width: 100%;
   min-width: 930px;
   height: auto;
@@ -83,7 +83,7 @@
   margin-bottom: -35px;
 }
 
-.submenuLink {
+.submenu_link {
   display: block;
   position: relative;
   text-decoration: none;
@@ -96,13 +96,13 @@
   padding-top: 25px;
 }
 
-.withSubmenuBorder {
+.border {
   border-left: 3px solid lightgray;
   padding-left: 25px;
   margin-left: 20px;
 }
 
-.overlayText {
+.image_text {
   position: absolute;
   font-family: var(--common-font-en), sans-serif;
   bottom: 5px;
@@ -114,7 +114,7 @@
   margin-left: 20px;
 }
 
-.submenuItem[data-name="Reserve"] .overlayText{
+.submenu_item[data-name="Reserve"] .image_text{
   color: black !important;
 }
 
@@ -124,7 +124,7 @@
   margin-bottom: 80px;
 }
 
-.submenuLink:hover {
+.submenu_link:hover {
   color: var(--common-color-text-primary);
 }
 
@@ -140,6 +140,6 @@
   .list {
     margin-bottom: 40px;
     padding-left: 20px;
-    margin-top: 50px;
+    margin-top: 90px;
   }
 }

@@ -46,6 +46,21 @@
   display: none;
 }
 
+.header{
+  visibility: hidden;
+}
+
+.close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  align-self: flex-start;
+  cursor: pointer;
+  margin-bottom: 70px;
+  margin-top: 18px;
+  padding-left: 20px;
+  visibility: visible;
+}
 
 @media (max-width: 1024px) {
   .container {
@@ -75,5 +90,32 @@
     position: absolute;
     left: 40px;
     top: 20px;
+  }
+
+  .header {
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    padding: 20px;
+    background: var(--common-color-bg-primary);
+    z-index: 1;
+  }
+  
+  .logo {
+    width: 120px;
+    height: auto;
+    fill: black;
+    padding-top: 10px;
+  }
+  
+  .logo_sub {
+    width: 105px;
+    height: auto;
+    fill: black;
+    margin-top: 5px;
   }
 }
