@@ -10,7 +10,7 @@ export const EmptyValid = {
   args: {
     isValid: true,
     errorMessage: "",
-    value: "",
+    defaultValue: "",
   }
 }
 
@@ -18,7 +18,7 @@ export const EmptyInvalid = {
   args: {
     isValid: false,
     errorMessage: "This field is required",
-    value: "",
+    defaultValue: "",
   }
 }
 
@@ -27,7 +27,7 @@ export const withValidEmail = {
   args: {
     isValid: true,
     errorMessage: "",
-    value: "validemail@host.com",
+    defaultValue: "validemail@host.com",
   }
 }
 
@@ -35,6 +35,6 @@ export const withInvalidEmail = {
   args: {
     isValid: false,
     errorMessage: "Your email is invalid",
-    value: "invalidemailhost.com",
+    defaultValue: "invalidemailhost.com",
   }
 }
