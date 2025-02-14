@@ -64,7 +64,7 @@ export default function MenuList({ MENU_LINKS, activeSubMenu, toggleSubMenu }) {
               <ul className={styles.submenu}>
                 {link.name === 'Language' ? (
                   link.submenu.map((item) => (
-                    <li key={item.langCode} className={styles.submenu_item}>
+                    <li key={item.langCode} className={`${styles.submenu_item} ${styles.border}`}>
                       <button
                         className={`${styles.language_button} ${i18n.language === item.langCode ? styles.active : ''}`}
                         onClick={() => changeLanguage(item.langCode)}
@@ -78,6 +78,7 @@ export default function MenuList({ MENU_LINKS, activeSubMenu, toggleSubMenu }) {
                     <li
                       key={subItem.name}
                       className={`${styles.submenu_item} ${!subItem.image ? styles.border : ''}`}
+                      data-name={subItem.name}
                     >
                       <a href={subItem.url} className={styles.submenu_link}>
                         {subItem.image ? (

@@ -1,6 +1,8 @@
+@use '/src/styles/variables' as *;
+
 .submenu {
     position: absolute;
-    left: 440px;
+    left: 450px;
     top: 0;
     width: 90%;
     height: 100vh;
@@ -8,7 +10,7 @@
     flex-direction: column;
     justify-content: flex-start;
 
-    @media (max-width: 1024px) {
+    @media (max-width: $screen-laptop) {
         display: none;
       }
 }
@@ -56,7 +58,7 @@
     right: 20px;
     bottom: 20px;
     font-size: 24px;
-    color: white;
+    color: var(--common-color-bg-primary);
 }
 
 .arrow_container {
@@ -84,14 +86,8 @@
     justify-content: center;
 }
 
-.item[data-name='Reserve'] .text,
-.item[data-name='Reserve'] .arrow_container .arrow {
-    color: black !important;
-    fill: black !important;
-}
-
-.item[data-name='Reserve'] .arrow_container .icon {
-    border-color: var(--common-color-bg-inverse-primary);
+.item[data-name='Reserve'] .text {
+    color: var(--common-color-bg-inverse-primary) !important;
 }
 
 .submenu .arrow_container:hover .icon {
@@ -121,7 +117,7 @@
     font-weight: 300 !important;
     font-size: 24px;
     font-weight: 600;
-    color: black;
+    color: var(--common-color-bg-inverse-primary);
     text-decoration: none;
     transition: color 0.3s ease;
 }

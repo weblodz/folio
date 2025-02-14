@@ -1,3 +1,5 @@
+@use '/src/styles/variables' as *;
+
 .footer {
   flex-shrink: 0;
   text-align: left;
@@ -71,7 +73,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: black;
+  color: var(--common-color-bg-inverse-primary);
   font-size: 22px;
 }
 
@@ -85,13 +87,13 @@
 
 .icon {
   font-size: 20px;
-  color: #333;
+  color: var(--common-color-bg-inverse-tertiary);
   text-decoration: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: $screen-laptop) {
   .footer{
-    background: var(--common-color-bg-tertiary);
+    background: var(--common-color-text-inverse-secondary);
     padding: 20px;
     padding-left: 50px;
     padding-top: 40px;

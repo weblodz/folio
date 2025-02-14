@@ -44,12 +44,11 @@
 .language_list {
   display: flex !important;
   flex-direction: column;
-  background: white;
+  background: var(--common-color-bg-primary);
   padding: 10px;
   border-radius: 6px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
-
 
 .language_item {
   margin-bottom: 5px;

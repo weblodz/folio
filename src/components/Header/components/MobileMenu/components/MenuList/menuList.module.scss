@@ -1,3 +1,5 @@
+@use '/src/styles/variables' as *;
+
 .nav {
   flex-grow: 1;
 }
@@ -40,17 +42,17 @@
 
 .nav:hover .item_button,
 .nav:hover .link {
-  color: gray;
+  color: var(--common-color-text-secondary);
 }
 
 .nav .item_button:hover,
 .nav .link:hover {
-  color: black !important;
+  color: var(--common-color-bg-inverse-primary) !important;
 }
 
 .arrow {
   position: absolute;
-  right: 44px;
+  right: 40px;
   color: rgb(0, 0, 0);
   font-size: 16px;
 }
@@ -73,9 +75,18 @@
   align-items: center;
 }
 
+.image_container {
+  width: calc(100vw - 10%);
+  max-width: 100%;
+  min-width: calc(20vw + 650px);
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .image {
   width: 100%;
-  min-width: 930px;
   height: auto;
   object-fit: cover;
   display: block;
@@ -108,14 +119,14 @@
   bottom: 5px;
   left: 15px;
   font-size: 24px;
-  color: white;
+  color: var(--common-color-text-inverse-primary);
   padding: 8px 12px;
   border-radius: 4px;
   margin-left: 20px;
 }
 
-.submenu_item[data-name="Reserve"] .image_text{
-  color: black !important;
+.submenu_item[data-name="Reserve"] .image_text {
+  color: var(--common-color-bg-inverse-primary) !important;
 }
 
 .list {
@@ -126,22 +137,6 @@
 
 .submenu_link:hover {
   color: var(--common-color-text-primary);
-}
-
-@media (max-width: 1024px) {
-  .submenu {
-    display: block;
-  }
-
-  .item {
-    margin-bottom: 20px;
-  }
-
-  .list {
-    margin-bottom: 40px;
-    padding-left: 20px;
-    margin-top: 90px;
-  }
 }
 
 .language_button {
@@ -160,10 +155,47 @@
   margin-left: 20px;
 
   &:hover {
-    color: black !important;
+    color: var(--common-color-bg-inverse-primary) !important;
   }
 
   &.active {
     font-weight: bold;
+  }
+}
+
+@media (max-width: $screen-laptop) {
+  .image_container {
+    min-width: calc(20vw + 650px);
+  }
+
+  .submenu {
+    display: block;
+  }
+
+  .item {
+    margin-bottom: 20px;
+  }
+
+  .list {
+    margin-bottom: 40px;
+    padding-left: 20px;
+    margin-top: 90px;
+  }
+
+  .arrow {
+    right: 70px;
+  }
+}
+
+@media (max-width: $screen-tablet-l) {
+  .image_container {
+    min-width: calc(20vw + 550px);
+  }
+}
+
+@media (max-width: $screen-tablet) {
+  .image_container {
+    width: calc(90vw - 10%);
+    min-width: auto;
   }
 }
