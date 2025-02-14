@@ -1,0 +1,130 @@
+.submenu {
+    position: absolute;
+    left: 440px;
+    top: 0;
+    width: 90%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.item_submenu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.item {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.item:hover .image {
+    transform: scale(1.1);
+}
+
+.text {
+    font-family: var(--common-font-en), sans-serif;
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    font-size: 24px;
+    font-weight: normal;
+    color: var(--common-color-text-inverse-primary);
+}
+
+.arrowIcon {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-size: 24px;
+    color: white;
+}
+
+.arrow_container {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 2px;
+    left: 5px
+}
+
+.icon {
+    width: 30px !important;
+    height: 30px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item[data-name='Reserve'] .text,
+.item[data-name='Reserve'] .arrow_container .arrow {
+    color: black !important;
+    fill: black !important;
+}
+
+.item[data-name='Reserve'] .arrow_container .icon {
+    border-color: var(--common-color-bg-inverse-primary);
+}
+
+.submenu .arrow_container:hover .icon {
+    background-color: transparent !important;
+    border-color: var(--common-color-text-inverse-secondary);
+}
+
+.submenu .arrow_container:hover .arrow {
+    transform: none !important;
+    fill: var(--common-color-text-inverse-secondary) !important;
+}
+
+.textSubmenu {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    height: 100%;
+    padding-top: 140px;
+    padding-left: 40px;
+    background-color: var(--common-color-bg-tertiary);
+
+}
+
+.textSubmenu a {
+    font-family: var(--common-font-en), sans-serif;
+    font-weight: 300 !important;
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.icon {
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--common-color-text-primary);
+}
+
