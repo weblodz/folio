@@ -7,6 +7,10 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+
+    @media (max-width: 1024px) {
+        display: none;
+      }
 }
 
 .item_submenu {
