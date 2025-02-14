@@ -13,6 +13,14 @@ export const EmptyValid = {
   }
 }
 
+export const EmptyInvalid = {
+  args: {
+    isValid: false,
+    errorMessage: "This field is required",
+    defaultValue: "",
+  }
+}
+
 export const withValidPassword = {
   args: {
     isValid: true,
