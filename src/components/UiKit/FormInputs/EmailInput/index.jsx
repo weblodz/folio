@@ -3,7 +3,7 @@ import T from "prop-types"
 import styles from "./emailinput.module.scss"
 
 const EmailInput = forwardRef(({ isValid = true, errorMessage, ...rest }, ref) => {
-  const [hasValue, setHasValue] = useState(rest?.value)
+  const [hasValue, setHasValue] = useState(rest?.defaultValue)
 
   const emailStyle = isValid
     ? `${styles.email_input}`

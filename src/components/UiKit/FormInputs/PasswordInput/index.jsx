@@ -5,7 +5,7 @@ import EyeHidden from "@components/UiKit/Icons/EyeHidden/index.jsx"
 import styles from "./password.module.scss"
 
 const PasswordInput = forwardRef(({ isValid = true, errorMessage, ...rest }, ref) => {
-  const [isInputFocused, setIsInputFocused] = useState(false)
+  const [isInputFocused, setIsInputFocused] = useState(rest?.defaultValue)
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
   const inputStyle = isValid
@@ -49,8 +49,8 @@ const PasswordInput = forwardRef(({ isValid = true, errorMessage, ...rest }, ref
                 setIsPasswordVisible((prev) => !prev)
               }}>
                 {isPasswordVisible
-                  ? <EyeShown size={"24"} />
-                  : <EyeHidden size={"24"} />}
+                  ? <EyeShown size={"24"} isLight={false}/>
+                  : <EyeHidden size={"24"} isLight={false}/>}
               </button>
             </span>
           </div>
