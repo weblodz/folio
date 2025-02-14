@@ -104,7 +104,7 @@
     fill: var(--common-color-text-inverse-secondary) !important;
 }
 
-.textSubmenu {
+.text_submenu {
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -116,7 +116,7 @@
 
 }
 
-.textSubmenu a {
+.text_submenu a {
     font-family: var(--common-font-en), sans-serif;
     font-weight: 300 !important;
     font-size: 24px;
@@ -132,3 +132,21 @@
     color: var(--common-color-text-primary);
 }
 
+.language_button {
+    font-family: var(--common-font-en), sans-serif;
+    text-decoration: none;
+    color: var(--common-color-bg-inverse-primary);
+    background-color: transparent;
+    border: none;
+    padding: 8px 12px;
+    width: 100%;
+    text-align: left;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  
+    &.active {
+      font-weight: bold;
+    }
+  }
+  

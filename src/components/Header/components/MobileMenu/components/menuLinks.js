@@ -42,6 +42,14 @@ const MENU_LINKS = [
       { name: 'Contact Us', url: '/support/contact' },
     ],
   },
+  {
+    name: 'Language',
+    icon: IoChevronForward,
+    submenu: [
+      { name: 'English', langCode: 'en' },
+      { name: 'Polski', langCode: 'pl' },
+    ],
+  },
   { name: 'Events', url: '/events', icon: null, dataName: 'Events' },
   { name: 'Log In / Sign Up', url: '/auth', icon: null, dataName: 'auth' },
 ]

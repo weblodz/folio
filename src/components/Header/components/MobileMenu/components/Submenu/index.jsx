@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types'
-import ArrowRightButton from '@components/UiKit/Buttons/ArrowRight'
-
+import { useTranslation } from 'react-i18next'
 import styles from './subMenu.module.scss'
 
 export default function SubMenu({ activeSubMenu, MENU_LINKS }) {
   const selectedMenu = MENU_LINKS.find((link) => link.name === activeSubMenu)
   const items = selectedMenu?.submenu || []
+  const { i18n } = useTranslation()
+
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang)
+  }
 
   return (
     <div className={`${styles.submenu} ${styles.active}`}>
@@ -15,23 +19,35 @@ export default function SubMenu({ activeSubMenu, MENU_LINKS }) {
             <a key={item.name} href={item.url} className={styles.item} data-name={item.dataName || ''}>
               <img src={item.image} alt={item.name} className={styles.image} />
               <span className={styles.text}>{item.name}</span>
-              <div className={styles.arrow_container}>
-                <ArrowRightButton className={styles.arrow} icon={styles.icon} size={'20'} />
-              </div>
             </a>
           ))}
         </div>
       ) : (
-        <div className={styles.textSubmenu}>
-          {items.map((item) => (
-            <a key={item.name} href={item.url}>
-              {item.name}
-            </a>
-          ))}
+        <div className={styles.text_submenu}>
+          {selectedMenu.name === 'Language' ? (
+            items.map((item) => (
+              <button
+                key={item.langCode}
+                className={`${styles.language_button} ${i18n.language === item.langCode ? styles.active : ''}`}
+                onClick={() => changeLanguage(item.langCode)}
+              >
+                {item.name}
+              </button>
+            ))
+          ) : (
+            items.map((item) => (
+              <a key={item.name} href={item.url}>
+                {item.name}
+              </a>
+            ))
+          )}
         </div>
       )}
     </div>
   )
 }
 
-SubMenu.propTypes = { activeSubMenu: PropTypes.string.isRequired, MENU_LINKS: PropTypes.array.isRequired }
+SubMenu.propTypes = {
+  activeSubMenu: PropTypes.string.isRequired,
+  MENU_LINKS: PropTypes.array.isRequired,
+}

@@ -2,13 +2,12 @@ import { useState, useEffect } from 'react'
 import { Slant as Hamburger } from 'hamburger-react'
 import Logo from './components/Logo'
 import Navbar from './components/Navbar'
-import Language from './components/Language'
 import MobileMenu from './components/MobileMenu'
 import styles from './header.module.scss'
 
 export default function Header() {
-  const [isHovered, setIsHovered] = useState(false)
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [setIsHovered] = useState(false)
 
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -44,7 +43,6 @@ export default function Header() {
         </div>
 
         <Navbar />
-        <Language isHovered={isHovered} />
       </div>
 
       {isMobileMenuOpen && <MobileMenu onClose={() => setMobileMenuOpen(false)} />}
