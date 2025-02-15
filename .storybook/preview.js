@@ -12,9 +12,8 @@ const preview = {
     backgrounds: {
       default: 'black',
       values: [
-        { name: 'white', value: '#ffffff' },
-        { name: 'black', value: '#000000' },
-        { name: 'gray', value: '#808080' },
+        { name: 'white', value: 'var(--common-color-bg-primary)' },
+        { name: 'black', value: 'var(--common-color-bg-inverse-primary)'}
       ],
     },
   },
