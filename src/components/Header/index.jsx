@@ -7,7 +7,6 @@ import styles from './header.module.scss'
 
 export default function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [setIsHovered] = useState(false)
 
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -25,11 +24,7 @@ export default function Header() {
   }, [isMobileMenuOpen])
 
   return (
-    <header
-      className={styles.header}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <header className={styles.header}>
       <div className={styles.container}>
         <Logo />
 

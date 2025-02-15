@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
-import ArrowRightButton from '@components/UiKit/Buttons/ArrowRight/index.jsx'
+import ArrowRightButton from '@components/UiKit/Buttons/ArrowRight'
 import styles from './submenu.module.scss'
 
 export default function SubMenu({ activeSubMenu, MENU_LINKS }) {
