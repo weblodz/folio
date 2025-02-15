@@ -12,9 +12,9 @@ export default function PrototypeLink() {
         <div className={styles.content}>
           <ArrowRightButton
             className={styles.arrow}
-            icon={styles.icon}
-            fill={'var(--common-color-bg-inverse-primary)'}
+            iconClass={styles.icon}
             size={'20'}
+            isLightTheme={false}
           />
           <p className={styles.text}>{t('explore')}</p>
         </div>
