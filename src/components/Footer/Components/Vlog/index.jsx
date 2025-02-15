@@ -10,7 +10,7 @@ function Vlog() {
       <h2 className={styles.title}>{t("stayInLoop")}</h2>
       <p className={styles.description}>{t("subscribeNews")} {t("eventInfo")}</p>
       <a href="#" className={styles.link}>
-        <ArrowRightButton className={styles.arrow} icon={styles.icon} size={'21'} />
+        <ArrowRightButton className={styles.arrow} icon={styles.icon} size={'21'} isLightTheme={true} />
         <div className={styles.text}>{t("subscribe")}</div>
       </a>
     </div>
