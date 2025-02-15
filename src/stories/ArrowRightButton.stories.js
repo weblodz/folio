@@ -10,17 +10,16 @@ export default {
 
   argTypes: {
     buttonClass: { control: 'text' },
-    size: { control: 'text' }, // or 'number' if preferred
+    size: { control: 'text' },
     iconClass: { control: 'text' },
-    isLightTheme: { control: 'boolean' }, // Added missing control
-    onClick: { action: 'clicked' }, // Useful for testing button clicks
+    isLightTheme: { control: 'boolean' },
+    onClick: { action: 'clicked' },
   },
 }
 
-// Светлая тема с черным фоном
 export const LightTheme = {
   parameters: {
-    backgrounds: { default: 'black' }, // ✅ Черный фон только для LightTheme
+    backgrounds: { default: 'black' },
   },
   args: {
     buttonClass: '',
@@ -30,7 +29,6 @@ export const LightTheme = {
   },
 }
 
-// Темная тема (фон по умолчанию)
 export const DarkTheme = {
   parameters: {
     backgrounds: { default: 'white' }
