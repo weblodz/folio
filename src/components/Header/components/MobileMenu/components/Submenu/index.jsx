@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
-import styles from './subMenu.module.scss'
+import ArrowRightButton from '@components/UiKit/Buttons/ArrowRight'
+import styles from './submenu.module.scss'
 
 export default function SubMenu({ activeSubMenu, MENU_LINKS }) {
   const selectedMenu = MENU_LINKS.find((link) => link.name === activeSubMenu)
@@ -19,6 +20,9 @@ export default function SubMenu({ activeSubMenu, MENU_LINKS }) {
             <a key={item.name} href={item.url} className={styles.item} data-name={item.dataName || ''}>
               <img src={item.image} alt={item.name} className={styles.image} />
               <span className={styles.text}>{item.name}</span>
+              <div className={styles.arrow_container}>
+                <ArrowRightButton className={styles.arrow} icon={styles.icon} size={'20'} />
+              </div>
             </a>
           ))}
         </div>

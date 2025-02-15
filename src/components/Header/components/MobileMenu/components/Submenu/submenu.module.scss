@@ -86,18 +86,24 @@
     justify-content: center;
 }
 
-.item[data-name='Reserve'] .text {
-    color: var(--common-color-bg-inverse-primary) !important;
+.item[data-name='Reserve'] .text,
+.item[data-name='Reserve'] .arrow_container .arrow {
+    color: black;
+    fill: black;
+}
+
+.item[data-name='Reserve'] .arrow_container .icon {
+    border-color: var(--common-color-bg-inverse-primary);
 }
 
 .submenu .arrow_container:hover .icon {
-    background-color: transparent !important;
+    background-color: transparent;
     border-color: var(--common-color-text-inverse-secondary);
 }
 
 .submenu .arrow_container:hover .arrow {
-    transform: none !important;
-    fill: var(--common-color-text-inverse-secondary) !important;
+    transform: none;
+    fill: var(--common-color-text-inverse-secondary);
 }
 
 .text_submenu {
@@ -126,6 +132,31 @@
     cursor: pointer;
     font-size: 20px;
     color: var(--common-color-text-primary);
+}
+
+.arrow_container {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 2px;
+    left: 5px
+}
+
+.icon {
+    width: 30px !important;
+    height: 30px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .language_button {
