@@ -15,26 +15,18 @@
     font-size: 1.1rem;
     font-weight: 600;
     border-radius: 1px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition:
       background-color 0.3s ease,
       box-shadow 0.3s ease;
 
     &:hover {
-      background-color: black;
+      background-color: transparent;
       color: var(--common-color-bg-primary);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     }
 
     &:hover {
       .arrow {
         transform: translateX(3px);
-        fill: var(--common-color-text-inverse-primary);
-      }
-
-      .icon{
-        border: 0.5px solid var(--common-color-text-inverse-primary);
-        border-radius: 50%;
       }
     }
   }
