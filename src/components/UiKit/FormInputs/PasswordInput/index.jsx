@@ -4,8 +4,8 @@ import EyeShown from "@components/UiKit/Icons/EyeShown/index.jsx"
 import EyeHidden from "@components/UiKit/Icons/EyeHidden/index.jsx"
 import styles from "./password.module.scss"
 
-const PasswordInput = forwardRef(({ isValid = true, errorMessage, ...rest }, ref) => {
-  const [isInputFocused, setIsInputFocused] = useState(rest?.defaultValue)
+const PasswordInput = forwardRef(({ isValid = true, errorMessage, defaultValue, onFocus, onBlur, ...rest }, ref) => {
+  const [isInputFocused, setIsInputFocused] = useState(defaultValue)
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
   const inputStyle = isValid
@@ -35,13 +35,13 @@ const PasswordInput = forwardRef(({ isValid = true, errorMessage, ...rest }, ref
               {...rest}
               onFocus={(event) => {
                 setIsInputFocused(true)
-                rest.onFocus?.(event)
+                onFocus?.(event)
               }}
               onBlur={(event) => {
                 if (!event.target.value) {
                   setIsInputFocused(false)
                 }
-                rest.onBlur?.(event)
+                onBlur?.(event)
               }}
             />
             <span className={styles.toggle_wrapper}>
@@ -68,4 +68,7 @@ export default PasswordInput
 PasswordInput.propTypes = {
   isValid: T.bool.isRequired,
   errorMessage: T.string.isRequired,
+  onFocus: T.func,
+  onBlur: T.func,
+  defaultValue: T.string,
 }
