@@ -15,48 +15,35 @@
     font-size: 1.1rem;
     font-weight: 600;
     border-radius: 1px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition:
       background-color 0.3s ease,
       box-shadow 0.3s ease;
 
     &:hover {
-      background-color: black;
+      background-color: transparent;
       color: var(--common-color-bg-primary);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     }
 
     &:hover {
       .arrow {
         transform: translateX(3px);
-        fill: var(--common-color-text-primary);
       }
-    }
-  }
-
-  .arrow {
-    &:hover {
-      color: var(--common-color-bg-primary);
     }
   }
 
   .content {
     display: flex;
     align-items: center;
+    gap: 10px;
 
     .icon {
       width: 32px;
       height: 32px;
-      background-color: var(--common-color-bg-primary);
-      border: 1px solid var(--common-color-bg-inverse-primary);
-      margin-right: 10px;
       transition:
-        background-color 0.3s ease,
-        border-color 0.3s ease;
+        background-color 0.3s ease;
 
       &:hover {
-        background-color: var(--common-color-bg-primary);
-        border-color: var(--common-color-bg-inverse-primary);
+        border-color: var(--common-color-text-inverse-primary);
       }
     }
 
@@ -76,4 +63,8 @@
       transform: translateX(0);
     }
   }
+}
+
+.arrow{
+  transform: translateX(0);
 }
