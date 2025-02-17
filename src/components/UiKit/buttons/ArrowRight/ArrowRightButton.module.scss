@@ -6,6 +6,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border: solid 1px var(--common-color-bg-inverse-primary);
+  border-radius: 50%;
+  transition: border-color 0.3s ease;
+}
+
+.light {
+  border-color: var(--common-color-text-inverse-primary);
 }
 
 .icon {
@@ -22,8 +29,13 @@
   padding-left: 2px;
   transition: transform 0.5s ease, fill 0.5s ease;
   transform: translateX(0);
+  fill: var(--common-color-bg-inverse-primary);
 
   &:hover {
     transform: translateX(3px);
   }
+}
+
+.light .arrow {
+  fill: var(--common-color-text-inverse-primary);
 }

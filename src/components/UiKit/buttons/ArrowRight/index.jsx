@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import cls from 'classnames'
 import styles from './ArrowRightButton.module.scss'
 
 export default function ArrowRightButton({
@@ -9,23 +10,16 @@ export default function ArrowRightButton({
   iconClass = '',
   onClick = () => {},
 }) {
-  const theme = isLightTheme
-    ? 'var(--common-color-text-inverse-primary)'
-    : 'var(--common-color-bg-inverse-primary)'
-
   return (
     <button
-      className={`${styles.button} ${buttonClass}`}
-      style={{
-        border: `solid 1px ${theme}`,
-        borderRadius: '50%',
-      }}
+      className={cls(styles.button, buttonClass, {
+        [styles.light]: isLightTheme
+      })}
       onClick={onClick}
     >
-      <span className={`${styles.icon} ${iconClass}`}>
+      <span className={cls(styles.icon, iconClass)}>
         <svg
-          className={`${styles.arrow} ${className}`}
-          fill={theme}
+          className={cls(styles.arrow, className)}
           width={size}
           height={size}
           viewBox={`0 0 ${size} ${size}`}
