@@ -8,7 +8,7 @@ function MoreLink() {
       <Link to="/about">
         <div className={styles.pageLinkContainer}>
           <span>
-            <ArrowRightButton className={styles.icon} isLightTheme={true} size={'20'} />
+            <ArrowRightButton iconClass={styles.icon} isLightTheme={true} size={'20'} />
           </span>
           <p className={styles.pageLinkText}>MORE ABOUT US</p>
         </div>

@@ -47,10 +47,6 @@
   text-decoration: none;
 
   &:hover {
-    .icon {
-      background-color: var(--common-color-bg-primary);
-    }
-
     .arrow {
       transform: translateX(3px);
     }
@@ -65,8 +61,8 @@
 }
 
 .icon {
-  width: 33px !important;
-  height: 33px !important;
+  width: 33px;
+  height: 33px;
 }
 
 .text {

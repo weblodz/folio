@@ -14,7 +14,7 @@ export default function NewsletterLink() {
           {t('eventInfo')}
         </dd>
       </dl>
-      <ArrowRightButton className={styles.arrow} icon={styles.icon} isLightTheme={true}/>
+      <ArrowRightButton className={styles.arrow} iconClass={styles.icon} isLightTheme={true}/>
     </div>
   )
 }
