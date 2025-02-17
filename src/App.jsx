@@ -1,6 +1,6 @@
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-import AppRoutes from '@routing/Routes/index'
+import AppRoutes from '@routing/Routes'
 import styles from './app.module.scss'
 
 function App() {

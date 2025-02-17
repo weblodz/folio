@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
 import Home from '@pages/Home'
-import SignIn from '@pages/Authentication/SignIn'
-import SignUp from '@pages/Authentication/SignUp'
-import Profile from '@pages/Authentication/Profile'
+import SignIn from '@pages/Auth/SignIn'
+import SignUp from '@pages/Auth/SignUp'
+import Profile from '@pages/Auth/Profile'
 import routes from '../path'
 
 function AppRoutes() {
