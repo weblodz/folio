@@ -78,14 +78,6 @@
     left: 5px
 }
 
-.icon {
-    width: 30px !important;
-    height: 30px !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .item[data-name='Reserve'] .text,
 .item[data-name='Reserve'] .arrow_container .arrow {
     color: black;
@@ -120,7 +112,7 @@
 
 .text_submenu a {
     font-family: var(--common-font-en), sans-serif;
-    font-weight: 300 !important;
+    font-weight: 300 ;
     font-size: 24px;
     font-weight: 600;
     color: var(--common-color-bg-inverse-primary);

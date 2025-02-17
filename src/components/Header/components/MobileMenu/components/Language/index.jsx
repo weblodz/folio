@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import cls from 'classnames'
-import LanguageIcon from '@components/UiKit/Icons/Language/index.jsx'
+import LanguageIcon from '@components/UiKit/Icons/Language'
 import { useTranslation } from 'react-i18next'
 import styles from './language.module.scss'
 
