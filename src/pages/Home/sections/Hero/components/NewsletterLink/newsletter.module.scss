@@ -28,13 +28,8 @@
   }
 
   &:hover {
-    .icon {
-      background-color: #fff;
-    }
-
     .arrow {
       transform: translateX(3px);
-      fill: var(--common-color-text-primary);
     }
   }
 
@@ -66,4 +61,8 @@
   font-size: 0.875rem;
   font-weight: normal;
   line-height: 1.4;
+}
+
+.arrow {
+  transform: translateX(0);
 }

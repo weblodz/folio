@@ -1,18 +1,25 @@
 import PropTypes from 'prop-types'
+import cls from 'classnames'
 import styles from './ArrowRightButton.module.scss'
 
 export default function ArrowRightButton({
+  buttonClass = '',
   className = '',
-  fill = 'var(--common-color-text-inverse-primary)',
+  isLightTheme = false,
   size = '18',
-  icon = '',
+  iconClass = '',
+  onClick = () => {},
 }) {
   return (
-    <button className={`${styles.button}`}>
-      <span className={`${styles.icon} ${icon}`}>
+    <button
+      className={cls(styles.button, buttonClass, {
+        [styles.light]: isLightTheme
+      })}
+      onClick={onClick}
+    >
+      <span className={cls(styles.icon, iconClass)}>
         <svg
-          className={`${styles.arrow} ${className}`}
-          fill={fill}
+          className={cls(styles.arrow, className)}
           width={size}
           height={size}
           viewBox={`0 0 ${size} ${size}`}
@@ -30,8 +37,10 @@ export default function ArrowRightButton({
 }
 
 ArrowRightButton.propTypes = {
+  buttonClass: PropTypes.string,
   className: PropTypes.string,
-  fill: PropTypes.string,
+  isLightTheme: PropTypes.bool,
   size: PropTypes.string,
-  icon: PropTypes.string,
+  iconClass: PropTypes.string,
+  onClick: PropTypes.func,
 }
