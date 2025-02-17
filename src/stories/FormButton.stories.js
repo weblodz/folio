@@ -1,4 +1,4 @@
-import FormButton from '@components/UiKit/Buttons/FormButton/'
+import FormButton from '@components/UiKit/Buttons/FormButton'
 
 export default {
   title: 'FormButton',

@@ -1,4 +1,4 @@
-import PasswordInput from '@components/UiKit/FormInputs/PasswordInput/index.jsx'
+import PasswordInput from '@components/UiKit/FormInputs/PasswordInput'
 
 export default {
   title: 'PasswordInput',

@@ -1,5 +1,4 @@
-import EmailInput from '@components/UiKit/FormInputs/EmailInput/index.jsx'
-
+import EmailInput from '@components/UiKit/FormInputs/EmailInput'
 
 export default {
   title: 'EmailInput',
