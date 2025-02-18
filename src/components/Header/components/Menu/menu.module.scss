@@ -1,12 +1,18 @@
 @use '/src/styles/variables' as *;
 
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .menu {
   position: fixed;
   top: 80px;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: white;
+  height: 95%;
+  background: var(--common-color-bg-primary);
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -16,12 +22,7 @@
 
 .menu_list {
   flex-grow: 1;
-}
-
-.newsletter_container {
-  margin-top: auto;
-  border-top: 1px solid #E0E0E0;
-  text-align: center;
+  height: 65%;
 }
 
 .menu::-webkit-scrollbar {
