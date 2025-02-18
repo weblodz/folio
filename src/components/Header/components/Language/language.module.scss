@@ -1,3 +1,5 @@
+@use '/src/styles/variables' as *;
+
 .icon {
   display: flex;
   align-items: center;
@@ -63,11 +65,10 @@
   display: flex;
   opacity: 1;
   gap: 48px;
-
 }
 
-@media (max-width: 900px) {
-  .icon {
+@media (max-width: $screen-tablet){
+  .icon{
     display: none;
   }
 }

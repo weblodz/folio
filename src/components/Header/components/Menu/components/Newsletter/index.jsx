@@ -3,7 +3,7 @@ import styles from './newsletter.module.scss'
 
 export default function Newsletter({ SOCIAL_LINKS }) {
   return (
-    <div className={styles.footer}>
+    <div className={styles.container}>
       <p className={styles.title}>Stay in the loop</p>
       <p className={styles.description}>Subscribe to get our news, updates, and event information.</p>
       <a href="/subscribe" className={styles.subscribe}>

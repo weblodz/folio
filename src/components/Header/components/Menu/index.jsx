@@ -1,0 +1,37 @@
+import { useEffect } from 'react'
+import PropTypes from 'prop-types'
+import SOCIAL_LINKS from '@components/Footer/Components/Socials/socialLinks'
+import MenuList from './components/MenuList'
+import Newsletter from './components/Newsletter'
+import styles from './menu.module.scss'
+
+export default function Menu({ onClose }) {
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        onClose()
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [onClose])
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.menu}>
+        <div className={styles.menu_list}>
+          <MenuList />
+        </div>
+        <div className={styles.newsletter_container}>
+          <Newsletter SOCIAL_LINKS={SOCIAL_LINKS} />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+Menu.propTypes = {
+  onClose: PropTypes.func.isRequired,
+}

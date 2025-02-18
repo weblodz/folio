@@ -1,7 +1,9 @@
 @use '/src/styles/variables' as *;
 
 .nav {
-  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 60px;
 }
 
 .list {
@@ -13,12 +15,11 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-left: 20px;
 }
 
 .item {
   position: relative;
-  margin-right: -10px;
+  margin-bottom: 15px;
 }
 
 .link,
@@ -32,13 +33,31 @@
   align-items: center;
   transition: color 0.3s;
   font-family: var(--common-font-en), sans-serif;
-  padding: 12px 20px;
+  padding: 12px 1px;
   background: none;
   border: none;
   width: 100%;
   text-align: left;
   cursor: pointer;
 }
+
+.separator {
+  position: relative;
+  padding-top: 10px;
+  margin-top: 10px;
+  width: 85%;
+}
+
+.separator::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--common-color-bg-tertiary);
+}
+
 
 .nav:hover .item_button,
 .nav:hover .link {
@@ -51,10 +70,11 @@
 }
 
 .arrow {
-  position: absolute;
-  right: 40px;
-  color: rgb(0, 0, 0);
+  position: relative;
+  right: 55px;
   font-size: 16px;
+  color: var(--common-color-border-strong);
+  transition: transform 0.3s ease-in-out;
 }
 
 .submenu {
@@ -76,17 +96,17 @@
 }
 
 .image_container {
-  width: calc(100vw - 10%);
-  max-width: 100%;
-  min-width: calc(20vw + 650px);
+  width: 100%;
+  max-width: 700px;
   height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: -10px;
 }
 
 .image {
-  width: 100%;
+  width: 98%;
   height: auto;
   object-fit: cover;
   display: block;
@@ -109,15 +129,15 @@
 
 .border {
   border-left: 3px solid var(--common-color-bg-tertiary);
-  padding-left: 25px;
   margin-left: 20px;
+  padding-left: 15px;
 }
 
 .image_text {
   position: absolute;
   font-family: var(--common-font-en), sans-serif;
-  bottom: 5px;
-  left: 15px;
+  bottom: 1px;
+  left: 5px;
   font-size: 24px;
   color: var(--common-color-text-inverse-primary);
   padding: 8px 12px;
@@ -127,6 +147,12 @@
 
 .submenu_item[data-name="Reserve"] .image_text {
   color: var(--common-color-bg-inverse-primary) !important;
+}
+
+.item_button[data-name="separator"] .image_text {
+  position: relative;
+  padding-top: 15px;
+  margin-top: 10px;
 }
 
 .list {
@@ -147,12 +173,10 @@
   background: none;
   border: none;
   width: 100%;
-  border-left: 3px solid var(--common-color-bg-tertiary);
   text-align: left;
   padding: 12px 20px;
   cursor: pointer;
   transition: color 0.3s ease-in-out;
-  margin-left: 20px;
 
   &:hover {
     color: var(--common-color-bg-inverse-primary) !important;
@@ -163,39 +187,51 @@
   }
 }
 
-@media (max-width: $screen-laptop) {
-  .image_container {
-    min-width: calc(20vw + 650px);
-  }
-
-  .submenu {
-    display: block;
-  }
-
-  .item {
-    margin-bottom: 20px;
-  }
-
-  .list {
-    margin-bottom: 40px;
-    padding-left: 20px;
-    margin-top: 90px;
+@media (max-width: $screen-mobile-l) {
+  .nav {
+    margin-left: 50px;
   }
 
   .arrow {
-    right: 70px;
+    right: 45px;
+  }
+
+  .image_text {
+    font-size: 22px;
+    bottom: -10px;
+    left: -5px;
+  }
+
+  .image_container {
+    margin-left: -20px;
+    margin-top: -10px;
   }
 }
 
-@media (max-width: $screen-tablet-l) {
-  .image_container {
-    min-width: calc(20vw + 550px);
+@media (max-width: $screen-mobile-m) {
+  .nav {
+    margin-left: 40px;
+  }
+
+  .arrow {
+    right: 35px;
+  }
+
+  .image_text {
+    font-size: 20px;
   }
 }
 
-@media (max-width: $screen-tablet) {
-  .image_container {
-    width: calc(90vw - 10%);
-    min-width: auto;
+@media (max-width: $screen-mobile-s) {
+  .nav {
+    margin-left: 35px;
+  }
+
+  .arrow {
+    right: 25px;
+  }
+
+  .image_text {
+    font-size: 18px;
   }
 }
