@@ -1,5 +1,4 @@
 import T from 'prop-types'
-import * as propTypes from 'prop-types'
 
 function GoogleLogIn({ size=44 }) {
   return (
@@ -19,5 +18,5 @@ function GoogleLogIn({ size=44 }) {
 export default GoogleLogIn
 
 GoogleLogIn.propTypes = {
-  size: propTypes.number,
+  size: T.number,
 }
