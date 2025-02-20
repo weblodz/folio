@@ -3,8 +3,10 @@
 
 .container {
   width: 100%;
-  background-color: var(--common-color-bg-tertiary);
+  min-width: 360px;
   min-height: 100dvh;
+  background-color: var(--common-color-bg-tertiary);
+  font-family: var(--common-font-en), sans-serif;
 }
 
 .content_container{
@@ -72,12 +74,12 @@
   line-height: 17px;
   display: block;
   color: rgb(0, 0, 0);
-  font-weight: normal;
+  font-weight: bold;
   white-space: normal;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 
   @media(max-width: $screen-tablet-l){
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
 }
 
@@ -103,7 +105,7 @@
 }
 
 .social_medias_title{
-  font-size: 1.1rem;
+  font-size: 0.9rem;
 }
 
 hr {
