@@ -1,6 +1,5 @@
-import GoogleLogIn from '@components/UiKit/Icons/GoogleLogIn/index.jsx'
-import GithubLogIn from '@components/UiKit/Icons/GithubLogIn/index.jsx'
 import DataPolicy from '@components/Auth/DataPolicy/index.jsx'
+import SocialMedias from '@components/Auth/SocialMedias/index.jsx'
 import styles from './signin.module.scss'
 
 function SignIn(){
@@ -15,14 +14,7 @@ function SignIn(){
                 Forgot your password?
               </span>
             </div>
-            <div className={styles.social_medias}>
-              <div className={styles.social_media_icon_container}>
-                <GoogleLogIn />
-              </div>
-              <div className={styles.social_media_icon_container}>
-                <GithubLogIn />
-              </div>
-            </div>
+            <SocialMedias />
             <DataPolicy />
             <hr />
             <div className={styles.create_account_container}>
