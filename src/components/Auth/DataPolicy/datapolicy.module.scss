@@ -1,0 +1,26 @@
+.container {
+  box-sizing: border-box;
+  margin: 24px 0 16px;
+}
+
+.text {
+  margin: 0;
+  min-width: 0;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  display: inline;
+  color: var(--common-color-text-secondary);
+  font-weight: normal;
+  white-space: normal;
+  letter-spacing: 1px;
+
+  .text_link{
+    cursor: pointer;
+    border-bottom: 1px solid var(--common-color-text-secondary);
+    margin: 0 5px 0 5px;
+
+    &:hover{
+      opacity: 0.6;
+    }
+  }
+}
