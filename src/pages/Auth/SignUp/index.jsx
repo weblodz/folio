@@ -27,7 +27,10 @@ function SignUp(){
             </div>
             <DataPolicy />
             <hr />
-            <button className={styles.sign_in_button} onClick={() => {navigate('/sign-in')}}>
+            <button className={styles.sign_in_button} onClick={() => {
+              navigate('/sign-in')
+              window.scrollTo({ top: 0, behavior: "smooth" })
+            }}>
               Sign in
             </button>
           </div>
