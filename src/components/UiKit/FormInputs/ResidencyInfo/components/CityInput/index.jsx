@@ -105,7 +105,7 @@ function CityInput({
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
-              {searchTerm && <IoClose className={styles.clear_icon} onClick={() => setSearchTerm('')} />}
+              {<IoClose className={styles.clear_icon} onClick={() => setSearchTerm('')} />}
             </div>
             <div className={styles.search_border}></div>
           </div>
