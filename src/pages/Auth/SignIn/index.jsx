@@ -21,7 +21,10 @@ function SignIn(){
           <DataPolicy />
           <hr />
           <div className={styles.create_account_container}>
-            <button className={styles.create_account_button} onClick={() => {navigate('/sign-up')}}>
+            <button className={styles.create_account_button} onClick={() => {
+              navigate('/sign-up')
+              window.scrollTo({ top: 0, behavior: "smooth" })
+            }}>
               Create Account
             </button>
           </div>
