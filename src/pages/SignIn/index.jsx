@@ -1,5 +1,6 @@
 import GoogleLogIn from '@components/UiKit/Icons/GoogleLogIn/index.jsx'
 import GithubLogIn from '@components/UiKit/Icons/GithubLogIn/index.jsx'
+import DataPolicy from '@components/Auth/DataPolicy/index.jsx'
 import styles from './signin.module.scss'
 
 function SignIn(){
@@ -22,16 +23,7 @@ function SignIn(){
                 <GithubLogIn />
               </div>
             </div>
-            <div className={styles.personal_data_policy}>
-              <span className={styles.text}>
-                By signing up with your social accounts, you agree to Sony Honda Mobility&amp;apos;s
-                <span className={styles.text_link}>AFEELA Account Terms and Conditions</span>
-                and
-                <span className={styles.text_link}>Privacy Policy.</span>
-                You also agree that Sony Honda Mobility, its affiliates and service providers
-                send you newsletters, marketing materials and other information.
-              </span>
-            </div>
+            <DataPolicy />
             <hr />
             <div className={styles.create_account_container}>
               <button className={styles.create_account_button}>
