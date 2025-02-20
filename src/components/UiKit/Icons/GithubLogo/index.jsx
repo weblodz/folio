@@ -1,6 +1,6 @@
 import T from 'prop-types'
 
-function GithubLogIn({ size=100 }) {
+function GithubLogo({ size=100 }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width={size} height={size} viewBox="0 0 50 50">
       <path
@@ -9,8 +9,8 @@ function GithubLogIn({ size=100 }) {
   )
 }
 
-export default GithubLogIn
+export default GithubLogo
 
-GithubLogIn.propTypes = {
+GithubLogo.propTypes = {
   size: T.number,
 }
