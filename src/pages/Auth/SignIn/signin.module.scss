@@ -4,8 +4,9 @@
 .container {
   width: 100%;
   min-width: 360px;
-  background-color: var(--common-color-bg-tertiary);
   min-height: 100dvh;
+  background-color: var(--common-color-bg-tertiary);
+  font-family: var(--common-font-en), sans-serif;
 }
 
 .content_container{
@@ -44,7 +45,6 @@
   display: block;
   color: rgb(0, 0, 0);
   font-weight: bold;
-  font-family: var(--common-font-en), sans-serif;
   white-space: normal;
   letter-spacing: 1px;
 }
