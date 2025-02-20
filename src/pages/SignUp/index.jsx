@@ -1,8 +1,6 @@
-import GoogleLogIn from '@components/UiKit/Icons/GoogleLogo/index.jsx'
-import GithubLogIn from '@components/UiKit/Icons/GithubLogo/index.jsx'
-import styles from './signup.module.scss'
 import SocialMedias from '@components/Auth/SocialMedias/index.jsx'
 import DataPolicy from '@components/Auth/DataPolicy/index.jsx'
+import styles from './signup.module.scss'
 
 function SignUp(){
   return (
