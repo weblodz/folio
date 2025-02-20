@@ -1,8 +1,11 @@
 import SocialMedias from '@components/Auth/SocialMedias/index.jsx'
 import DataPolicy from '@components/Auth/DataPolicy/index.jsx'
+import { useNavigate } from 'react-router-dom'
 import styles from './signup.module.scss'
 
 function SignUp(){
+  const navigate = useNavigate()
+
   return (
     <div className={styles.container}>
       <div className={styles.content_container}>
@@ -24,7 +27,7 @@ function SignUp(){
             </div>
             <DataPolicy />
             <hr />
-            <button className={styles.sign_in_button}>
+            <button className={styles.sign_in_button} onClick={() => {navigate('/sign-in')}}>
               Sign in
             </button>
           </div>
