@@ -1,6 +1,6 @@
 import T from 'prop-types'
 
-function GoogleLogIn({ size=44 }) {
+function GoogleLogo({ size=44 }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size/2} viewBox="0 0 47 48" fill="none">
       <path fill={'#4285F4'}
@@ -15,8 +15,8 @@ function GoogleLogIn({ size=44 }) {
   )
 }
 
-export default GoogleLogIn
+export default GoogleLogo
 
-GoogleLogIn.propTypes = {
+GoogleLogo.propTypes = {
   size: T.number,
 }
