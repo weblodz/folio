@@ -1,0 +1,29 @@
+@mixin auth_hr_style(){
+  width: 100%;
+  padding: 0;
+  margin: 32px 0 32px 0;
+  border-image: none;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-style: solid;
+  border-width: 1px 0 0;
+}
+
+@mixin auth_bottom_button(){
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 4px;
+  -moz-box-align: center;
+  align-items: center;
+  padding: 9px 24px;
+  font-size: 0.9rem;
+  border-radius: 24px;
+  transition: none;
+  color: rgba(0, 0, 0, 1);
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+
+  &:hover{
+    opacity: 0.6;
+  }
+}
