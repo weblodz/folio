@@ -4,6 +4,7 @@ import styles from "./nameinput.module.scss"
 
 const validateName = (name) => {
   if (!name.trim()) return "Enter your first name"
+  if (!/^[a-zA-Z'’-]+$/.test(name)) return "Unsupported characters detected"
 
   return ""
 }
