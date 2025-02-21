@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import styles from "./surnameinput.module.scss"
 
 const validateSurname = (surname) => {
-  if (!surname.trim()) return "Enter your surname"
+  if (!surname.trim()) return "Enter your last name"
   if (!/^[a-zA-Z'’-]+$/.test(surname)) return "Unsupported characters detected"
 
   return ""
