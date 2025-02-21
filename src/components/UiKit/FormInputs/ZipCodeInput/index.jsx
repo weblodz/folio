@@ -37,6 +37,7 @@ const ZipCodeInput = forwardRef(
       }
 
       let fetchedCity = ''
+      let isValidZip = false
 
       try {
         let response, data
@@ -44,11 +45,17 @@ const ZipCodeInput = forwardRef(
         if (country === 'United Kingdom') {
           response = await fetch(`https://api.postcodes.io/postcodes/${zipCode}`)
           data = await response.json()
-          if (data.status === 200) fetchedCity = data.result.admin_district
+          if (data.status === 200) {
+            fetchedCity = data.result.admin_district
+            isValidZip = true
+          }
         } else if (country === 'Poland') {
           response = await fetch(`https://api.zippopotam.us/pl/${zipCode}`)
           data = await response.json()
-          if (data.places?.length > 0) fetchedCity = data.places[0]['place name']
+          if (data.places?.length > 0) {
+            fetchedCity = data.places[0]['place name']
+            isValidZip = true
+          }
         }
       } catch (error) {
         console.error('Error fetching city:', error)
@@ -57,9 +64,9 @@ const ZipCodeInput = forwardRef(
       if (fetchedCity) {
         sessionStorage.setItem('selectedCity', fetchedCity)
         window.dispatchEvent(new Event('storage'))
-      } else {
-        setValidity(false)
       }
+
+      setValidity(isValidZip)
     }
 
     const handleZipChange = (e) => {
