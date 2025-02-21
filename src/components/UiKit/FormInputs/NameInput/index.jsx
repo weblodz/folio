@@ -31,7 +31,7 @@ const NameInput = forwardRef(({ value, onChange, errorMessage, ...rest }, ref) =
     <div className={styles.name_container}>
       <div className={styles.name_input_container} tabIndex={0}>
         <input
-          className={isValid ? styles.name_input : `${styles.name_input} ${styles.invalid_name_input}`}
+          className={isValid ? styles.name_input : `${styles.name_input} ${styles.invalid_input}`}
           type="text"
           ref={ref}
           value={value}
@@ -48,7 +48,7 @@ const NameInput = forwardRef(({ value, onChange, errorMessage, ...rest }, ref) =
   )
 })
 
-NameInput.displayName = "NameInput"
+NameInput.displayName = "First Name"
 
 export default NameInput
 
