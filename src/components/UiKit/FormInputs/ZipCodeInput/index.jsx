@@ -3,9 +3,18 @@ import T from 'prop-types'
 import styles from './zipCodeInput.module.scss'
 
 const ZipCodeInput = forwardRef(
-  ({ isValid, errorMessage = 'Ensure your ZIP code is correct', defaultValue = '', ...rest }, ref) => {
+  (
+    {
+      isValid,
+      errorMessage = 'Ensure your ZIP code is correct',
+      defaultValue = '',
+      zipTouched: forcedZipTouched = false,
+      ...rest
+    },
+    ref,
+  ) => {
     const [zip, setZip] = useState(defaultValue)
-    const [zipTouched, setZipTouched] = useState(false)
+    const [zipTouched, setZipTouched] = useState(forcedZipTouched)
     const [validity, setValidity] = useState(isValid)
     const country = sessionStorage.getItem('selectedCountry') || 'Poland'
 
@@ -74,12 +83,10 @@ const ZipCodeInput = forwardRef(
 
       setZip(newZip)
       sessionStorage.setItem('enteredZip', newZip)
-
       fetchCityFromZip(newZip)
     }
 
     const zipStyle = validity ? `${styles.text_input}` : `${styles.text_input} ${styles.invalid_text_input}`
-
     const labelStyle = zip ? `${styles.label_text} ${styles.focused_label_text}` : styles.label_text
 
     return (
@@ -108,6 +115,7 @@ ZipCodeInput.propTypes = {
   isValid: T.bool.isRequired,
   errorMessage: T.string.isRequired,
   defaultValue: T.string,
+  zipTouched: T.bool,
 }
 
 export default ZipCodeInput

@@ -1,16 +1,14 @@
 import CountryInput from '@components/UiKit/FormInputs/CountryInput'
 
 export default {
-  title: 'Components/CountryInput',
+  title: 'CountryInput',
   component: CountryInput,
   argTypes: {
     defaultValue: {
       control: 'text',
-      description: 'The default selected country',
     },
     onChange: {
       action: 'changed',
-      description: 'Triggered when a new country is selected',
     },
   },
 }

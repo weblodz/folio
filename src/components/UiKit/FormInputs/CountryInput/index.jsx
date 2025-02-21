@@ -4,22 +4,20 @@ import T from 'prop-types'
 import styles from './countryInput.module.scss'
 
 const CountryInput = forwardRef(({ defaultValue = 'Poland', onChange, ...rest }, ref) => {
-  const [country, setCountry] = useState(defaultValue)
+  const [country, setCountry] = useState(() => sessionStorage.getItem('selectedCountry') || defaultValue)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
   useEffect(() => {
-    setCountry(defaultValue)
-  }, [defaultValue])
-
-  useEffect(() => {
     const handleStorageChange = () => {
-      setCountry(sessionStorage.getItem('selectedCountry') || 'Poland')
+      const storedCountry = sessionStorage.getItem('selectedCountry') || defaultValue
+
+      setCountry(storedCountry)
     }
 
     window.addEventListener('storage', handleStorageChange)
 
     return () => window.removeEventListener('storage', handleStorageChange)
-  }, [])
+  }, [defaultValue])
 
   const handleCountryChange = (e) => {
     const selectedCountry = e.target.value

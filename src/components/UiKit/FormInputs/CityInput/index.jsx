@@ -6,12 +6,22 @@ import T from 'prop-types'
 import styles from './cityInput.module.scss'
 
 const CityInput = forwardRef(
-  ({ defaultValue = '', defaultOpen = false, onChange, errorMessage = 'Select your city', ...rest }, ref) => {
-    const [city, setCity] = useState(sessionStorage.getItem('selectedCity') || defaultValue)
+  (
+    {
+      defaultValue = '',
+      errorMessage = 'Select your city',
+      defaultOpen = false,
+      cityTouched: forcedCityTouched = false,
+      onChange,
+      ...rest
+    },
+    ref,
+  ) => {
+    const [city, setCity] = useState(defaultValue)
     const [cities, setCities] = useState([])
     const [loading, setLoading] = useState(false)
     const [searchTerm, setSearchTerm] = useState('')
-    const [cityTouched, setCityTouched] = useState(false)
+    const [cityTouched, setCityTouched] = useState(forcedCityTouched)
     const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(defaultOpen)
     const [country, setCountry] = useState(sessionStorage.getItem('selectedCountry') || 'Poland')
 
@@ -32,7 +42,6 @@ const CityInput = forwardRef(
           const data = await response.json()
 
           setCities(data.data || [])
-          setCity('')
         } catch (error) {
           console.error('Error fetching cities:', error)
         }
@@ -44,9 +53,7 @@ const CityInput = forwardRef(
 
     useEffect(() => {
       const handleStorageChange = () => {
-        const storedCity = sessionStorage.getItem('selectedCity') || ''
-
-        setCity(storedCity)
+        setCity(sessionStorage.getItem('selectedCity') || '')
         setCountry(sessionStorage.getItem('selectedCountry') || 'Poland')
       }
 
@@ -70,7 +77,7 @@ const CityInput = forwardRef(
       sessionStorage.setItem('selectedCity', selectedCity)
       window.dispatchEvent(new Event('storage'))
       setIsCityDropdownOpen(false)
-      setCityTouched(false)
+      setCityTouched(true)
       if (onChange) onChange(selectedCity)
     }
 
@@ -161,6 +168,7 @@ CityInput.propTypes = {
   defaultOpen: T.bool,
   onChange: T.func,
   errorMessage: T.string,
+  cityTouched: T.bool,
 }
 
 export default CityInput

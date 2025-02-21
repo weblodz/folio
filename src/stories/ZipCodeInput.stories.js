@@ -1,20 +1,20 @@
 import ZipCodeInput from '@components/UiKit/FormInputs/ZipCodeInput'
 
 export default {
-  title: 'Components/ZipCodeInput',
+  title: 'ZipCodeInput',
   component: ZipCodeInput,
   argTypes: {
     isValid: {
       control: 'boolean',
-      description: 'Whether the ZIP code is valid',
     },
     errorMessage: {
       control: 'text',
-      description: 'The error message to display when the ZIP code is invalid',
     },
     defaultValue: {
       control: 'text',
-      description: 'The default value for the ZIP code input',
+    },
+    zipTouched: {
+      control: 'boolean',
     },
   },
 }
@@ -24,6 +24,7 @@ export const EmptyValid = {
     isValid: true,
     errorMessage: '',
     defaultValue: '',
+    zipTouched: false,
   },
 }
 
@@ -32,12 +33,7 @@ export const EmptyInvalid = {
     isValid: false,
     errorMessage: 'Enter your Zip code',
     defaultValue: '',
-  },
-  play: async ({ canvasElement }) => {
-    const input = canvasElement.querySelector('input')
-
-    input.focus()
-    input.blur()
+    zipTouched: true,
   },
 }
 
@@ -46,6 +42,7 @@ export const Valid = {
     isValid: true,
     errorMessage: '',
     defaultValue: '00-001',
+    zipTouched: true,
   },
 }
 
@@ -54,11 +51,6 @@ export const Invalid = {
     isValid: false,
     errorMessage: 'Ensure your ZIP code is correct',
     defaultValue: '10001',
-  },
-  play: async ({ canvasElement }) => {
-    const input = canvasElement.querySelector('input')
-
-    input.focus()
-    input.blur()
+    zipTouched: true,
   },
 }
