@@ -48,7 +48,7 @@ const SurnameInput = forwardRef(({ value, onChange, errorMessage, ...rest }, ref
   )
 })
 
-SurnameInput.displayName = "Last Name"
+SurnameInput.displayName = "SurnameInput"
 
 export default SurnameInput
 
