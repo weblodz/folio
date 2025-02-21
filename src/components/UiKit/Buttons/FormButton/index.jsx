@@ -1,11 +1,11 @@
 import T from 'prop-types'
 import LoadingIcon from '@components/UiKit/Icons/LoadingIcon/index.jsx'
-import styles from './formbuttom.module.scss'
+import styles from './formbutton.module.scss'
 
 function FormButton({ text, isActive, onClick, isLoading }) {
   const buttonStyle = isActive && !isLoading
     ? styles.active_button
-    : styles.inactive_buttondcd
+    : styles.inactive_button
 
   return (
     <button className={buttonStyle}
