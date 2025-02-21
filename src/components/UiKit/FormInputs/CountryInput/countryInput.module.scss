@@ -1,10 +1,11 @@
 .input_container {
   contain: layout;
   box-sizing: border-box;
+  padding-bottom: 10px;
 
   .text_input {
     box-sizing: border-box;
-    width: 100%;
+    width: 250px;
     height: 52px;
     padding: 24px 16px 8px;
     line-height: 1;
@@ -68,10 +69,12 @@
   padding-right: 30px;
 }
 
-.error_message {
-  bottom: -18px;
-  min-height: 15px;
-  margin-top: 3px;
-  font-size: 0.765rem;
-  color: var(--common-color-text-text-error);
+.custom_arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  color: var(--common-color-bg-inverse-primary);
+  pointer-events: none;
 }

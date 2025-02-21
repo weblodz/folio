@@ -88,9 +88,9 @@
 
 .dropdown_menu {
   position: absolute;
-  top: 100%;
+  top: 70px;
   left: 0;
-  width: 348px;
+  width: 100%;
   background: var(--common-color-bg-primary);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-height: 200px;
@@ -118,7 +118,7 @@
   align-items: center;
   position: relative;
   padding: 8px;
-  width: 70%;
+  width: 50%;
   left: 30px;
   border-bottom: none;
 }
@@ -165,7 +165,7 @@
 
 .clear_icon {
   position: absolute;
-  right: -40px;
+  right: -55px;
   font-size: 18px;
   color: var(--common-color-text-secondary);
   cursor: pointer;

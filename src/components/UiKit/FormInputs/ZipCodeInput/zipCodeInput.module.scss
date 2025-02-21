@@ -1,7 +1,7 @@
 .input_container {
   contain: layout;
   box-sizing: border-box;
-  padding-bottom: 10px;
+  width: 32%;
 
   .text_input {
     box-sizing: border-box;
@@ -22,7 +22,7 @@
       border-bottom: 1px solid var(--common-color-text-primary);
     }
 
-    &:focus + .label_text {
+    &:focus+.label_text {
       transform: translateY(-100%) translateX(-7%) scale(0.9);
     }
 
@@ -69,12 +69,12 @@
   padding-right: 30px;
 }
 
-.custom_arrow {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 13px;
-  color: var(--common-color-bg-inverse-primary);
-  pointer-events: none;
+.error_message {
+  bottom: -18px;
+  min-height: 15px;
+  margin-top: 3px;
+  font-size: 0.765rem;
+  color: var(--common-color-text-text-error);
+  width: 50%;
+
 }
