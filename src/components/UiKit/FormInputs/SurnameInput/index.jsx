@@ -1,5 +1,5 @@
 import { useState, forwardRef } from "react"
-import PropTypes from "prop-types"
+import T from "prop-types"
 import styles from "./surnameinput.module.scss"
 
 const validateSurname = (surname) => {
@@ -9,7 +9,7 @@ const validateSurname = (surname) => {
   return ""
 }
 
-const SurnameInput = forwardRef(({ value, onChange, errorMessage, ...rest }, ref) => {
+const SurnameInput = forwardRef(({ value, onChange, errorMessage, isValid = true, ...rest }, ref) => {
   const [localError, setLocalError] = useState(errorMessage || "")
   const [isTouched, setIsTouched] = useState(false)
 
@@ -25,13 +25,13 @@ const SurnameInput = forwardRef(({ value, onChange, errorMessage, ...rest }, ref
     setLocalError(validateSurname(value))
   }
 
-  const isValid = !localError
+  const isInputValid = isValid && !localError
 
   return (
     <div className={styles.surname_container}>
       <div className={styles.surname_input_container} tabIndex={0}>
         <input
-          className={isValid ? styles.surname_input : `${styles.surname_input} ${styles.invalid_input}`}
+          className={isInputValid ? styles.surname_input : `${styles.surname_input} ${styles.invalid_input}`}
           type="text"
           ref={ref}
           value={value}
@@ -43,7 +43,7 @@ const SurnameInput = forwardRef(({ value, onChange, errorMessage, ...rest }, ref
           {"Surname"}
         </label>
       </div>
-      {!isValid && <span className={styles.error_message}>{localError}</span>}
+      {!isInputValid && <span className={styles.error_message}>{localError}</span>}
     </div>
   )
 })
@@ -53,7 +53,8 @@ SurnameInput.displayName = "SurnameInput"
 export default SurnameInput
 
 SurnameInput.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  errorMessage: PropTypes.string,
+  value: T.string.isRequired,
+  onChange: T.func.isRequired,
+  errorMessage: T.string,
+  isValid: T.bool,
 }

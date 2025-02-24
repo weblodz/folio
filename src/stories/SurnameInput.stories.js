@@ -11,33 +11,38 @@ export default {
   argTypes: {
     value: { control: 'text' },
     errorMessage: { control: 'text' },
+    isValid: {control: 'boolean'}
   },
 }
 
 export const EmptyValid = {
   args: {
     value: "",
-    errorMessage: ""
+    errorMessage: "",
+    isValid: true
   }
 }
 
 export const EmptyInvalid = {
   args: {
     value: "",
-    errorMessage: "Enter your last name"
+    errorMessage: "Enter your last name",
+    isValid: false
   }
 }
 
 export const withValidSurname = {
   args: {
     value: "Smith",
-    errorMessage: ""
+    errorMessage: "",
+    isValid: true
   }
 }
 
 export const withInvalidSurname = {
   args: {
     value: "Smith123",
-    errorMessage: "Unsupported characters detected"
+    errorMessage: "Unsupported characters detected",
+    isValid: false
   }
 }
