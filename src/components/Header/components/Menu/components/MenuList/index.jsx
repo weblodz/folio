@@ -22,7 +22,7 @@ function MenuList({ onClose }) {
     <div className={styles.nav}>
       <ul className={styles.list}>
         {MENU_LINKS.map((link) => (
-          <div key={link.name} className={styles.menu}>
+          <div key={link.name} className={styles.container}>
             <li
               className={`${styles.item} ${link.separator ? styles.separator : ''}`}
               data-name={link.name}

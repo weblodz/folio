@@ -20,14 +20,8 @@ export default function Menu({ onClose }) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.menu}>
-        <div className={styles.menu_list}>
-          <MenuList />
-        </div>
-        <div className={styles.newsletter_container}>
-          <Newsletter SOCIAL_LINKS={SOCIAL_LINKS} />
-        </div>
-      </div>
+      <MenuList />
+      <Newsletter SOCIAL_LINKS={SOCIAL_LINKS} />
     </div>
   )
 }
