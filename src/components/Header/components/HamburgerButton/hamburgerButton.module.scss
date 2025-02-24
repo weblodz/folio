@@ -31,6 +31,10 @@
   bottom: 0;
 }
 
+.button.toggled {
+  right: 68px;
+}
+
 .button.toggled .bar {
   top: 50%;
   bottom: auto;
@@ -59,16 +63,25 @@
   .button {
     right: 40px;
   }
+  .button.toggled {
+    right: 58px;
+  }
 }
 
 @media (max-width: $screen-mobile-m) {
   .button {
     right: 30px;
   }
+  .button.toggled {
+    right: 48px;
+  }
 }
 
 @media (max-width: $screen-mobile-s) {
   .button {
     right: 20px;
+  }
+  .button.toggled {
+    right: 38px;
   }
 }
