@@ -1,15 +1,17 @@
+import { useTranslation } from 'react-i18next'
 import styles from './datapolicy.module.scss'
 
 function DataPolicy() {
+  const { t } = useTranslation('nsDataPolicy')
+
   return (
     <div className={styles.container}>
       <span className={styles.text}>
-        By signing up with your social accounts, you agree to Sony Honda Mobility&apos;s
-        <span className={styles.text_link}>AFEELA Account Terms and Conditions</span>
-        and
-        <span className={styles.text_link}>Privacy Policy.</span>
-        You also agree that Sony Honda Mobility, its affiliates and service providers
-        send you newsletters, marketing materials and other information.
+        {t('bySigningUp')}
+        <span className={styles.text_link}>{t('termsAndConditions')}</span>
+        {t('and')}
+        <span className={styles.text_link}>{t('privacyPolicy')}</span>
+        {t('youAlsoAgree')}
       </span>
     </div>
   )
