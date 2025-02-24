@@ -15,7 +15,7 @@ function SignIn(){
   return (
     <div className={styles.container}>
       <div className={styles.content_container}>
-        <div className={styles.input_container}>
+        <div className={styles.auth_container}>
           <span className={styles.title}>Sign in</span>
           <div className={styles.form_container}></div>
           <div className={styles.forgot_password_container}>

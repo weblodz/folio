@@ -23,7 +23,7 @@ function SignUp(){
             <span className={styles.description_title}>Register your sign in information</span>
             Only residents of Europe can register
           </div>
-          <div className={styles.input_container}>
+          <div className={styles.auth_container}>
             <div className={styles.form_container}></div>
             <div className={styles.social_medias_container}>
               <div className={styles.social_medias_title}>
