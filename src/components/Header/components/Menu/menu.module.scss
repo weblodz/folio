@@ -6,10 +6,8 @@
   justify-content: space-between;
   position: fixed;
   top: 70px;
-  left: 0;
   width: 100%;
   bottom: 0;
-  left: 0;
   right: 0;
   background: var(--common-color-bg-primary);
   display: flex;
@@ -17,9 +15,12 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   z-index: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.menu::-webkit-scrollbar {
+.container::-webkit-scrollbar {
   display: none;
 }
 

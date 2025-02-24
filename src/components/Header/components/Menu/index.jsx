@@ -7,6 +7,8 @@ import styles from './menu.module.scss'
 
 export default function Menu({ onClose }) {
   useEffect(() => {
+    document.body.style.overflow = 'hidden'
+
     const handleResize = () => {
       if (window.innerWidth > 768) {
         onClose()
@@ -15,7 +17,10 @@ export default function Menu({ onClose }) {
 
     window.addEventListener('resize', handleResize)
 
-    return () => window.removeEventListener('resize', handleResize)
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('resize', handleResize)
+    }
   }, [onClose])
 
   return (
