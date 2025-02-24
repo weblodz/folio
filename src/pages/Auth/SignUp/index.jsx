@@ -1,10 +1,16 @@
-import SocialMedias from '@components/Auth/SocialMedias/index.jsx'
-import DataPolicy from '@components/Auth/DataPolicy/index.jsx'
+import SocialMedias from '@components/Auth/SocialMedias'
+import DataPolicy from '@components/Auth/DataPolicy'
 import { useNavigate } from 'react-router-dom'
+import routes from '@routing/path'
 import styles from './signup.module.scss'
 
 function SignUp(){
   const navigate = useNavigate()
+
+  function handleNavigate() {
+    navigate(routes.withoutAuth.signIn)
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
 
   return (
     <div className={styles.container}>
@@ -28,8 +34,7 @@ function SignUp(){
             <DataPolicy />
             <hr />
             <button className={styles.sign_in_button} onClick={() => {
-              navigate('/sign-in')
-              window.scrollTo({ top: 0, behavior: "smooth" })
+              handleNavigate()
             }}>
               Sign in
             </button>
