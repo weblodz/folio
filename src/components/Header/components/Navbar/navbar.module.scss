@@ -7,21 +7,6 @@
   width: 100%;
 }
 
-.button {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: var(--common-color-text-inverse-primary);
-  position: absolute;
-  right: 50px;
-}
-
-.black_button {
-  color: black;
-}
-
 .list {
   display: flex;
   flex-direction: row;
@@ -43,10 +28,6 @@
 }
 
 @media (max-width: $screen-tablet) {
-  .button {
-    display: block;
-  }
-
   .list {
     display: none;
     flex-direction: column;
@@ -66,23 +47,5 @@
 
   .item {
     margin-bottom: 12px;
-  }
-}
-
-@media (max-width: $screen-mobile-l) {
-  .button {
-    right: 40px;
-  }
-}
-
-@media (max-width: $screen-mobile-m) {
-  .button {
-    right: 30px;
-  }
-}
-
-@media (max-width: $screen-mobile-s) {
-  .button {
-    right: 20px;
   }
 }

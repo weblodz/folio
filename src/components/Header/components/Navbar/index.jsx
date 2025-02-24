@@ -1,8 +1,8 @@
 import { useState } from "react"
 import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
-import { Rotate as Hamburger } from "hamburger-react"
 import Menu from "@components/Header/components/Menu"
+import HamburgerButton from "@components/Header/components/HamburgerButton"
 import styles from "./navbar.module.scss"
 
 function Navbar({ setIsMenuOpen, isMenuOpen }) {
@@ -10,15 +10,17 @@ function Navbar({ setIsMenuOpen, isMenuOpen }) {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleToggleMenu = () => {
-    setIsOpen(!isOpen)
-    setIsMenuOpen(!isOpen)
+    setIsOpen(prev => !prev)
+    setIsMenuOpen(prev => !prev)
   }
 
   return (
     <div className={styles.container}>
-      <button className={`${styles.button} ${isMenuOpen ? styles.black_button : ""}`} onClick={handleToggleMenu}>
-        <Hamburger toggled={isOpen} toggle={setIsOpen} size={24} />
-      </button>
+      <HamburgerButton
+        isMenuOpen={isMenuOpen}
+        isOpen={isOpen}
+        onToggle={handleToggleMenu}
+      />
       <ul className={styles.list}>
         <li className={styles.item}>
           <a className={styles.link} href="#">
