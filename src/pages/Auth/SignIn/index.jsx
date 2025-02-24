@@ -1,11 +1,13 @@
 import DataPolicy from '@components/Auth/DataPolicy'
 import SocialMedias from '@components/Auth/SocialMedias'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import routes from '@routing/path'
 import styles from './signin.module.scss'
 
 function SignIn(){
   const navigate = useNavigate()
+  const { t } = useTranslation('nsSignIn')
 
   function handleNavigate() {
     navigate(routes.withoutAuth.signUp)
@@ -16,11 +18,13 @@ function SignIn(){
     <div className={styles.container}>
       <div className={styles.content_container}>
         <div className={styles.auth_container}>
-          <span className={styles.title}>Sign in</span>
+          <span className={styles.title}>
+            {t('signIn')}
+          </span>
           <div className={styles.form_container}></div>
           <div className={styles.forgot_password_container}>
             <span className={styles.forgot_password}>
-              Forgot your password?
+              {t('forgotPassword')}
             </span>
           </div>
           <SocialMedias />
@@ -30,7 +34,7 @@ function SignIn(){
             <button className={styles.create_account_button} onClick={() => {
               handleNavigate()
             }}>
-              Create Account
+              {t('createAccount')}
             </button>
           </div>
         </div>
