@@ -1,11 +1,13 @@
 import SocialMedias from '@components/Auth/SocialMedias'
 import DataPolicy from '@components/Auth/DataPolicy'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import routes from '@routing/path'
 import styles from './signup.module.scss'
 
 function SignUp(){
   const navigate = useNavigate()
+  const { t } = useTranslation('nsSignUp')
 
   function handleNavigate() {
     navigate(routes.withoutAuth.signIn)
@@ -16,18 +18,18 @@ function SignUp(){
     <div className={styles.container}>
       <div className={styles.content_container}>
         <div className={styles.title_container}>
-          Create an account
+          {t('createAccount')}
         </div>
         <div className={styles.main_content_container}>
           <div className={styles.description}>
-            <span className={styles.description_title}>Register your sign in information</span>
-            Only residents of Europe can register
+            <span className={styles.description_title}>{t('registerYourInformation')}</span>
+            {t('whoCanRegister')}
           </div>
           <div className={styles.auth_container}>
             <div className={styles.form_container}></div>
             <div className={styles.social_medias_container}>
               <div className={styles.social_medias_title}>
-                Alternatively, sign in with your social accounts.
+                {t('alternativeSignIn')}
               </div>
               <SocialMedias />
             </div>
@@ -36,7 +38,7 @@ function SignUp(){
             <button className={styles.sign_in_button} onClick={() => {
               handleNavigate()
             }}>
-              Sign in
+              {t('signIn')}
             </button>
           </div>
         </div>
