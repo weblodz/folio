@@ -25,7 +25,7 @@ export default function Menu({ onClose }) {
 
   return (
     <div className={styles.container}>
-      <MenuList />
+      <MenuList onClose={onClose} />
       <Newsletter SOCIAL_LINKS={SOCIAL_LINKS} />
     </div>
   )
