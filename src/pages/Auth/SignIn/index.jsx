@@ -9,7 +9,7 @@ function SignIn(){
   const navigate = useNavigate()
   const { t } = useTranslation('nsAuth')
 
-  function handleNavigate() {
+  const handleNavigate = () => {
     navigate(routes.withoutAuth.signUp)
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
