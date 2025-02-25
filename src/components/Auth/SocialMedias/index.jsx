@@ -1,5 +1,5 @@
-import GoogleLogo from '@components/UiKit/Icons/GoogleLogo/index.jsx'
-import GithubLogo from '@components/UiKit/Icons/GithubLogo/index.jsx'
+import GoogleLogo from '@components/UiKit/Icons/GoogleLogo'
+import GithubLogo from '@components/UiKit/Icons/GithubLogo'
 import styles from './socialmedias.module.scss'
 
 function SocialMedias() {
