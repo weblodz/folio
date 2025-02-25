@@ -31,9 +31,7 @@ function SignIn(){
           <DataPolicy />
           <hr />
           <div className={styles.create_account_container}>
-            <button className={styles.create_account_button} onClick={() => {
-              handleNavigate()
-            }}>
+            <button className={styles.create_account_button} onClick={handleNavigate}>
               {t('createAccount')}
             </button>
           </div>

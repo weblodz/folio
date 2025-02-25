@@ -35,9 +35,7 @@ function SignUp(){
             </div>
             <DataPolicy />
             <hr />
-            <button className={styles.sign_in_button} onClick={() => {
-              handleNavigate()
-            }}>
+            <button className={styles.sign_in_button} onClick={handleNavigate}>
               {t('signIn')}
             </button>
           </div>
