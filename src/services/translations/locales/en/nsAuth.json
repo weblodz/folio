@@ -1,4 +1,10 @@
 {
+  "signIn": "Sign In",
+  "forgotPassword": "Forgot your password?",
+  "createAccount": "Create Account",
+  "registerYourInformation": "Register your sign in information",
+  "whoCanRegister": "Only residents of Europe can register",
+  "alternativeSignIn": "Alternatively, sign in with your social accounts.",
   "bySigningUp": "By signing up with your social accounts, you agree to",
   "termsAndConditions": "AFEELA Account Terms and Conditions",
   "and": "of Sony Honda Mobility and",

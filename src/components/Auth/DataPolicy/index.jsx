@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import styles from './datapolicy.module.scss'
 
 function DataPolicy() {
-  const { t } = useTranslation('nsDataPolicy')
+  const { t } = useTranslation('nsAuth')
 
   return (
     <div className={styles.container}>

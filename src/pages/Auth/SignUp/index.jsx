@@ -7,7 +7,7 @@ import styles from './signup.module.scss'
 
 function SignUp(){
   const navigate = useNavigate()
-  const { t } = useTranslation('nsSignUp')
+  const { t } = useTranslation('nsAuth')
 
   function handleNavigate() {
     navigate(routes.withoutAuth.signIn)

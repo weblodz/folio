@@ -5,12 +5,8 @@ import enCommon from './translations/locales/en/nsCommon.json'
 import plCommon from './translations/locales/pl/nsCommon.json'
 import enHome from './translations/locales/en/nsHome.json'
 import plHome from './translations/locales/pl/nsHome.json'
-import enSignIn from './translations/locales/en/nsSignIn.json'
-import plSignIn from './translations/locales/pl/nsSignIn.json'
-import enSignUp from './translations/locales/en/nsSignUp.json'
-import plSignUp from './translations/locales/pl/nsSignUp.json'
-import enDataPolicy from './translations/locales/en/nsDataPolicy.json'
-import plDataPolicy from './translations/locales/pl/nsDataPolicy.json'
+import enAuth from './translations/locales/en/nsAuth.json'
+import plAuth from './translations/locales/pl/nsAuth.json'
 
 
 i18n
@@ -21,21 +17,17 @@ i18n
       en: {
         nsCommon: enCommon,
         nsHome: enHome,
-        nsSignIn: enSignIn,
-        nsSignUp: enSignUp,
-        nsDataPolicy: enDataPolicy
+        nsAuth: enAuth
       },
       pl: {
         nsCommon: plCommon,
         nsHome: plHome,
-        nsSignIn: plSignIn,
-        nsSignUp: plSignUp,
-        nsDataPolicy: plDataPolicy
+        nsAuth: plAuth
       },
     },
     lng: 'en',
     fallbackLng: 'en',
-    ns: ['nsCommon', 'nsHome', 'nsSignIn', 'nsSignUp', 'nsDataPolicy'],
+    ns: ['nsCommon', 'nsHome', 'nsAuth'],
     defaultNS: 'nsCommon',
     detection: {
       order: ["navigator", "localStorage"],
