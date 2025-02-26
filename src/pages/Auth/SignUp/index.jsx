@@ -1,6 +1,6 @@
 import SocialMedias from '@components/Auth/SocialMedias'
 import DataPolicy from '@components/Auth/DataPolicy'
-import SignUpForm from '@pages/Auth/SignUp/SignUpForm'
+import SignUpForm from '@pages/Auth/SignUp/components/SignUpForm'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import routes from '@routing/path'

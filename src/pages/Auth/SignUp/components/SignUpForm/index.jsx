@@ -1,10 +1,11 @@
-import EmailInput from '@components/UiKit/FormInputs/EmailInput'
-import PasswordInput from '@components/UiKit/FormInputs/PasswordInput'
-import FormButton from '@components/UiKit/Buttons/FormButton'
+import EmailInput from '@components/UiKit/FormInputs/EmailInput/index.jsx'
+import PasswordInput from '@components/UiKit/FormInputs/PasswordInput/index.jsx'
+import FormButton from '@components/UiKit/Buttons/FormButton/index.jsx'
+import DataPolicyCheckbox from '@pages/Auth/SignUp/components/DataPolicyCheckbox/index.jsx'
 import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from 'react'
-import schema from './schema'
+import schema from './schema.js'
 import styles from './signupform.module.scss'
 
 function SignUpForm() {
@@ -24,7 +25,7 @@ function SignUpForm() {
     formState: { errors, isValid }
   } = useForm({
     resolver: zodResolver(schema),
-    mode: 'onBlur'
+    mode: 'onBlur',
   })
 
   return (
@@ -60,6 +61,7 @@ function SignUpForm() {
               <PasswordInput isValid={!errors.confirmPassword} errorMessage={errors.confirmPassword?.message} {...field} />
             )}/>
         </div>
+        <DataPolicyCheckbox />
         <FormButton isLoading={isLoading} onClick={() => {handleSubmit(onSubmit)}} text={'Sign Up'} isActive={isValid && !isLoading} />
       </form>
     </div>

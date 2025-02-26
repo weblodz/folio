@@ -1,0 +1,45 @@
+.container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 0;
+  margin: 48px 0 48px 0;
+  height: 100px;
+}
+
+.checkbox_container {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.text {
+  font-family: var(--common-font-en), sans-serif;
+  color: var(--common-color-text-primary);
+  font-size: 0.9rem;
+  width: 88%;
+}
+
+.checked_icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 6;
+  background-color: #081217;
+  width: 16px;
+  height: 16px;
+}
+
+.unchecked_icon {
+  z-index: 5;
+  position: absolute;
+  inset: 0;
+  background-color: white;
+  width: 16px;
+  height: 16px;
+  border-radius: 10%;
+  border: 1px solid var(--common-color-text-primary);
+}
