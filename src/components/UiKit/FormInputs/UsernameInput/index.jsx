@@ -1,15 +1,15 @@
-import { useState, forwardRef } from "react"
-import T from "prop-types"
-import styles from "./usernameinput.module.scss"
+import { useState, forwardRef } from 'react'
+import T from 'prop-types'
+import styles from './usernameinput.module.scss'
 
 const validateUsername = (username) => {
-  if (!username.trim()) return "Enter your username"
+  if (!username.trim()) return 'Enter your username'
 
-  return ""
+  return ''
 }
 
 const UsernameInput = forwardRef(({ value, onChange, errorMessage, isValid = true, ...rest }, ref) => {
-  const [localError, setLocalError] = useState(errorMessage || "")
+  const [localError, setLocalError] = useState(errorMessage || '')
   const [isTouched, setIsTouched] = useState(false)
 
   const handleChange = (e) => {
@@ -31,7 +31,7 @@ const UsernameInput = forwardRef(({ value, onChange, errorMessage, isValid = tru
       <div className={styles.username_input_container} tabIndex={0}>
         <input
           className={isInputValid ? styles.username_input : `${styles.username_input} ${styles.invalid_input}`}
-          type="text"
+          type='text'
           ref={ref}
           value={value}
           onChange={handleChange}
@@ -39,7 +39,7 @@ const UsernameInput = forwardRef(({ value, onChange, errorMessage, isValid = tru
           {...rest}
         />
         <label className={value.trim() ? `${styles.label_text} ${styles.focused_label_text}` : styles.label_text}>
-          {"Username"}
+          {'Username'}
         </label>
       </div>
       {!isInputValid && <span className={styles.error_message}>{localError}</span>}
@@ -47,7 +47,7 @@ const UsernameInput = forwardRef(({ value, onChange, errorMessage, isValid = tru
   )
 })
 
-UsernameInput.displayName = "UsernameInput"
+UsernameInput.displayName = 'UsernameInput'
 
 export default UsernameInput
 

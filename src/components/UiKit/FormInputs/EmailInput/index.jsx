@@ -1,6 +1,6 @@
-import { useState, forwardRef } from "react"
-import T from "prop-types"
-import styles from "./emailinput.module.scss"
+import { useState, forwardRef } from 'react'
+import T from 'prop-types'
+import styles from './emailinput.module.scss'
 
 const EmailInput = forwardRef(({ isValid = true, errorMessage, ...rest }, ref) => {
   const [hasValue, setHasValue] = useState(false)
@@ -18,21 +18,21 @@ const EmailInput = forwardRef(({ isValid = true, errorMessage, ...rest }, ref) =
       <div className={styles.input_container} tabIndex={0}>
         <input
           className={emailStyle}
-          type="text"
+          type='text'
           ref={ref}
           {...rest}
           onInput={(e) => {
-            setHasValue(e.target.value.trim() !== "")
+            setHasValue(e.target.value.trim() !== '')
           }}
         />
-        <label className={labelStyle}>{"Email address"}</label>
+        <label className={labelStyle}>{'Email address'}</label>
       </div>
       {!isValid && <span className={styles.error_message}>{errorMessage}</span>}
     </div>
   )
 })
 
-EmailInput.displayName = "EmailInput"
+EmailInput.displayName = 'EmailInput'
 
 export default EmailInput
 

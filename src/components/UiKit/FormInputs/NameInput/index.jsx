@@ -1,16 +1,16 @@
-import { useState, forwardRef } from "react"
-import T from "prop-types"
-import styles from "./nameinput.module.scss"
+import { useState, forwardRef } from 'react'
+import T from 'prop-types'
+import styles from './nameinput.module.scss'
 
 const validateName = (name) => {
-  if (!name.trim()) return "Enter your first name"
-  if (!/^[a-zA-Z'’-]+$/.test(name)) return "Unsupported characters detected"
+  if (!name.trim()) return 'Enter your first name'
+  if (!/^[a-zA-Z'’-]+$/.test(name)) return 'Unsupported characters detected'
 
-  return ""
+  return ''
 }
 
 const NameInput = forwardRef(({ value, onChange, errorMessage, isValid = true, ...rest }, ref) => {
-  const [localError, setLocalError] = useState(errorMessage || "")
+  const [localError, setLocalError] = useState(errorMessage || '')
   const [isTouched, setIsTouched] = useState(false)
 
   const handleChange = (e) => {
@@ -32,7 +32,7 @@ const NameInput = forwardRef(({ value, onChange, errorMessage, isValid = true, .
       <div className={styles.name_input_container} tabIndex={0}>
         <input
           className={isInputValid ? styles.name_input : `${styles.name_input} ${styles.invalid_input}`}
-          type="text"
+          type='text'
           ref={ref}
           value={value}
           onChange={handleChange}
@@ -40,7 +40,7 @@ const NameInput = forwardRef(({ value, onChange, errorMessage, isValid = true, .
           {...rest}
         />
         <label className={value.trim() ? `${styles.label_text} ${styles.focused_label_text}` : styles.label_text}>
-          {"First name"}
+          {'First name'}
         </label>
       </div>
       {!isInputValid && <span className={styles.error_message}>{localError}</span>}
@@ -48,7 +48,7 @@ const NameInput = forwardRef(({ value, onChange, errorMessage, isValid = true, .
   )
 })
 
-NameInput.displayName = "First Name"
+NameInput.displayName = 'First Name'
 
 export default NameInput
 

@@ -1,8 +1,8 @@
-import { useState, forwardRef } from "react"
-import T from "prop-types"
-import EyeShown from "@components/UiKit/Icons/EyeShown/index.jsx"
-import EyeHidden from "@components/UiKit/Icons/EyeHidden/index.jsx"
-import styles from "./password.module.scss"
+import { useState, forwardRef } from 'react'
+import T from 'prop-types'
+import EyeShown from '@components/UiKit/Icons/EyeShown/index.jsx'
+import EyeHidden from '@components/UiKit/Icons/EyeHidden/index.jsx'
+import styles from './password.module.scss'
 
 const PasswordInput = forwardRef(({ isValid = true, errorMessage, ...rest }, ref) => {
   const [isInputFocused, setIsInputFocused] = useState(false)
@@ -17,8 +17,8 @@ const PasswordInput = forwardRef(({ isValid = true, errorMessage, ...rest }, ref
     : `${styles.label_text}`
 
   const inputType = isPasswordVisible
-    ? "text"
-    : "password"
+    ? 'text'
+    : 'password'
 
   return (
     <div className={styles.container}>
@@ -45,12 +45,12 @@ const PasswordInput = forwardRef(({ isValid = true, errorMessage, ...rest }, ref
               }}
             />
             <span className={styles.toggle_wrapper}>
-              <button type="button" className={styles.toggle_button} onClick={() => {
+              <button type='button' className={styles.toggle_button} onClick={() => {
                 setIsPasswordVisible((prev) => !prev)
               }}>
                 {isPasswordVisible
-                  ? <EyeShown size={"24"} />
-                  : <EyeHidden size={"24"} />}
+                  ? <EyeShown size={'24'} />
+                  : <EyeHidden size={'24'} />}
               </button>
             </span>
           </div>
@@ -61,7 +61,7 @@ const PasswordInput = forwardRef(({ isValid = true, errorMessage, ...rest }, ref
   )
 })
 
-PasswordInput.displayName = "PasswordInput"
+PasswordInput.displayName = 'PasswordInput'
 
 export default PasswordInput
 

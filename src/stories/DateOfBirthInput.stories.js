@@ -10,8 +10,7 @@ export default {
     selectedDay: { control: "number" },
     selectedYear: { control: "text" },
     error: { control: "boolean" },
-    isInteracting: { control: "boolean" },
-  }
+  },
 }
 
 export const Default = {
@@ -20,7 +19,6 @@ export const Default = {
     selectedDay: "",
     selectedYear: "",
     error: false,
-    isInteracting: false,
   },
 }
 
@@ -30,8 +28,7 @@ export const WithError = {
     selectedDay: "",
     selectedYear: "",
     error: true,
-    isInteracting: false,
-  }
+  },
 }
 
 export const Filled = {
@@ -40,6 +37,5 @@ export const Filled = {
     selectedDay: 15,
     selectedYear: "2000",
     error: false,
-    isInteracting: false,
-  }
+  },
 }

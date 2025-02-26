@@ -1,36 +1,25 @@
-.birth_container {
-  box-sizing: border-box;
-}
-.container {
-  display: grid;
-  grid-template: "month day year" / 2fr 1fr 1fr;
-}
-
-.label {
-  font-size: 16px;
-  font-weight: 500;
-  color: black;
-}
-
-.input_group {
-  display: flex;
-  gap: 100px;
-  align-items: flex-start;
-  
-}
-
 .select_wrapper {
   position: relative;
   flex: 1;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.3s ease;
+  }
+
+  .error_border {
+    border-bottom: 2px solid red;
+    border-radius: 4px;
+  }
   
-}
+  .active_border {
+    border-bottom: 2px solid black;
+  }
 
 .floating_label {
   position: absolute;
   top: 50%;
   left: 13px;
   z-index: 1;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   line-height: 24.8px;
   color: var(--common-color-text-secondary);
@@ -38,50 +27,22 @@
   transform: translateY(-50%);
   transition: top 0.2s, font-size 0.2s, color 0.2s, transform 0.2s;
 }
-
+  
 .floating {
   position: absolute;
   top: 20%;
 }
 
-.select,
-.input {
+.select{
   border: 1px solid #ccc;
   display: flex;
-  width: 100%;
-  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
   appearance: none;
-    height: 24px;
-    border: unset;
-    box-shadow: unset;
-}
-
-.input {
-  padding: 17px 12px 8px;
-}
-
-input:focus {
-  outline: none;
-  border-color: transparent;
-  border-bottom: 2px solid black;
-}
-
-.select:invalid {
-  color: var(--color-placeholder);
-}
-
-.error_border .select,
-.error_border .input {
-  border-bottom: 2px solid var(--common-color-text-text-error);
-}
-
-.error_message {
-  font-size: 12px;
-  color: var(--common-color-text-text-error);
-  margin-top: 4px;
-}
-
-.select {
+  height: 24px;
+  border: unset;
+  box-shadow: unset;
   padding: 12px;
   font-size: 1rem;
   border: 1px solid #ccc;
@@ -94,19 +55,17 @@ input:focus {
   position: relative;
 }
 
-.select:focus,
-.select.open {
-  border: 4px 4px 0px 0px;
-  border-bottom: 2px solid var(--common-color-bg-inverse-primary);
+.arrow_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .arrow {
   position: absolute;
   right: 12px;
   pointer-events: none;
-  vertical-align: middle;
   width: 20px;
-  height: auto;
 }
 
 .open .arrow {
@@ -115,9 +74,8 @@ input:focus {
 
 .menu {
   margin-top: 5px;
-  padding: 12px;
   position: absolute;
-  border: 1px solid #ccc;
+  border: 1px solid #fff;
   background-color: #fff;
   border-radius: 4px;
   max-height: 175px;
@@ -136,9 +94,5 @@ input:focus {
 }
 
 .option:hover {
-  background-color: #f0f0f0;
-}
-
-.selected {
   background-color: #f0f0f0;
 }
