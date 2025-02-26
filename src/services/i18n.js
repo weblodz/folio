@@ -5,6 +5,8 @@ import enCommon from './translations/locales/en/nsCommon.json'
 import plCommon from './translations/locales/pl/nsCommon.json'
 import enHome from './translations/locales/en/nsHome.json'
 import plHome from './translations/locales/pl/nsHome.json'
+import enAuth from './translations/locales/en/nsAuth.json'
+import plAuth from './translations/locales/pl/nsAuth.json'
 
 i18n
   .use(LanguageDetector)
@@ -14,19 +16,21 @@ i18n
       en: {
         nsCommon: enCommon,
         nsHome: enHome,
+        nsAuth: enAuth
       },
       pl: {
         nsCommon: plCommon,
         nsHome: plHome,
+        nsAuth: plAuth
       },
     },
-    ns: ['nsCommon', 'nsHome'],
+    fallbackLng: 'en',
+    ns: ['nsCommon', 'nsHome', 'nsAuth'],
     defaultNS: 'nsCommon',
     detection: {
       order: ['localStorage', 'navigator'],
       caches: ['localStorage'],
     },
-    fallbackLng: 'en',
     interpolation: {
       escapeValue: false
     }

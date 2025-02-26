@@ -1,7 +1,44 @@
+import DataPolicy from '@components/Auth/DataPolicy'
+import SocialMedias from '@components/Auth/SocialMedias'
+import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import routes from '@routing/path'
 import styles from './signin.module.scss'
 
-export default function SignIn() {
+function SignIn(){
+  const navigate = useNavigate()
+  const { t } = useTranslation('nsAuth')
+
+  const handleNavigate = () => {
+    navigate(routes.withoutAuth.signUp)
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
   return (
-    <div className={styles.container}></div>
+    <div className={styles.container}>
+      <div className={styles.content_container}>
+        <div className={styles.auth_container}>
+          <span className={styles.title}>
+            {t('signIn')}
+          </span>
+          <div className={styles.form_container}></div>
+          <div className={styles.forgot_password_container}>
+            <span className={styles.forgot_password}>
+              {t('forgotPassword')}
+            </span>
+          </div>
+          <SocialMedias />
+          <DataPolicy />
+          <hr />
+          <div className={styles.create_account_container}>
+            <button className={styles.create_account_button} onClick={handleNavigate}>
+              {t('createAccount')}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
+
+export default SignIn
