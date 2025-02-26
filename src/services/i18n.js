@@ -20,14 +20,13 @@ i18n
         nsHome: plHome,
       },
     },
-    lng: 'en',
-    fallbackLng: 'en',
     ns: ['nsCommon', 'nsHome'],
     defaultNS: 'nsCommon',
     detection: {
-      order: ["navigator", "localStorage"],
-      caches: ["localStorage"]
+      order: ['localStorage', 'navigator'],
+      caches: ['localStorage'],
     },
+    fallbackLng: 'en',
     interpolation: {
       escapeValue: false
     }
