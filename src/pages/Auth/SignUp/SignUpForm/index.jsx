@@ -1,4 +1,5 @@
 import EmailInput from '@components/UiKit/FormInputs/EmailInput'
+import PasswordInput from '@components/UiKit/FormInputs/PasswordInput'
 import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import schema from './schema'
@@ -31,6 +32,13 @@ function SignUpForm() {
             )}/>
         </div>
         <div className={styles.input_field}>
+          <Controller
+            name='password'
+            control={control}
+            defaultValue=""
+            render={({field}) => (
+              <PasswordInput isValid={!errors.password} errorMessage={errors.password?.message} {...field} />
+          )}/>
         </div>
         <div className={styles.input_field}></div>
         <div className={styles.input_field}></div>
