@@ -4,7 +4,7 @@ import cls from 'classnames'
 import { useTranslation } from 'react-i18next'
 import { IoChevronDown, IoChevronUp } from 'react-icons/io5'
 import MENU_LINKS from '@components/Header/components/menuLinks'
-import styles from './menu.module.scss'
+import styles from './menuList.module.scss'
 
 function MenuList({ onClose }) {
   const [activeSubMenu, setActiveSubMenu] = useState(null)

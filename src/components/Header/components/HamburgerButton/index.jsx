@@ -30,8 +30,8 @@ function HamburgerButton({ isOpen, onToggle }) {
 
   return (
     <button className={cls(styles.button, { [styles.toggled]: isOpen })} onClick={onToggle}>
-      <div className={styles.bar}></div>
-      <div className={styles.bar}></div>
+      <div className={styles.bar_top}></div>
+      <div className={styles.bar_bottom}></div>
     </button>
   )
 }

@@ -4,6 +4,17 @@
   display: flex;
   flex-direction: column;
   margin-left: 60px;
+
+  &:hover {
+    .item_button,
+    .link {
+      color: var(--common-color-text-secondary);
+
+      &:hover {
+        color: var(--common-color-bg-inverse-primary);
+      }
+    }
+  }
 }
 
 .list {
@@ -39,6 +50,7 @@
   width: 100%;
   text-align: left;
   cursor: pointer;
+
 }
 
 .separator {
@@ -49,24 +61,13 @@
 }
 
 .separator::before {
-  content: "";
+  content: '';
   position: absolute;
   top: -5px;
   left: 0;
   width: 100%;
   height: 2px;
   background-color: var(--common-color-bg-tertiary);
-}
-
-
-.nav:hover .item_button,
-.nav:hover .link {
-  color: var(--common-color-text-secondary);
-}
-
-.nav .item_button:hover,
-.nav .link:hover {
-  color: var(--common-color-bg-inverse-primary);
 }
 
 .arrow {
@@ -145,11 +146,11 @@
   margin-left: 20px;
 }
 
-.submenu_item[data-name="Reserve"] .image_text {
+.submenu_item[data-name='Reserve'] .image_text {
   color: var(--common-color-bg-inverse-primary) !important;
 }
 
-.item_button[data-name="separator"] .image_text {
+.item_button[data-name='separator'] .image_text {
   position: relative;
   padding-top: 15px;
   margin-top: 10px;
