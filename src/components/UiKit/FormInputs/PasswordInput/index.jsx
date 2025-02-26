@@ -67,7 +67,7 @@ export default PasswordInput
 
 PasswordInput.propTypes = {
   isValid: T.bool.isRequired,
-  errorMessage: T.string.isRequired,
+  errorMessage: T.string,
   onFocus: T.func,
   onBlur: T.func,
   label: T.string,
