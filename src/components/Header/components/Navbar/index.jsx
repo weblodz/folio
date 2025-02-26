@@ -14,6 +14,11 @@ function Navbar({ setIsMenuOpen, isMenuOpen }) {
     setIsMenuOpen(prev => !prev)
   }
 
+  const handleCloseMenu = () => {
+    setIsOpen(false)
+    setIsMenuOpen(false)
+  }
+
   return (
     <div className={styles.container}>
       <HamburgerButton
@@ -39,7 +44,7 @@ function Navbar({ setIsMenuOpen, isMenuOpen }) {
         </li>
       </ul>
 
-      {isOpen && <Menu isOpen={isOpen} onClose={() => { setIsOpen(false); setIsMenuOpen(false) }} />}
+      {isOpen && <Menu isOpen={isOpen} onClose={handleCloseMenu} />}
     </div>
   )
 }
