@@ -1,5 +1,6 @@
 import SocialMedias from '@components/Auth/SocialMedias'
 import DataPolicy from '@components/Auth/DataPolicy'
+import SignUpForm from '@pages/Auth/SignUp/SignUpForm'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import routes from '@routing/path'
@@ -26,7 +27,7 @@ function SignUp(){
             {t('whoCanRegister')}
           </div>
           <div className={styles.auth_container}>
-            <div className={styles.form_container}></div>
+            <SignUpForm />
             <div className={styles.social_medias_container}>
               <div className={styles.social_medias_title}>
                 {t('alternativeSignIn')}
