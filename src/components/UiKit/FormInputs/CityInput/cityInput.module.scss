@@ -23,7 +23,7 @@
       border-bottom: 1px solid var(--common-color-text-primary);
     }
 
-    &:focus + .label_text {
+    &:focus+.label_text {
       transform: translateY(-100%) translateX(-7%) scale(0.9);
     }
 
@@ -107,10 +107,10 @@
   cursor: pointer;
   font-size: 15px;
   color: var(--common-color-text-primary);
-}
 
-.city_item:hover {
-  background: var(--common-color-bg-tertiary);
+  &:hover {
+    background: var(--common-color-bg-tertiary);
+  }
 }
 
 .search_container {
@@ -132,10 +132,6 @@
   position: relative;
   border-bottom: 1px solid transparent;
   margin-bottom: 10px;
-}
-
-.search_wrapper:focus-within {
-  border-bottom: 1px solid var(--common-color-bg-inverse-primary);
 }
 
 .search_wrapper:focus-within {
