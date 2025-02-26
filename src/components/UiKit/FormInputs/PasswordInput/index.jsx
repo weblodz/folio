@@ -4,7 +4,7 @@ import EyeShown from "@components/UiKit/Icons/EyeShown/index.jsx"
 import EyeHidden from "@components/UiKit/Icons/EyeHidden/index.jsx"
 import styles from "./password.module.scss"
 
-const PasswordInput = forwardRef(({ isValid = true, errorMessage, defaultValue, onFocus, onBlur, ...rest }, ref) => {
+const PasswordInput = forwardRef(({ isValid = true, errorMessage, defaultValue, onFocus, onBlur, type="Password", ...rest }, ref) => {
   const [isInputFocused, setIsInputFocused] = useState(defaultValue)
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
@@ -24,7 +24,7 @@ const PasswordInput = forwardRef(({ isValid = true, errorMessage, defaultValue, 
     <div className={styles.container}>
       <div className={styles.input_container} tabIndex={0}>
         <label className={labelStyle}>
-          Password
+          {type}
         </label>
         <div className={styles.input_wrapper}>
           <div className={styles.icon_field}>
@@ -70,5 +70,6 @@ PasswordInput.propTypes = {
   errorMessage: T.string.isRequired,
   onFocus: T.func,
   onBlur: T.func,
+  type: T.string,
   defaultValue: T.string,
 }
