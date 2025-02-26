@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
+import cls from 'classnames'
 import { useTranslation } from 'react-i18next'
 import { IoChevronDown, IoChevronUp } from 'react-icons/io5'
 import MENU_LINKS from '@components/Header/components/menuLinks'
@@ -24,13 +25,12 @@ function MenuList({ onClose }) {
         {MENU_LINKS.map((link) => (
           <div key={link.name} className={styles.container}>
             <li
-              className={`${styles.item} ${link.separator ? styles.separator : ''}`}
+              className={cls(styles.item, { [styles.separator]: link.separator })}
               data-name={link.name}
             >
               {link.submenu?.length ? (
                 <button
-                  className={`${styles.item_button} ${activeSubMenu === link.name ? styles.active : ''
-                    }`}
+                  className={cls(styles.item_button,{ [styles.active]: activeSubMenu === link.name })}
                   onClick={() => handleToggleSubMenu(link.name)}
                   aria-expanded={activeSubMenu === link.name}
                 >
@@ -50,10 +50,9 @@ function MenuList({ onClose }) {
               <ul className={styles.submenu}>
                 {link.name === 'Language'
                   ? link.submenu.map((item) => (
-                    <li key={item.langCode} className={`${styles.submenu_item} ${styles.border}`}>
+                    <li key={item.langCode} className={cls(styles.submenu_item, styles.border)}>
                       <button
-                        className={`${styles.language_button} ${i18n.language === item.langCode ? styles.active : ''
-                          }`}
+                        className={cls(styles.language_button, { [styles.active]: i18n.language === item.langCode })}
                         onClick={() => changeLanguage(item.langCode)}
                       >
                         {item.name}
@@ -63,7 +62,7 @@ function MenuList({ onClose }) {
                   : link.submenu.map((subItem) => (
                     <li
                       key={subItem.name}
-                      className={`${styles.submenu_item} ${!subItem.image ? styles.border : ''}`}
+                      className={cls(styles.submenu_item, { [styles.border]: !subItem.image })}
                       data-name={subItem.name}
                     >
                       <a href={subItem.url} className={styles.submenu_link}>
