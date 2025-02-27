@@ -34,14 +34,20 @@ const CityInput = forwardRef(
         if (!country) return
         setLoading(true)
         try {
-          const response = await fetch('https://countriesnow.space/api/v0.1/countries/cities', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ country }),
-          })
+          const countryCode = country === 'United Kingdom' ? 'GB' : 'PL'
+
+          const response = await fetch(
+            `http://api.geonames.org/searchJSON?country=${countryCode}&featureClass=P&maxRows=1000&username=affela`,
+          )
           const data = await response.json()
 
-          setCities(data.data || [])
+          if (data.geonames && data.geonames.length > 0) {
+            const cityList = [...new Set(data.geonames.map((city) => city.name))]
+
+            setCities(cityList)
+          } else {
+            setCities([])
+          }
         } catch (error) {
           console.error('Error fetching cities:', error)
         }
@@ -81,7 +87,7 @@ const CityInput = forwardRef(
       if (onChange) onChange(selectedCity)
     }
 
-    const filteredCities = cities.filter((cityName) => cityName.toLowerCase().includes(searchTerm.toLowerCase()))
+    const filteredCities = cities.filter((cityName) => cityName.toLowerCase().startsWith(searchTerm.toLowerCase()))
 
     const handleInputClick = () => {
       setIsCityDropdownOpen(true)

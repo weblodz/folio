@@ -51,20 +51,14 @@ const ZipCodeInput = forwardRef(
       try {
         let response, data
 
-        if (country === 'United Kingdom') {
-          response = await fetch(`https://api.postcodes.io/postcodes/${zipCode}`)
-          data = await response.json()
-          if (data.status === 200) {
-            fetchedCity = data.result.admin_district
-            isValidZip = true
-          }
-        } else if (country === 'Poland') {
-          response = await fetch(`https://api.zippopotam.us/pl/${zipCode}`)
-          data = await response.json()
-          if (data.places?.length > 0) {
-            fetchedCity = data.places[0]['place name']
-            isValidZip = true
-          }
+        response = await fetch(
+          `http://api.geonames.org/postalCodeLookupJSON?postalcode=${zipCode}&country=${country === 'United Kingdom' ? 'GB' : 'PL'}&username=affela`,
+        )
+
+        data = await response.json()
+        if (data.postalcodes && data.postalcodes.length > 0) {
+          fetchedCity = data.postalcodes[0].placeName
+          isValidZip = true
         }
       } catch (error) {
         console.error('Error fetching city:', error)
