@@ -21,7 +21,7 @@
   width: 88%;
 }
 
-.checked_icon {
+.checked_icon_background {
   position: absolute;
   inset: 0;
   display: flex;
@@ -33,11 +33,11 @@
   height: 16px;
 }
 
-.unchecked_icon {
-  z-index: 5;
+.icon_container {
   position: absolute;
   inset: 0;
   background-color: white;
+  z-index: 5;
   width: 16px;
   height: 16px;
   border-radius: 10%;

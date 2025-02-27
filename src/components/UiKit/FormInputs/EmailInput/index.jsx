@@ -41,4 +41,3 @@ EmailInput.propTypes = {
   errorMessage: T.string,
   defaultValue: T.bool,
 }
-
