@@ -1,7 +1,7 @@
 import { useState } from "react"
 import PropTypes from "prop-types"
 import { useTranslation } from "react-i18next"
-import Menu from "@components/Header/components/Menu"
+import MobileMenu from "@components/Header/components/MobileMenu"
 import HamburgerButton from "@components/Header/components/HamburgerButton"
 import styles from "./navbar.module.scss"
 
@@ -44,7 +44,7 @@ function Navbar({ setIsMenuOpen, isMenuOpen }) {
         </li>
       </ul>
 
-      {isOpen && <Menu isOpen={isOpen} onClose={handleCloseMenu} />}
+      {isOpen && <MobileMenu isOpen={isOpen} onClose={handleCloseMenu} />}
     </div>
   )
 }
