@@ -46,7 +46,9 @@ function SignUpForm() {
             defaultValue=""
             render={
             ({ field }) => (
-              <EmailInput isValid={!errors.email} errorMessage={errors.email?.message} {...field}/>
+              <EmailInput isValid={!errors.email} errorMessage={errors.email?.message} {...field}
+                label={t('emailAddress')}
+              />
             )}/>
         </div>
         <div className={styles.input_field}>
@@ -55,7 +57,9 @@ function SignUpForm() {
             control={control}
             defaultValue=""
             render={({field}) => (
-              <PasswordInput isValid={!errors.password} errorMessage={errors.password?.message} {...field} />
+              <PasswordInput isValid={!errors.password} errorMessage={errors.password?.message} {...field}
+                label={t('password')}
+              />
           )}/>
         </div>
         <div className={styles.input_field}>
@@ -63,9 +67,10 @@ function SignUpForm() {
             name='confirmPassword'
             control={control}
             defaultValue=""
-            label="Confirm Password"
             render={({field}) => (
-              <PasswordInput isValid={!errors.confirmPassword} errorMessage={errors.confirmPassword?.message} {...field} />
+              <PasswordInput isValid={!errors.confirmPassword} errorMessage={errors.confirmPassword?.message} {...field}
+                label={t('confirmPassword')}
+              />
             )}/>
         </div>
         <Controller name='acceptTerms'
