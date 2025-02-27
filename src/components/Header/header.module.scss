@@ -1,3 +1,5 @@
+@use '/src/styles/variables' as *;
+
 .header {
   position: fixed;
   z-index: 9;
@@ -16,11 +18,20 @@
   &:hover {
     background-color: var(--common-color-bg-inverse-primary);
   }
+
   .container {
     width: 80%;
     max-width: 1600px;
     display: flex;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+.white_background {
+  background-color: var(--common-color-bg-primary);
+
+  &:hover {
+    background-color: var(--common-color-bg-primary);
   }
 }

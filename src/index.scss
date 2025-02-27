@@ -1,6 +1,7 @@
 @use '/src/assets/fonts/fonts' as *;
 @use '/src/styles/_reset' as *;
 
+ 
 :root {
   --screen-mobile-s: 320px;
   --screen-mobile-m: 375px;
@@ -11,6 +12,7 @@
   --screen-laptop-l: 1440px;
   --screen-laptop-4k: 2560px;
 
+  
   --common-font-en: 'SSTW20-Roman';
   --common-font-en-bold: 'SSTW20-Bold';
   --common-color-bg-primary: #fff;
@@ -34,3 +36,4 @@
   --common-bg-gradient-dark: linear-gradient(rgb(22, 33, 39) 0%, rgb(0, 0, 0) 100%);
   --common-header-bg-color: transparent;
 }
+

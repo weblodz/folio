@@ -8,7 +8,6 @@ import plHome from './translations/locales/pl/nsHome.json'
 import enAuth from './translations/locales/en/nsAuth.json'
 import plAuth from './translations/locales/pl/nsAuth.json'
 
-
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -25,13 +24,12 @@ i18n
         nsAuth: plAuth
       },
     },
-    lng: 'en',
     fallbackLng: 'en',
     ns: ['nsCommon', 'nsHome', 'nsAuth'],
     defaultNS: 'nsCommon',
     detection: {
-      order: ["navigator", "localStorage"],
-      caches: ["localStorage"]
+      order: ['localStorage', 'navigator'],
+      caches: ['localStorage'],
     },
     interpolation: {
       escapeValue: false

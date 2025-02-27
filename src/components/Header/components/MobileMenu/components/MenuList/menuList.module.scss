@@ -1,0 +1,237 @@
+@use '/src/styles/variables' as *;
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  margin-left: 60px;
+
+  &:hover {
+    .item_button,
+    .link {
+      color: var(--common-color-text-secondary);
+
+      &:hover {
+        color: var(--common-color-bg-inverse-primary);
+      }
+    }
+  }
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.item {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.link,
+.item_button {
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: normal;
+  color: var(--common-color-text-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.3s;
+  font-family: var(--common-font-en), sans-serif;
+  padding: 12px 1px;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.separator {
+  position: relative;
+  padding-top: 10px;
+  margin-top: 10px;
+  width: 85%;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--common-color-bg-tertiary);
+  }
+}
+
+.arrow {
+  position: relative;
+  right: 55px;
+  font-size: 16px;
+  color: var(--common-color-border-strong);
+  transition: transform 0.3s ease-in-out;
+}
+
+.submenu {
+  list-style: none;
+  margin: 0;
+  background-color: var(--common-color-bg-primary);
+  transition: max-height 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--common-font-en), sans-serif;
+  margin-bottom: 30px;
+}
+
+.submenu_item {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.image_container {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -10px;
+}
+
+.image {
+  width: 98%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+  margin-bottom: -35px;
+}
+
+.submenu_link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--common-color-bg-inverse-primary);
+  transition: color 0.3s;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-top: 25px;
+}
+
+.border {
+  border-left: 3px solid var(--common-color-bg-tertiary);
+  margin-left: 20px;
+  padding-left: 15px;
+}
+
+.image_text {
+  position: absolute;
+  font-family: var(--common-font-en), sans-serif;
+  bottom: 1px;
+  left: 5px;
+  font-size: 24px;
+  color: var(--common-color-text-inverse-primary);
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-left: 20px;
+}
+
+.submenu_item[data-name='Reserve'] .image_text {
+  color: var(--common-color-bg-inverse-primary) !important;
+}
+
+.item_button[data-name='separator'] .image_text {
+  position: relative;
+  padding-top: 15px;
+  margin-top: 10px;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.submenu_link:hover {
+  color: var(--common-color-text-primary);
+}
+
+.language_button {
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: normal;
+  color: var(--common-color-text-primary);
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+
+  &:hover {
+    color: var(--common-color-bg-inverse-primary) !important;
+  }
+
+  &.active {
+    font-weight: bold;
+  }
+}
+
+@media (max-width: $screen-mobile-l) {
+  .nav {
+    margin-left: 50px;
+  }
+
+  .arrow {
+    right: 45px;
+  }
+
+  .image_text {
+    font-size: 22px;
+    bottom: -10px;
+    left: -5px;
+  }
+
+  .image_container {
+    margin-left: -20px;
+    margin-top: -10px;
+  }
+}
+
+@media (max-width: $screen-mobile-m) {
+  .nav {
+    margin-left: 40px;
+  }
+
+  .arrow {
+    right: 35px;
+  }
+
+  .image_text {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: $screen-mobile-s) {
+  .nav {
+    margin-left: 35px;
+  }
+
+  .arrow {
+    right: 25px;
+  }
+
+  .image_text {
+    font-size: 18px;
+  }
+}
