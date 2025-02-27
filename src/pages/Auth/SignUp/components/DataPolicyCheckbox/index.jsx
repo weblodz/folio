@@ -9,7 +9,7 @@ const DataPolicyCheckbox = forwardRef(({ checked, onChange, ...rest }, ref) => {
     <div className={styles.container}>
       <div className={styles.checkbox_container} onClick={() => onChange(!checked)}>
         <span>
-          <input type="checkbox" checked={checked} onClick={() => {console.log('input Clicked')}} ref={ref} {...rest} />
+          <input type="checkbox" checked={checked} ref={ref} {...rest} />
         </span>
         <span className={styles.icon_container}>
           {checked ? (
