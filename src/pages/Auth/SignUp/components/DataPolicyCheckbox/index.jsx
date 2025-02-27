@@ -1,4 +1,5 @@
 import TickIcon from '@components/UiKit/Icons/TickIcon'
+import PolicyText from '@pages/Auth/SignUp/components/DataPolicyCheckbox/components/PolicyText'
 import { forwardRef } from 'react'
 import T from 'prop-types'
 import styles from './datapolicycheckbox.module.scss'
@@ -18,11 +19,7 @@ const DataPolicyCheckbox = forwardRef(({ checked, onChange, ...rest }, ref) => {
           ) : null}
         </span>
       </div>
-      <div className={styles.text}>
-        By checking here, I agree to AFEELA Account Terms and Conditions and Privacy Policy.
-        I also agree that Sony Honda Mobility, its affiliates and service providers send me newsletters,
-        marketing materials and other information.
-      </div>
+      <PolicyText />
     </div>
   )
 })

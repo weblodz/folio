@@ -6,8 +6,10 @@
   "whoCanRegister": "Tylko rezydenci Europy mogą się rejestrować",
   "alternativeSignIn": "Możesz też zalogować się na swoje konta społecznościowe",
   "bySigningUp": "Rejestrując się za pomocą kont w mediach społecznościowych, wyrażasz zgodę na",
+  "byCheckingHere": "Zaznaczając to pole, wyrażam zgodę",
   "termsAndConditions": "Warunki korzystania z konta AFEELA",
   "and": "firmy Sony Honda Mobility oraz ",
   "privacyPolicy": "Politykę prywatności.",
-  "youAlsoAgree": "Zgadzasz się również na przesyłanie Ci biuletynów, materiałów marketingowych i innych informacji przez firmę Sony Honda Mobility, jej podmioty stowarzyszone i usługodawców."
+  "youAlsoAgree": "Zgadzasz się również na przesyłanie Ci biuletynów, materiałów marketingowych i innych informacji przez firmę Sony Honda Mobility, jej podmioty stowarzyszone i usługodawców.",
+  "iAlsoAgree" : "Zgadzam się również na przesyłanie Mi biuletynów, materiałów marketingowych i innych informacji przez firmę Sony Honda Mobility, jej podmioty stowarzyszone i usługodawców"
 }
