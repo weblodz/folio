@@ -1,5 +1,7 @@
 {
   "signIn": "Zaloguj Się",
+  "signUp": "Zarejestruj Się",
+  "signInInfo": "Dane do logowania",
   "forgotPassword": "Nie pamiętasz hasła?",
   "createAccount": "Załoź konto",
   "registerYourInformation": "Zarejestruj swoje dane do logowania",

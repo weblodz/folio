@@ -5,11 +5,13 @@ import DataPolicyCheckbox from '@pages/Auth/SignUp/components/DataPolicyCheckbox
 import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import schema from './schema.js'
 import styles from './signupform.module.scss'
 
 function SignUpForm() {
   const [isLoading, setIsLoading] = useState(false)
+  const { t } = useTranslation('nsAuth')
 
   const onSubmit = (data) => {
     setIsLoading(true)
@@ -34,7 +36,9 @@ function SignUpForm() {
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles.title}>Sign-in information</div>
+        <div className={styles.title}>
+          {t('signInInfo')}
+        </div>
         <div className={styles.input_field}>
           <Controller
             name='email'
@@ -69,7 +73,7 @@ function SignUpForm() {
           render={({field}) => (
             <DataPolicyCheckbox checked={field.value} {...field}/>
         )}/>
-        <FormButton isLoading={isLoading} onClick={() => {handleSubmit(onSubmit)}} text={'Sign Up'} isActive={isValid && !isLoading} />
+        <FormButton isLoading={isLoading} onClick={() => {handleSubmit(onSubmit)}} text={t('signUp')} isActive={isValid && !isLoading} />
       </form>
     </div>
   )

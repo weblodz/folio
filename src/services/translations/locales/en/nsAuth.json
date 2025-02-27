@@ -1,5 +1,7 @@
 {
   "signIn": "Sign In",
+  "signUp": "Sign Up",
+  "signInInfo": "Sign-in information",
   "forgotPassword": "Forgot your password?",
   "createAccount": "Create Account",
   "registerYourInformation": "Register your sign in information",
