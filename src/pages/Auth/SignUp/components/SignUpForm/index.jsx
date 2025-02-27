@@ -13,6 +13,18 @@ function SignUpForm() {
   const [isLoading, setIsLoading] = useState(false)
   const { t } = useTranslation('nsAuth')
 
+  const {
+    control,
+    handleSubmit,
+    formState: { errors, isValid }
+  } = useForm({
+    resolver: zodResolver(schema(t)),
+    mode: 'onBlur',
+    defaultValues: {
+      acceptTerms: false
+    }
+  })
+
   const onSubmit = (data) => {
     setIsLoading(true)
     setTimeout(() => {
@@ -20,18 +32,6 @@ function SignUpForm() {
       setIsLoading(false)
     }, 2000)
   }
-
-  const {
-    control,
-    handleSubmit,
-    formState: { errors, isValid }
-  } = useForm({
-    resolver: zodResolver(schema),
-    mode: 'onBlur',
-    defaultValues: {
-      acceptTerms: false
-    }
-  })
 
   return (
     <div className={styles.container}>
@@ -78,7 +78,11 @@ function SignUpForm() {
           render={({field}) => (
             <DataPolicyCheckbox checked={field.value} {...field}/>
         )}/>
-        <FormButton isLoading={isLoading} onClick={() => {handleSubmit(onSubmit)}} text={t('signUp')} isActive={isValid && !isLoading} />
+        <FormButton isLoading={isLoading}
+          onClick={() => {handleSubmit(onSubmit)}}
+          text={t('signUp')}
+          isActive={isValid && !isLoading}
+        />
       </form>
     </div>
   )

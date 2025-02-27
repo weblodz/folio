@@ -16,5 +16,10 @@
   "and": "firmy Sony Honda Mobility oraz ",
   "privacyPolicy": "Politykę prywatności.",
   "youAlsoAgree": "Zgadzasz się również na przesyłanie Ci biuletynów, materiałów marketingowych i innych informacji przez firmę Sony Honda Mobility, jej podmioty stowarzyszone i usługodawców.",
-  "iAlsoAgree" : "Zgadzam się również na przesyłanie Mi biuletynów, materiałów marketingowych i innych informacji przez firmę Sony Honda Mobility, jej podmioty stowarzyszone i usługodawców"
+  "iAlsoAgree" : "Zgadzam się również na przesyłanie Mi biuletynów, materiałów marketingowych i innych informacji przez firmę Sony Honda Mobility, jej podmioty stowarzyszone i usługodawców",
+  "emailInvalid": "Proszę sprawdzić email",
+  "passwordTooShort": "Hasło musi być minimalnie 8 znaków",
+  "passwordMustHave": "Hasło musi zawierać co najmniej jedną wielką i jedną małą literę, jedną cyfrę i jeden znak specjalny",
+  "confirmPasswordError": "Proszę potwierdzieć hasło",
+  "passwordsDontMatchError": "Hasła muszą być jednakowe"
 }

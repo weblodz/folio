@@ -16,5 +16,10 @@
   "and": "of Sony Honda Mobility and",
   "privacyPolicy": "Privacy Policy.",
   "youAlsoAgree": "You also agree that Sony Honda Mobility, its affiliates and service providers send you newsletters, marketing materials and other information.",
-  "iAlsoAgree" : "I also agree that Sony Honda Mobility, its affiliates and service providers send me newsletters, marketing materials and other information."
+  "iAlsoAgree" : "I also agree that Sony Honda Mobility, its affiliates and service providers send me newsletters, marketing materials and other information.",
+  "emailInvalidError": "Please check your email",
+  "passwordTooShortError": "Password must be at least 8 characters",
+  "passwordMustHaveError": "Password must have at least one uppercase, one lowercase, one number, and one special character",
+  "confirmPasswordError": "Please confirm your password",
+  "passwordsDontMatchError": "Passwords do not match"
 }
