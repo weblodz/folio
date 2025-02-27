@@ -26,6 +26,9 @@ function SignUpForm() {
   } = useForm({
     resolver: zodResolver(schema),
     mode: 'onBlur',
+    defaultValues: {
+      acceptTerms: false
+    }
   })
 
   return (
@@ -61,7 +64,11 @@ function SignUpForm() {
               <PasswordInput isValid={!errors.confirmPassword} errorMessage={errors.confirmPassword?.message} {...field} />
             )}/>
         </div>
-        <DataPolicyCheckbox />
+        <Controller name='acceptTerms'
+          control={control}
+          render={({field}) => (
+            <DataPolicyCheckbox checked={field.value} {...field}/>
+        )}/>
         <FormButton isLoading={isLoading} onClick={() => {handleSubmit(onSubmit)}} text={'Sign Up'} isActive={isValid && !isLoading} />
       </form>
     </div>
