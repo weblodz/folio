@@ -25,6 +25,7 @@ function SignUpForm() {
     }
   })
 
+  //TODO: change to sending data to server after the backend is ready
   const onSubmit = (data) => {
     setIsLoading(true)
     setTimeout(() => {
