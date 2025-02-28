@@ -3,43 +3,27 @@ import { SlArrowDown, SlArrowUp } from 'react-icons/sl'
 import T from 'prop-types'
 import styles from './countryInput.module.scss'
 
-const CountryInput = forwardRef(({ defaultValue = 'Poland', onChange, ...rest }, ref) => {
-  const [country, setCountry] = useState(() => sessionStorage.getItem('selectedCountry') || defaultValue)
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+const CountryInput = forwardRef(({ defaultValue = 'Poland', selectedCountry, onChange, ...rest }, ref) => {
+  const [country, setCountry] = useState(selectedCountry || defaultValue)
+  const [isDropdownOpen] = useState(false)
 
   useEffect(() => {
-    const handleStorageChange = () => {
-      const storedCountry = sessionStorage.getItem('selectedCountry') || defaultValue
-
-      setCountry(storedCountry)
-    }
-
-    window.addEventListener('storage', handleStorageChange)
-
-    return () => window.removeEventListener('storage', handleStorageChange)
-  }, [defaultValue])
+    setCountry(selectedCountry || defaultValue)
+  }, [selectedCountry, defaultValue])
 
   const handleCountryChange = (e) => {
     const selectedCountry = e.target.value
 
     setCountry(selectedCountry)
 
-    sessionStorage.setItem('selectedCountry', selectedCountry)
-    sessionStorage.removeItem('selectedCity')
-    sessionStorage.removeItem('enteredZip')
-
-    window.dispatchEvent(new Event('storage'))
-
-    if (onChange) onChange(selectedCountry)
-  }
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen((prev) => !prev)
+    if (onChange) {
+      onChange(selectedCountry)
+    }
   }
 
   return (
-    <div className={styles.input_container} tabIndex={0}>
-      <div className={styles.select_wrapper} onClick={toggleDropdown}>
+    <div className={styles.input_container}>
+      <div className={styles.select_wrapper}>
         <select
           id="country"
           className={styles.text_input}
@@ -66,6 +50,7 @@ CountryInput.displayName = 'CountryInput'
 
 CountryInput.propTypes = {
   defaultValue: T.string,
+  selectedCountry: T.string,
   onChange: T.func,
 }
 
