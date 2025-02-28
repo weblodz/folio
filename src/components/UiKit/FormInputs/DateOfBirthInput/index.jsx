@@ -17,6 +17,7 @@ export default function DateOfBirthInput({
   selectedMonth: propMonth = '',
   selectedDay: propDay = '',
   selectedYear: propYear = '',
+  showErrors = false,
 }) {
   const [selectedMonth, setSelectedMonth] = useState(propMonth)
   const [selectedDay, setSelectedDay] = useState(propDay)
@@ -30,7 +31,10 @@ export default function DateOfBirthInput({
     setSelectedMonth(propMonth)
     setSelectedDay(propDay)
     setSelectedYear(propYear)
-  }, [propMonth, propDay, propYear])
+    if (showErrors) {
+      validateAllFields(propMonth, propDay, propYear)
+    }
+  }, [propMonth, propDay, propYear, showErrors])
 
   const hasError = monthError || dayError || yearError
 
@@ -48,18 +52,17 @@ export default function DateOfBirthInput({
     onChange({ month: newMonth, day: newDay, year: newYear })
   }
 
-const validateAllFields = (month, day, year) => {
-  const isValid = month && day && year
+  const validateAllFields = (month, day, year) => {
+    const isValid = month && day && year
 
-  setMonthError(!isValid)
-  setDayError(!isValid)
-  setYearError(!isValid)
+    setMonthError(!isValid)
+    setDayError(!isValid)
+    setYearError(!isValid)
   }
 
   const handleBlur = () => {
     validateAllFields(selectedMonth, selectedDay, selectedYear)
   }
-
 
   const containerClass = classNames(styles.birth_container, {
     [styles.error]: hasError,
@@ -98,7 +101,6 @@ const validateAllFields = (month, day, year) => {
       {hasError && <p className={styles.error_text}>Enter your date of birth</p>}
     </div>
   )
-
 }
 
 DateOfBirthInput.propTypes = {
@@ -106,8 +108,10 @@ DateOfBirthInput.propTypes = {
   selectedMonth: PropTypes.string,
   selectedDay: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   selectedYear: PropTypes.string,
+  showErrors: PropTypes.bool,
 }
 
 DateOfBirthInput.defaultProps = {
   onChange: () => {},
+  showErrors: false,
 }

@@ -9,7 +9,7 @@ export default {
     selectedMonth: { control: "text" },
     selectedDay: { control: "number" },
     selectedYear: { control: "text" },
-    error: { control: "boolean" },
+    hasError: { control: "boolean" },
   },
 }
 
@@ -18,7 +18,7 @@ export const Default = {
     selectedMonth: "",
     selectedDay: "",
     selectedYear: "",
-    error: false,
+    hasError: false,
   },
 }
 
@@ -27,7 +27,7 @@ export const WithError = {
     selectedMonth: "",
     selectedDay: "",
     selectedYear: "",
-    error: true,
+    showErrors: true,
   },
 }
 
@@ -36,6 +36,6 @@ export const Filled = {
     selectedMonth: "March",
     selectedDay: 15,
     selectedYear: "2000",
-    error: false,
+    hasError: false,
   },
 }
