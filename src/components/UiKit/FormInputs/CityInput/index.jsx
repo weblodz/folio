@@ -16,6 +16,7 @@ const CityInput = forwardRef(
       cityTouched: forcedCityTouched = false,
       onChange,
       zip,
+      country,
       ...rest
     },
     ref,
@@ -27,40 +28,34 @@ const CityInput = forwardRef(
     const [searchTerm, setSearchTerm] = useState('')
     const [cityTouched, setCityTouched] = useState(forcedCityTouched)
     const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(defaultOpen)
-    const [country, setCountry] = useState(sessionStorage.getItem('selectedCountry') || 'Poland')
     const { t } = useTranslation('nsAuth')
 
     useEffect(() => {
-      if (!zip) {
-        setCity('')
-      }
-    }, [country, zip])
+      setCity(defaultValue)
+    }, [country, defaultValue])
 
     useEffect(() => {
-      setCity(defaultValue)
-    }, [defaultValue])
+      if (zip) {
+        setCity(zip)
+      }
+    }, [zip])
 
     useEffect(() => {
       const fetchCities = async () => {
         if (!country) return
         setLoading(true)
         try {
-          const countryCode = country === 'United Kingdom' ? 'GB' : 'PL'
-
-          const response = await fetch(
-            `http://api.geonames.org/searchJSON?country=${countryCode}&featureClass=P&maxRows=1000&username=affela`,
-          )
+          const response = await fetch('https://countriesnow.space/api/v0.1/countries/cities', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ country }),
+          })
           const data = await response.json()
 
-          if (data.geonames && data.geonames.length > 0) {
-            const cityList = [...new Set(data.geonames.map((city) => city.name))]
-
-            setCities(cityList)
-          } else {
-            setCities([])
-          }
+          setCities(data.data || [])
         } catch (error) {
           console.error('Error fetching cities:', error)
+          setCities([])
         }
         setLoading(false)
       }
@@ -68,31 +63,16 @@ const CityInput = forwardRef(
       fetchCities()
     }, [country])
 
-    useEffect(() => {
-      const handleStorageChange = () => {
-        setCity(sessionStorage.getItem('selectedCity') || '')
-        setCountry(sessionStorage.getItem('selectedCountry') || 'Poland')
-      }
-
-      window.addEventListener('storage', handleStorageChange)
-
-      return () => window.removeEventListener('storage', handleStorageChange)
-    }, [])
-
     const handleCityChange = (e) => {
       const selectedCity = e.target.value
 
       setCity(selectedCity)
-      sessionStorage.setItem('selectedCity', selectedCity)
-      window.dispatchEvent(new Event('storage'))
       setCityTouched(true)
       if (onChange) onChange(selectedCity)
     }
 
     const handleCitySelect = (selectedCity) => {
       setCity(selectedCity)
-      sessionStorage.setItem('selectedCity', selectedCity)
-      window.dispatchEvent(new Event('storage'))
       setIsCityDropdownOpen(false)
       setCityTouched(true)
       if (onChange) onChange(selectedCity)
@@ -189,6 +169,7 @@ CityInput.propTypes = {
   errorMessage: T.string,
   cityTouched: T.bool,
   zip: T.string,
+  country: T.string.isRequired,
 }
 
 export default CityInput
