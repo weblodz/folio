@@ -1,42 +1,42 @@
-import { useState, useEffect, forwardRef } from 'react'
+import { useState, useEffect, useRef, forwardRef } from 'react'
 import T from 'prop-types'
 import styles from './zipCodeInput.module.scss'
 
 const ZipCodeInput = forwardRef(
   (
     {
-      isValid,
+      isValid = true,
       errorMessage = 'Ensure your ZIP code is correct',
       defaultValue = '',
       zipTouched: forcedZipTouched = false,
+      onChange,
+      onCityChange,
+      country,
+      city,
       ...rest
     },
     ref,
   ) => {
-    const [zip, setZip] = useState(defaultValue)
+    const [zip, setZip] = useState(defaultValue || '')
     const [zipTouched, setZipTouched] = useState(forcedZipTouched)
     const [validity, setValidity] = useState(isValid)
-    const country = sessionStorage.getItem('selectedCountry') || 'Poland'
+    const debounceTimeout = useRef(null)
+    const previousCountry = useRef(country)
 
     useEffect(() => {
-      if (zip === '') {
+      if (typeof defaultValue === 'string' && zip === '') {
         setZip(defaultValue)
       }
     }, [defaultValue, zip])
 
     useEffect(() => {
-      sessionStorage.removeItem('enteredZip')
-    }, [])
-
-    useEffect(() => {
-      const handleStorageChange = () => {
-        setZip(sessionStorage.getItem('enteredZip') || '')
+      if (previousCountry.current !== country) {
+        setZip('')
+        setValidity(true)
+        previousCountry.current = country
+        if (onCityChange) onCityChange('')
       }
-
-      window.addEventListener('storage', handleStorageChange)
-
-      return () => window.removeEventListener('storage', handleStorageChange)
-    }, [])
+    }, [country, onCityChange])
 
     const fetchCityFromZip = async (zipCode) => {
       if (!zipCode) {
@@ -49,13 +49,11 @@ const ZipCodeInput = forwardRef(
       let isValidZip = false
 
       try {
-        let response, data
-
-        response = await fetch(
+        let response = await fetch(
           `http://api.geonames.org/postalCodeLookupJSON?postalcode=${zipCode}&country=${country === 'United Kingdom' ? 'GB' : 'PL'}&username=affela`,
         )
+        const data = await response.json()
 
-        data = await response.json()
         if (data.postalcodes && data.postalcodes.length > 0) {
           fetchedCity = data.postalcodes[0].placeName
           isValidZip = true
@@ -64,23 +62,39 @@ const ZipCodeInput = forwardRef(
         console.error('Error fetching city:', error)
       }
 
-      if (fetchedCity) {
-        sessionStorage.setItem('selectedCity', fetchedCity)
-        window.dispatchEvent(new Event('storage'))
-      }
-
       setValidity(isValidZip)
+
+      if (isValidZip && fetchedCity && (!city || city === defaultValue)) {
+        onCityChange(fetchedCity)
+      }
     }
 
     const handleZipChange = (e) => {
       const newZip = e.target.value
 
+      if (newZip.length > 10) return
+
       setZip(newZip)
-      sessionStorage.setItem('enteredZip', newZip)
-      fetchCityFromZip(newZip)
+      if (onChange) onChange(newZip)
+
+      if (debounceTimeout.current) {
+        clearTimeout(debounceTimeout.current)
+      }
+
+      debounceTimeout.current = setTimeout(() => {
+        if (
+          (country === 'Poland' && /^\d{2}-\d{3}$/.test(newZip)) ||
+          (country === 'United Kingdom' && newZip.length >= 5 && newZip.length <= 7)
+        ) {
+          fetchCityFromZip(newZip)
+        } else {
+          setValidity(false)
+        }
+      }, 500)
     }
 
-    const zipStyle = validity ? `${styles.text_input}` : `${styles.text_input} ${styles.invalid_text_input}`
+    const zipStyle =
+      zipTouched && (!zip || !validity) ? `${styles.text_input} ${styles.invalid_text_input}` : styles.text_input
     const labelStyle = zip ? `${styles.label_text} ${styles.focused_label_text}` : styles.label_text
 
     return (
@@ -106,10 +120,14 @@ const ZipCodeInput = forwardRef(
 ZipCodeInput.displayName = 'ZipCodeInput'
 
 ZipCodeInput.propTypes = {
-  isValid: T.bool.isRequired,
-  errorMessage: T.string.isRequired,
+  isValid: T.bool,
+  errorMessage: T.string,
   defaultValue: T.string,
   zipTouched: T.bool,
+  onChange: T.func.isRequired,
+  onCityChange: T.func.isRequired,
+  country: T.string.isRequired,
+  city: T.string,
 }
 
 export default ZipCodeInput

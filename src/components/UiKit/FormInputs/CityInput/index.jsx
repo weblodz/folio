@@ -1,4 +1,4 @@
-import { useState, useEffect, forwardRef } from 'react'
+import { useState, useEffect, forwardRef, useRef } from 'react'
 import { IoIosSearch } from 'react-icons/io'
 import { IoClose } from 'react-icons/io5'
 import { SlArrowDown, SlArrowUp } from 'react-icons/sl'
@@ -13,10 +13,12 @@ const CityInput = forwardRef(
       defaultOpen = false,
       cityTouched: forcedCityTouched = false,
       onChange,
+      zip,
       ...rest
     },
     ref,
   ) => {
+    const containerRef = useRef(null)
     const [city, setCity] = useState(defaultValue)
     const [cities, setCities] = useState([])
     const [loading, setLoading] = useState(false)
@@ -24,6 +26,12 @@ const CityInput = forwardRef(
     const [cityTouched, setCityTouched] = useState(forcedCityTouched)
     const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(defaultOpen)
     const [country, setCountry] = useState(sessionStorage.getItem('selectedCountry') || 'Poland')
+
+    useEffect(() => {
+      if (!zip) {
+        setCity('')
+      }
+    }, [country, zip])
 
     useEffect(() => {
       setCity(defaultValue)
@@ -94,7 +102,7 @@ const CityInput = forwardRef(
     }
 
     const handleDocumentClick = (e) => {
-      if (!e.target.closest(`.${styles.input_container}`)) {
+      if (containerRef.current && !containerRef.current.contains(e.target)) {
         setIsCityDropdownOpen(false)
       }
     }
@@ -109,11 +117,13 @@ const CityInput = forwardRef(
 
     const shouldShowError = cityTouched && !city
 
+    const cityInputStyle = shouldShowError ? `${styles.text_input} ${styles.invalid_text_input}` : styles.text_input
+
     return (
-      <div className={styles.input_container}>
+      <div className={styles.input_container} ref={containerRef}>
         <div className={styles.select_wrapper} onClick={handleInputClick}>
           <input
-            className={styles.text_input}
+            className={cityInputStyle}
             type="text"
             value={city}
             onChange={handleCityChange}
@@ -175,6 +185,7 @@ CityInput.propTypes = {
   onChange: T.func,
   errorMessage: T.string,
   cityTouched: T.bool,
+  zip: T.string,
 }
 
 export default CityInput
