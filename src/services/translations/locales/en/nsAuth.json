@@ -1,0 +1,13 @@
+{
+  "PL": "Poland",
+  "UK": "United Kingdom",
+  "countryLabel": "Country/Region",
+  "selectCity": "Select your city",
+  "searchCity": "Search city",
+  "loadingCities": "Loading cities...",
+  "citiesNotFound": "No cities found",
+  "city": "City",
+  "zipCode": "Zip Code",
+  "enterZipCode": "Enter your ZIP code",
+  "ensureZipCodeCorrect": "Ensure your ZIP code is correct"
+}

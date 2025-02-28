@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, forwardRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import cls from 'classnames'
 import T from 'prop-types'
 import styles from './zipCodeInput.module.scss'
@@ -23,6 +24,7 @@ const ZipCodeInput = forwardRef(
     const [validity, setValidity] = useState(isValid)
     const debounceTimeout = useRef(null)
     const previousCountry = useRef(country)
+    const { t } = useTranslation('nsAuth')
 
     useEffect(() => {
       if (typeof defaultValue === 'string' && zip === '') {
@@ -108,9 +110,9 @@ const ZipCodeInput = forwardRef(
           ref={ref}
           {...rest}
         />
-        <label className={labelStyle}>Zip Code</label>
+        <label className={labelStyle}>{t('zipCode')}</label>
 
-        {zipTouched && !zip && <span className={styles.error_message}>Enter your ZIP code</span>}
+        {zipTouched && !zip && <span className={styles.error_message}>{t('enterZipCode')}</span>}
         {zipTouched && zip && !validity && <span className={styles.error_message}>{errorMessage}</span>}
       </div>
     )

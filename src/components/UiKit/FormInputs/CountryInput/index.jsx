@@ -1,4 +1,5 @@
 import { useState, useEffect, forwardRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import cls from 'classnames'
 import { SlArrowDown, SlArrowUp } from 'react-icons/sl'
 import T from 'prop-types'
@@ -7,6 +8,7 @@ import styles from './countryInput.module.scss'
 const CountryInput = forwardRef(({ defaultValue = 'Poland', selectedCountry, onChange, ...rest }, ref) => {
   const [country, setCountry] = useState(selectedCountry || defaultValue)
   const [isDropdownOpen] = useState(false)
+  const { t } = useTranslation('nsAuth')
 
   useEffect(() => {
     setCountry(selectedCountry || defaultValue)
@@ -33,8 +35,8 @@ const CountryInput = forwardRef(({ defaultValue = 'Poland', selectedCountry, onC
           ref={ref}
           {...rest}
         >
-          <option value="Poland">Poland</option>
-          <option value="United Kingdom">United Kingdom</option>
+          <option value="Poland">{t('PL')}</option>
+          <option value="United Kingdom">{t('UK')}</option>
         </select>
         {isDropdownOpen ? (
           <SlArrowUp className={styles.custom_arrow} />
@@ -42,7 +44,7 @@ const CountryInput = forwardRef(({ defaultValue = 'Poland', selectedCountry, onC
           <SlArrowDown className={styles.custom_arrow} />
         )}
       </div>
-      <label className={cls(styles.label_text, styles.focused_label_text)}>Country/Region</label>
+      <label className={cls(styles.label_text, styles.focused_label_text)}>{t('countryLabel')}</label>
     </div>
   )
 })

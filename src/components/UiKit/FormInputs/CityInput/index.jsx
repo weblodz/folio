@@ -1,4 +1,5 @@
 import { useState, useEffect, forwardRef, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import cls from 'classnames'
 import { IoIosSearch } from 'react-icons/io'
 import { IoClose } from 'react-icons/io5'
@@ -27,6 +28,7 @@ const CityInput = forwardRef(
     const [cityTouched, setCityTouched] = useState(forcedCityTouched)
     const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(defaultOpen)
     const [country, setCountry] = useState(sessionStorage.getItem('selectedCountry') || 'Poland')
+    const { t } = useTranslation('nsAuth')
 
     useEffect(() => {
       if (!zip) {
@@ -138,7 +140,7 @@ const CityInput = forwardRef(
             <SlArrowDown className={styles.custom_arrow} />
           )}
         </div>
-        <label className={labelStyle}>City</label>
+        <label className={labelStyle}>{t('city')}</label>
 
         {shouldShowError && <span className={styles.error_message}>{errorMessage}</span>}
 
@@ -150,7 +152,7 @@ const CityInput = forwardRef(
                 <input
                   type="text"
                   className={styles.search_input}
-                  placeholder="Search city"
+                  placeholder={t('searchCity')}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -159,7 +161,7 @@ const CityInput = forwardRef(
             </div>
 
             {loading ? (
-              <div className={styles.loading_text}>Loading cities...</div>
+              <div className={styles.loading_text}>{t('loadingCities')}</div>
             ) : filteredCities.length > 0 ? (
               <div className={styles.city_list}>
                 {filteredCities.map((cityName) => (
@@ -169,7 +171,7 @@ const CityInput = forwardRef(
                 ))}
               </div>
             ) : (
-              <div className={styles.no_results}>No cities found</div>
+              <div className={styles.no_results}>{t('citiesNotFound')}</div>
             )}
           </div>
         )}
