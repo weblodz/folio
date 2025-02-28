@@ -7,8 +7,12 @@ const routes = {
       url: (id) => `/news/${id}`,
     },
     about: '/about',
+    signIn: '/sign-in',
+    signUp: '/sign-up'
   },
-  withAuth: {},
+  withAuth: {
+    profile: '/profile'
+  },
 }
 
 export default routes

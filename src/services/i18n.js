@@ -24,13 +24,12 @@ i18n
         nsAuth: plAuth
       },
     },
-    lng: 'en',
     fallbackLng: 'en',
     ns: ['nsCommon', 'nsHome', 'nsAuth'],
     defaultNS: 'nsCommon',
     detection: {
-      order: ["navigator", "localStorage"],
-      caches: ["localStorage"]
+      order: ['localStorage', 'navigator'],
+      caches: ['localStorage'],
     },
     interpolation: {
       escapeValue: false
