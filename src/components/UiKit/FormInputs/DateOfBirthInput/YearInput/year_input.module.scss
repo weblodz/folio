@@ -27,19 +27,22 @@
   display: flex;
   border-radius: 6px;
   appearance: none;
-  height: 24px;
+  height: 49px;
   padding: 16px 12px 8px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 input:focus {
   outline: none;
 }
 
-.error_border {
-  border-radius: 6px;
-  border-bottom: 2px solid var(--common-color-text-text-error);
-}
 .focused_border {
   border-bottom: 2px solid var(--common-color-bg-inverse-primary);
+  border-radius: 6px;
+}
+
+.error_border {
+  border-bottom: 2px solid var(--common-color-text-text-error);
   border-radius: 6px;
 }
