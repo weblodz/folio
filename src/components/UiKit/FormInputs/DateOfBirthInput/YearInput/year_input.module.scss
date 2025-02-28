@@ -22,39 +22,24 @@
   top: 20%;
 }
 
-.select,
 .input {
-  border: 1px solid #ccc;
+  border: 1px solid var(--common-color-bg-primary);
   display: flex;
-  width: 100%;
   border-radius: 6px;
   appearance: none;
   height: 24px;
-  border: unset;
-  box-shadow: unset;
-}
-
-.input {
-  padding: 17px 12px 8px;
+  padding: 16px 12px 8px;
 }
 
 input:focus {
   outline: none;
-  border-color: transparent;
-  border-bottom: 2px solid black;
 }
 
-
-.select:focus,
-.select.open {
-  border: 4px 4px 0px 0px;
+.error_border {
+  border-radius: 6px;
+  border-bottom: 2px solid var(--common-color-text-text-error);
+}
+.focused_border {
   border-bottom: 2px solid var(--common-color-bg-inverse-primary);
-}
-
-.selected {
-  background-color: #f0f0f0;
-}
-
-.selected_border {
-  border-bottom: 2px solid var(--common-color-bg-inverse-primary);
+  border-radius: 6px;
 }

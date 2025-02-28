@@ -3,16 +3,16 @@
   flex: 1;
   border-bottom: 2px solid transparent;
   transition: border-bottom 0.3s ease;
-  }
+}
 
-  .error_border {
-    border-bottom: 2px solid red;
-    border-radius: 4px;
-  }
-  
-  .active_border {
-    border-bottom: 2px solid black;
-  }
+.error {
+  border-bottom: 2px solid var(--common-color-text-text-error);
+  border-radius: 4px;
+}
+
+.active_border {
+  border-bottom: 2px solid var(--common-color-bg-inverse-primary);;
+}
 
 .floating_label {
   position: absolute;
@@ -27,13 +27,13 @@
   transform: translateY(-50%);
   transition: top 0.2s, font-size 0.2s, color 0.2s, transform 0.2s;
 }
-  
+
 .floating {
   position: absolute;
   top: 20%;
 }
 
-.select{
+.select {
   border: 1px solid #ccc;
   display: flex;
   justify-content: center;
@@ -46,16 +46,16 @@
   padding: 12px;
   font-size: 1rem;
   border: 1px solid #ccc;
-  background-color: #fff;
+  background-color: var(--common-color-bg-primary);
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: black;
+  color: var(--common-color-bg-inverse-primary);
   position: relative;
 }
 
-.arrow_container{
+.arrow_container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,26 +63,25 @@
 
 .arrow {
   position: absolute;
-  right: 12px;
+  right: 10px;
+  top: 45%;
+  transform: rotate(-50%);
+  font-size: 13px;
+  color: var(--common-color-bg-inverse-primary);
   pointer-events: none;
-  width: 20px;
-}
-
-.open .arrow {
-  transform: rotate(-180deg);
 }
 
 .menu {
   margin-top: 5px;
   position: absolute;
-  border: 1px solid #fff;
-  background-color: #fff;
+  border: 1px solid var(--common-color-bg-primary);
+  background-color: var(--common-color-bg-primary);
   border-radius: 4px;
   max-height: 175px;
   overflow-y: auto;
-  color: black;
+  color: var(--common-color-bg-inverse-primary);
   z-index: 1001;
-  min-width:165px;
+  min-width: 165px;
   width: 100%;
   transform-origin: center top;
 }
@@ -94,5 +93,5 @@
 }
 
 .option:hover {
-  background-color: #f0f0f0;
+  background-color: var(--common-color-bg-primary);
 }

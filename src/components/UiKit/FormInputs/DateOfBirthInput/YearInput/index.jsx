@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import T from 'prop-types'
-import cls from 'classnames'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import styles from './year_input.module.scss'
 
-function YearInput({ label, selected, onChange, onBlur, error }) {
+function YearInput({ label, selected, onChange, onBlur, hasError }) {
   const [isFocused, setIsFocused] = useState(false)
 
   const handleChange = (e) => {
@@ -14,17 +14,26 @@ function YearInput({ label, selected, onChange, onBlur, error }) {
     }
   }
 
-  const handleFocus = () => setIsFocused(true)
+  const handleFocus = () => {
+    setIsFocused(true)
+  }
 
   const handleInputBlur = () => {
     setIsFocused(false)
-    onBlur?.()
+    onBlur(selected)
   }
 
   return (
-    <div className={cls(styles.select_wrapper, { [styles.error_border]: error })}>
+    <div
+      className={classNames(styles.select_wrapper, {
+        [styles.error_border]: hasError,
+        [styles.focused_border]: isFocused,
+      })}
+    >
       <label
-        className={cls(styles.floating_label, { [styles.floating]: selected || isFocused })}
+        className={classNames(styles.floating_label, {
+          [styles.floating]: selected || isFocused,
+        })}
       >
         {label}
       </label>
@@ -41,11 +50,11 @@ function YearInput({ label, selected, onChange, onBlur, error }) {
 }
 
 YearInput.propTypes = {
-  label: T.string.isRequired,
-  selected: T.string,
-  onChange: T.func.isRequired,
-  onBlur: T.func,
-  error: T.bool
+  label: PropTypes.string.isRequired,
+  selected: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  onBlur: PropTypes.func.isRequired,
+  hasError: PropTypes.bool
 }
 
 export default YearInput

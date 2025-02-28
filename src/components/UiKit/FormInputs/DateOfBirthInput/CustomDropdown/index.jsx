@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import T from 'prop-types'
-import Icon from '/src/assets/arrowIcon/arrow.svg'
+import { SlArrowUp, SlArrowDown } from 'react-icons/sl'
 import cls from 'classnames'
 import styles from './dropdown.module.scss'
 
-export default function CustomDropdown({ label, options, selected, onSelect, onBlur }) {
+export default function CustomDropdown({ label, options, selected, onSelect, onBlur, hasError }) {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
 
@@ -18,9 +18,11 @@ export default function CustomDropdown({ label, options, selected, onSelect, onB
   }
 
   const handleBlur = useCallback(() => {
-    setIsOpen(false)
-    onBlur?.()
-  }, [onBlur])
+    if (isOpen) {
+      setIsOpen(false)
+      onBlur()
+    }
+  }, [isOpen, onBlur])
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -35,14 +37,25 @@ export default function CustomDropdown({ label, options, selected, onSelect, onB
   }, [handleBlur])
 
   return (
-    <div className={cls(styles.select_wrapper, { [styles.active_border]: isOpen })} ref={dropdownRef}>
+    <div
+      className={cls(styles.select_wrapper, {
+        [styles.active_border]: isOpen,
+        [styles.error]: hasError,
+      })}
+      ref={dropdownRef}
+    >
       <label className={cls(styles.floating_label, { [styles.floating]: selected })}>
         {label}
       </label>
+
       <div className={cls(styles.select, { [styles.open]: isOpen })} onClick={toggleDropdown}>
         {selected}
         <span className={styles.arrow_container}>
-          <img className={styles.arrow} src={Icon} alt="arrow button" />
+          {isOpen ? (
+            <SlArrowUp className={styles.arrow} />
+          ) : (
+            <SlArrowDown className={styles.arrow} />
+          )}
         </span>
       </div>
 
@@ -69,4 +82,5 @@ CustomDropdown.propTypes = {
   selected: T.oneOfType([T.string, T.number]),
   onSelect: T.func.isRequired,
   onBlur: T.func,
+  hasError: T.bool,
 }

@@ -24,7 +24,7 @@
     border-bottom: 2px solid var(--common-color-text-text-error);
   }
   &.invalid_input:focus {
-    border-bottom: 2px solid var(--common-color-text-primary); // Черный при фокусе даже с ошибкой
+    border-bottom: 2px solid var(--common-color-text-primary);
   }
 }
 

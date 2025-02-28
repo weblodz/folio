@@ -1,27 +1,30 @@
-import { useState, useRef, useEffect } from "react"
-import CustomDropdown from "@components/UiKit/FormInputs/DateOfBirthInput/CustomDropdown"
-import YearInput from "@components/UiKit/FormInputs/DateOfBirthInput/YearInput"
-import PropTypes from "prop-types"
-import styles from "./dateofbirthinput.module.scss"
+import { useState, useEffect } from 'react'
+import CustomDropdown from '@components/UiKit/FormInputs/DateOfBirthInput/CustomDropdown'
+import YearInput from '@components/UiKit/FormInputs/DateOfBirthInput/YearInput'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import styles from './date_of_birth_input.module.scss'
 
 const months = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
 ]
 
 const days = Array.from({ length: 31 }, (_, i) => i + 1)
 
 export default function DateOfBirthInput({
   onChange,
-  selectedMonth: propMonth = "",
-  selectedDay: propDay = "",
-  selectedYear: propYear = "",
+  selectedMonth: propMonth = '',
+  selectedDay: propDay = '',
+  selectedYear: propYear = '',
 }) {
   const [selectedMonth, setSelectedMonth] = useState(propMonth)
   const [selectedDay, setSelectedDay] = useState(propDay)
   const [selectedYear, setSelectedYear] = useState(propYear)
 
-  const formRef = useRef(null)
+  const [monthError, setMonthError] = useState(false)
+  const [dayError, setDayError] = useState(false)
+  const [yearError, setYearError] = useState(false)
 
   useEffect(() => {
     setSelectedMonth(propMonth)
@@ -29,53 +32,82 @@ export default function DateOfBirthInput({
     setSelectedYear(propYear)
   }, [propMonth, propDay, propYear])
 
+  const hasError = monthError || dayError || yearError
+
   const handleChange = (type, value) => {
-    const updatedMonth = type === "month" ? value : selectedMonth
-    const updatedDay = type === "day" ? value : selectedDay
-    const updatedYear = type === "year" ? value : selectedYear
+    const newMonth = type === 'month' ? value : selectedMonth
+    const newDay = type === 'day' ? value : selectedDay
+    const newYear = type === 'year' ? value : selectedYear
 
-    setSelectedMonth(updatedMonth)
-    setSelectedDay(updatedDay)
-    setSelectedYear(updatedYear)
+    if (type === 'month') setSelectedMonth(value)
+    if (type === 'day') setSelectedDay(value)
+    if (type === 'year') setSelectedYear(value)
 
-    if (updatedMonth && updatedDay && updatedYear) {
-      const monthIndex = months.indexOf(updatedMonth) + 1
-      const formattedDate = `${updatedYear}-${monthIndex.toString().padStart(2, "0")}-${updatedDay.toString().padStart(2, "0")}`
+    validateAllFields(newMonth, newDay, newYear)
 
-      onChange?.(formattedDate)
-    }
+    onChange({ month: newMonth, day: newDay, year: newYear })
   }
 
+const validateAllFields = (month, day, year) => {
+  const isValid = month && day && year
+
+  setMonthError(!isValid)
+  setDayError(!isValid)
+  setYearError(!isValid)
+  }
+
+  const handleBlur = () => {
+    validateAllFields(selectedMonth, selectedDay, selectedYear)
+  }
+
+
+  const containerClass = classNames(styles.birth_container, {
+    [styles.error]: hasError,
+  })
+
   return (
-    <div className={styles.birth_container}>
-      <div className={styles.container} ref={formRef}>
+    <div className={containerClass}>
+      <div className={styles.container}>
         <CustomDropdown
-          label="Month"
+          label='Month'
           options={months}
           selected={selectedMonth}
-          onSelect={(value) => handleChange("month", value)}
+          onSelect={(value) => handleChange('month', value)}
+          onBlur={handleBlur}
+          hasError={monthError}
         />
 
         <CustomDropdown
-          label="Day"
+          label='Day'
           options={days}
           selected={selectedDay}
-          onSelect={(value) => handleChange("day", value)}
+          onSelect={(value) => handleChange('day', value)}
+          onBlur={handleBlur}
+          hasError={dayError}
         />
 
         <YearInput
-          label="Year"
+          label='Year'
           selected={selectedYear}
-          onChange={(value) => handleChange("year", value)}
+          onChange={(value) => handleChange('year', value)}
+          onBlur={handleBlur}
+          hasError={yearError}
         />
       </div>
+
+      {hasError && <p className={styles.error_text}>Enter your date of birth</p>}
     </div>
   )
+
 }
 
 DateOfBirthInput.propTypes = {
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   selectedMonth: PropTypes.string,
   selectedDay: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   selectedYear: PropTypes.string,
+}
+
+DateOfBirthInput.defaultProps = {
+  onChange: () => {},
 }
