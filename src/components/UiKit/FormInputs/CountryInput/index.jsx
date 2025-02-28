@@ -1,4 +1,5 @@
 import { useState, useEffect, forwardRef } from 'react'
+import cls from 'classnames'
 import { SlArrowDown, SlArrowUp } from 'react-icons/sl'
 import T from 'prop-types'
 import styles from './countryInput.module.scss'
@@ -41,7 +42,7 @@ const CountryInput = forwardRef(({ defaultValue = 'Poland', selectedCountry, onC
           <SlArrowDown className={styles.custom_arrow} />
         )}
       </div>
-      <label className={`${styles.label_text} ${styles.focused_label_text}`}>Country/Region</label>
+      <label className={cls(styles.label_text, styles.focused_label_text)}>Country/Region</label>
     </div>
   )
 })

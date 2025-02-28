@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, forwardRef } from 'react'
+import cls from 'classnames'
 import T from 'prop-types'
 import styles from './zipCodeInput.module.scss'
 
@@ -93,9 +94,8 @@ const ZipCodeInput = forwardRef(
       }, 500)
     }
 
-    const zipStyle =
-      zipTouched && (!zip || !validity) ? `${styles.text_input} ${styles.invalid_text_input}` : styles.text_input
-    const labelStyle = zip ? `${styles.label_text} ${styles.focused_label_text}` : styles.label_text
+    const zipStyle = cls(styles.text_input, { [styles.invalid_text_input]: zipTouched && (!zip || !validity) })
+    const labelStyle = cls(styles.label_text, { [styles.focused_label_text]: zip })
 
     return (
       <div className={styles.input_container}>

@@ -1,4 +1,5 @@
 import { useState, useEffect, forwardRef, useRef } from 'react'
+import cls from 'classnames'
 import { IoIosSearch } from 'react-icons/io'
 import { IoClose } from 'react-icons/io5'
 import { SlArrowDown, SlArrowUp } from 'react-icons/sl'
@@ -116,8 +117,8 @@ const CityInput = forwardRef(
     }, [])
 
     const shouldShowError = cityTouched && !city
-
-    const cityInputStyle = shouldShowError ? `${styles.text_input} ${styles.invalid_text_input}` : styles.text_input
+    const cityInputStyle = cls(styles.text_input, { [styles.invalid_text_input]: shouldShowError })
+    const labelStyle = cls(styles.label_text, { [styles.focused_label_text]: city })
 
     return (
       <div className={styles.input_container} ref={containerRef}>
@@ -137,7 +138,7 @@ const CityInput = forwardRef(
             <SlArrowDown className={styles.custom_arrow} />
           )}
         </div>
-        <label className={city ? `${styles.label_text} ${styles.focused_label_text}` : styles.label_text}>City</label>
+        <label className={labelStyle}>City</label>
 
         {shouldShowError && <span className={styles.error_message}>{errorMessage}</span>}
 
