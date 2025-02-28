@@ -8,7 +8,6 @@ const ZipCodeInput = forwardRef(
   (
     {
       isValid = true,
-      errorMessage = 'Ensure your ZIP code is correct',
       defaultValue = '',
       zipTouched: forcedZipTouched = false,
       onChange,
@@ -122,7 +121,7 @@ const ZipCodeInput = forwardRef(
         <label className={labelStyle}>{t('zipCode')}</label>
 
         {zipTouched && !zip && <span className={styles.error_message}>{t('enterZipCode')}</span>}
-        {zipTouched && zip && !validity && <span className={styles.error_message}>{errorMessage}</span>}
+        {zipTouched && zip && !validity && <span className={styles.error_message}>{t('ensureZipCodeCorrect')}</span>}
       </div>
     )
   },

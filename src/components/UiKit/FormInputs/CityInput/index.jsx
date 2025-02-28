@@ -11,7 +11,6 @@ const CityInput = forwardRef(
   (
     {
       defaultValue = '',
-      errorMessage = 'Select your city',
       defaultOpen = false,
       cityTouched: forcedCityTouched = false,
       onChange,
@@ -122,7 +121,7 @@ const CityInput = forwardRef(
         </div>
         <label className={labelStyle}>{t('city')}</label>
 
-        {shouldShowError && <span className={styles.error_message}>{errorMessage}</span>}
+        {shouldShowError && <span className={styles.error_message}>{t('selectCity')}</span>}
 
         {isCityDropdownOpen && (
           <div className={styles.dropdown_menu}>
