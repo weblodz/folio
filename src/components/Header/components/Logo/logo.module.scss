@@ -1,3 +1,5 @@
+@use '/src/styles/variables' as *;
+
 .logo_link {
   display: flex;
   flex-direction: column;
@@ -18,4 +20,9 @@
   height: auto;
   display: flex;
   justify-content: center;
+}
+
+.black_logo svg {
+  fill: black;
+  color: black;
 }
