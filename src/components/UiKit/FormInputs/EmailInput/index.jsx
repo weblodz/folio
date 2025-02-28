@@ -2,8 +2,8 @@ import { useState, forwardRef } from 'react'
 import T from 'prop-types'
 import styles from './emailinput.module.scss'
 
-const EmailInput = forwardRef(({ isValid = true, errorMessage, ...rest }, ref) => {
-  const [hasValue, setHasValue] = useState(false)
+const EmailInput = forwardRef(({ isValid = true, errorMessage, defaultValue, ...rest }, ref) => {
+  const [hasValue, setHasValue] = useState(defaultValue)
 
   const emailStyle = isValid
     ? `${styles.email_input}`
@@ -39,5 +39,6 @@ export default EmailInput
 EmailInput.propTypes = {
   isValid: T.bool.isRequired,
   errorMessage: T.string.isRequired,
+  defaultValue: T.bool,
 }
 
