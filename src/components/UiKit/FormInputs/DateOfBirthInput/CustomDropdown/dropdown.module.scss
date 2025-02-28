@@ -5,15 +5,6 @@
   transition: border-bottom 0.3s ease;
 }
 
-.error {
-  border-bottom: 2px solid var(--common-color-text-text-error);
-  border-radius: 4px;
-}
-
-.active_border {
-  border-bottom: 2px solid var(--common-color-bg-inverse-primary);;
-}
-
 .floating_label {
   position: absolute;
   top: 50%;
@@ -90,8 +81,17 @@
   padding: 10px;
   font-size: 1rem;
   cursor: pointer;
+
+  &:hover{
+    background-color: var(--common-color-bg-primary);
+  }
 }
 
-.option:hover {
-  background-color: var(--common-color-bg-primary);
+.error {
+  border-bottom: 2px solid var(--common-color-text-text-error);
+  border-radius: 4px;
+}
+
+.active_border {
+  border-bottom: 2px solid var(--common-color-bg-inverse-primary);;
 }

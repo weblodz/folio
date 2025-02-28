@@ -26,8 +26,9 @@ function YearInput({ label, selected, onChange, onBlur, hasError }) {
   return (
     <div
       className={classNames(styles.select_wrapper, {
-        [styles.error_border]: hasError,
-        [styles.focused_border]: isFocused,
+        [styles.focused_border]: isFocused && !hasError,
+        [styles.error_border]: hasError && !isFocused,
+        [styles.error_focus_border]: isFocused && hasError,
       })}
     >
       <label
@@ -54,7 +55,7 @@ YearInput.propTypes = {
   selected: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
-  hasError: PropTypes.bool
+  hasError: PropTypes.bool,
 }
 
 export default YearInput
