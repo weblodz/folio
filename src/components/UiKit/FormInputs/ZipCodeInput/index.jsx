@@ -9,7 +9,7 @@ const ZipCodeInput = forwardRef(
   (
     {
       isValid = true,
-      errorMessage = 'Ensure your ZIP code is correct',
+      errorMessage,
       defaultValue = '',
       zipTouched: forcedZipTouched = false,
       country,
@@ -34,11 +34,11 @@ const ZipCodeInput = forwardRef(
           return
         }
 
-      let fetchedCity = ''
+        let fetchedCity = ''
 
-      if (MOCK_REGIONS[country][zipCode]) {
-        fetchedCity = MOCK_REGIONS[country][zipCode]
-      }
+        if (MOCK_REGIONS[country][zipCode]) {
+          fetchedCity = MOCK_REGIONS[country][zipCode]
+        }
 
         const isValidZip = Boolean(fetchedCity)
 
@@ -47,7 +47,7 @@ const ZipCodeInput = forwardRef(
           setCity(fetchedCity)
         } else {
           setCity('')
-          setZipError(errorMessage)
+          setZipError(errorMessage || t('ensureZipCodeCorrect'))
         }
 
         setValidity(isValidZip)
@@ -85,7 +85,9 @@ const ZipCodeInput = forwardRef(
         />
         <label className={labelStyle}>{t('zipCode')}</label>
         {zipTouched && !zip && <span className={styles.error_message}>{t('enterZipCode')}</span>}
-        {zipTouched && zip && !validity && <span className={styles.error_message}>{zipError || errorMessage}</span>}
+        {zipTouched && zip && !validity && (
+          <span className={styles.error_message}>{zipError || t('ensureZipCodeCorrect')}</span>
+        )}
       </div>
     )
   },
