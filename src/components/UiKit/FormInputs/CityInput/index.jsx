@@ -1,115 +1,88 @@
 import { useState, useEffect, forwardRef, useRef } from 'react'
-import { useTranslation } from 'react-i18next'
+import T from 'prop-types'
 import cls from 'classnames'
 import { IoIosSearch } from 'react-icons/io'
 import { IoClose } from 'react-icons/io5'
 import { SlArrowDown, SlArrowUp } from 'react-icons/sl'
-import T from 'prop-types'
+import { useTranslation } from 'react-i18next'
+import MOCK_REGIONS from '../ZipCodeInput/mockRegions'
 import styles from './cityInput.module.scss'
 
 const CityInput = forwardRef(
-  (
-    {
-      defaultValue = '',
-      defaultOpen = false,
-      cityTouched: forcedCityTouched = false,
-      onChange,
-      zip,
-      country,
-      ...rest
-    },
-    ref,
-  ) => {
-    const containerRef = useRef(null)
-    const [city, setCity] = useState(defaultValue)
+  ({ defaultValue = '', errorMessage = 'Select your city', country, city, setCity, ...rest }, ref) => {
     const [cities, setCities] = useState([])
-    const [loading, setLoading] = useState(false)
     const [searchTerm, setSearchTerm] = useState('')
-    const [cityTouched, setCityTouched] = useState(forcedCityTouched)
-    const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(defaultOpen)
+    const [loading] = useState(false)
+    const [cityTouched, setCityTouched] = useState(false)
+    const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false)
+    const [isFocused, setIsFocused] = useState(false)
+    const dropdownRef = useRef(null)
     const { t } = useTranslation('nsAuth')
 
     useEffect(() => {
-      setCity(defaultValue)
-    }, [country, defaultValue])
-
-    useEffect(() => {
-      if (zip) {
-        setCity(zip)
+      if (!city) {
+        setCity(defaultValue)
       }
-    }, [zip])
+    }, [city, defaultValue, setCity])
 
     useEffect(() => {
-      const fetchCities = async () => {
-        if (!country) return
-        setLoading(true)
-        try {
-          const response = await fetch('https://countriesnow.space/api/v0.1/countries/cities', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ country }),
-          })
-          const data = await response.json()
+      const citiesArray = []
+      const countryData = MOCK_REGIONS[country]
 
-          setCities(data.data || [])
-        } catch (error) {
-          console.error('Error fetching cities:', error)
-          setCities([])
+      if (countryData) {
+        for (let zip in countryData) {
+          citiesArray.push(countryData[zip])
         }
-        setLoading(false)
       }
 
-      fetchCities()
+      setCities(citiesArray)
     }, [country])
 
-    const handleCityChange = (e) => {
-      const selectedCity = e.target.value
-
-      setCity(selectedCity)
+    const handleBlur = () => {
       setCityTouched(true)
-      if (onChange) onChange(selectedCity)
+      setIsFocused(false)
+    }
+
+    const handleInputClick = () => {
+      setIsCityDropdownOpen(!isCityDropdownOpen)
+      setIsFocused(true)
     }
 
     const handleCitySelect = (selectedCity) => {
       setCity(selectedCity)
       setIsCityDropdownOpen(false)
       setCityTouched(true)
-      if (onChange) onChange(selectedCity)
+      setIsFocused(false)
     }
 
     const filteredCities = cities.filter((cityName) => cityName.toLowerCase().startsWith(searchTerm.toLowerCase()))
 
-    const handleInputClick = () => {
-      setIsCityDropdownOpen(true)
-    }
-
-    const handleDocumentClick = (e) => {
-      if (containerRef.current && !containerRef.current.contains(e.target)) {
-        setIsCityDropdownOpen(false)
-      }
-    }
-
     useEffect(() => {
-      document.addEventListener('click', handleDocumentClick)
+      const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+          setIsCityDropdownOpen(false)
+        }
+      }
+
+      document.addEventListener('mousedown', handleClickOutside)
 
       return () => {
-        document.removeEventListener('click', handleDocumentClick)
+        document.removeEventListener('mousedown', handleClickOutside)
       }
     }, [])
 
-    const shouldShowError = cityTouched && !city
-    const cityInputStyle = cls(styles.text_input, { [styles.invalid_text_input]: shouldShowError })
-    const labelStyle = cls(styles.label_text, { [styles.focused_label_text]: city })
+    const cityStyle = cls(styles.text_input, { [styles.invalid_text_input]: cityTouched && !city })
+    const labelStyle = cls(styles.label_text, { [styles.focused_label_text]: isFocused || city })
 
     return (
-      <div className={styles.input_container} ref={containerRef}>
+      <div className={styles.input_container} ref={dropdownRef}>
         <div className={styles.select_wrapper} onClick={handleInputClick}>
           <input
-            className={cityInputStyle}
+            className={cityStyle}
             type="text"
             value={city}
-            onChange={handleCityChange}
-            onBlur={() => setCityTouched(true)}
+            onChange={(e) => setCity(e.target.value)}
+            onBlur={handleBlur}
             ref={ref}
             {...rest}
           />
@@ -121,7 +94,7 @@ const CityInput = forwardRef(
         </div>
         <label className={labelStyle}>{t('city')}</label>
 
-        {shouldShowError && <span className={styles.error_message}>{t('selectCity')}</span>}
+        {cityTouched && !city && <span className={styles.error_message}>{errorMessage}</span>}
 
         {isCityDropdownOpen && (
           <div className={styles.dropdown_menu}>
@@ -163,12 +136,10 @@ CityInput.displayName = 'CityInput'
 
 CityInput.propTypes = {
   defaultValue: T.string,
-  defaultOpen: T.bool,
-  onChange: T.func,
   errorMessage: T.string,
-  cityTouched: T.bool,
-  zip: T.string,
   country: T.string.isRequired,
+  city: T.string.isRequired,
+  setCity: T.func.isRequired,
 }
 
 export default CityInput

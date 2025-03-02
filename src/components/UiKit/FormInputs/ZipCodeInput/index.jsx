@@ -1,108 +1,70 @@
-import { useState, useEffect, useRef, forwardRef } from 'react'
+import { useState, useEffect, forwardRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import cls from 'classnames'
 import T from 'prop-types'
+import MOCK_REGIONS from './mockRegions'
 import styles from './zipCodeInput.module.scss'
 
 const ZipCodeInput = forwardRef(
   (
     {
       isValid = true,
+      errorMessage = 'Ensure your ZIP code is correct',
       defaultValue = '',
       zipTouched: forcedZipTouched = false,
-      onChange,
-      onCityChange,
       country,
+      setZip,
+      setCity,
       ...rest
     },
     ref,
   ) => {
-    const [zip, setZip] = useState(defaultValue || '')
+    const [zip, localSetZip] = useState(defaultValue)
     const [zipTouched, setZipTouched] = useState(forcedZipTouched)
     const [validity, setValidity] = useState(isValid)
-    const debounceTimeout = useRef(null)
-    const previousCountry = useRef(country)
+    const [zipError, setZipError] = useState('')
     const { t } = useTranslation('nsAuth')
 
-    useEffect(() => {
-      if (typeof defaultValue === 'string' && zip === '') {
-        setZip(defaultValue)
-      }
-    }, [defaultValue, zip])
-
-    useEffect(() => {
-      if (previousCountry.current !== country) {
-        setZip('')
-        setValidity(true)
-        previousCountry.current = country
-        if (onCityChange) onCityChange('')
-      }
-    }, [country, onCityChange])
-
-    const fetchCityFromZip = async (zipCode) => {
+    const validateZip = (zipCode) => {
       if (!zipCode) {
-        setValidity(true)
+        setValidity(false)
+        setZipError(t('enterZipCode'))
 
         return
       }
 
       let fetchedCity = ''
-      let isValidZip = false
 
-      try {
-        let response, data
+      if (MOCK_REGIONS[country][zipCode]) {
+        fetchedCity = MOCK_REGIONS[country][zipCode]
+      }
 
-        if (country === 'United Kingdom') {
-          response = await fetch(`https://api.postcodes.io/postcodes/${zipCode}`)
-          data = await response.json()
-          if (data.status === 200) {
-            fetchedCity = data.result.admin_district
-            isValidZip = true
-          }
-        } else if (country === 'Poland') {
-          response = await fetch(`https://api.zippopotam.us/pl/${zipCode}`)
-          data = await response.json()
-          if (data.places?.length > 0) {
-            fetchedCity = data.places[0]['place name']
-            isValidZip = true
-          }
-        }
-      } catch (error) {
-        console.error('Error fetching city:', error)
+      const isValidZip = Boolean(fetchedCity)
+
+      if (isValidZip) {
+        setZipError('')
+        setCity(fetchedCity)
+      } else {
+        setCity('')
+        setZipError(errorMessage)
       }
 
       setValidity(isValidZip)
-
-      if (isValidZip && fetchedCity) {
-        onCityChange(fetchedCity)
-      } else {
-        onCityChange('')
-      }
     }
 
     const handleZipChange = (e) => {
       const newZip = e.target.value
 
-      if (newZip.length > 10) return
-
+      localSetZip(newZip)
       setZip(newZip)
-      if (onChange) onChange(newZip)
-
-      if (debounceTimeout.current) {
-        clearTimeout(debounceTimeout.current)
-      }
-
-      debounceTimeout.current = setTimeout(() => {
-        if (
-          (country === 'Poland' && /^\d{2}-\d{3}$/.test(newZip)) ||
-          (country === 'United Kingdom' && newZip.length >= 5 && newZip.length <= 7)
-        ) {
-          fetchCityFromZip(newZip)
-        } else {
-          setValidity(false)
-        }
-      }, 500)
+      validateZip(newZip)
     }
+
+    useEffect(() => {
+      if (zip) {
+        validateZip(zip)
+      }
+    }, [country, zip, validateZip])
 
     const zipStyle = cls(styles.text_input, { [styles.invalid_text_input]: zipTouched && (!zip || !validity) })
     const labelStyle = cls(styles.label_text, { [styles.focused_label_text]: zip })
@@ -119,9 +81,8 @@ const ZipCodeInput = forwardRef(
           {...rest}
         />
         <label className={labelStyle}>{t('zipCode')}</label>
-
         {zipTouched && !zip && <span className={styles.error_message}>{t('enterZipCode')}</span>}
-        {zipTouched && zip && !validity && <span className={styles.error_message}>{t('ensureZipCodeCorrect')}</span>}
+        {zipTouched && zip && !validity && <span className={styles.error_message}>{zipError || errorMessage}</span>}
       </div>
     )
   },
@@ -134,10 +95,9 @@ ZipCodeInput.propTypes = {
   errorMessage: T.string,
   defaultValue: T.string,
   zipTouched: T.bool,
-  onChange: T.func.isRequired,
-  onCityChange: T.func.isRequired,
   country: T.string.isRequired,
-  city: T.string,
+  setZip: T.func.isRequired,
+  setCity: T.func.isRequired,
 }
 
 export default ZipCodeInput

@@ -1,32 +1,25 @@
-import { useState, useEffect, forwardRef } from 'react'
+import { useState, forwardRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import cls from 'classnames'
 import { SlArrowDown, SlArrowUp } from 'react-icons/sl'
+import cls from 'classnames'
 import T from 'prop-types'
 import styles from './countryInput.module.scss'
 
-const CountryInput = forwardRef(({ defaultValue = 'Poland', selectedCountry, onChange, ...rest }, ref) => {
-  const [country, setCountry] = useState(selectedCountry || defaultValue)
-  const [isDropdownOpen] = useState(false)
+const CountryInput = forwardRef(({ country, setCountry, ...rest }, ref) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const { t } = useTranslation('nsAuth')
 
-  useEffect(() => {
-    setCountry(selectedCountry || defaultValue)
-  }, [selectedCountry, defaultValue])
-
   const handleCountryChange = (e) => {
-    const selectedCountry = e.target.value
+    setCountry(e.target.value)
+  }
 
-    setCountry(selectedCountry)
-
-    if (onChange) {
-      onChange(selectedCountry)
-    }
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prev) => !prev)
   }
 
   return (
     <div className={styles.input_container}>
-      <div className={styles.select_wrapper}>
+      <div className={styles.select_wrapper} onClick={toggleDropdown}>
         <select
           id="country"
           className={styles.text_input}
@@ -52,9 +45,8 @@ const CountryInput = forwardRef(({ defaultValue = 'Poland', selectedCountry, onC
 CountryInput.displayName = 'CountryInput'
 
 CountryInput.propTypes = {
-  defaultValue: T.string,
-  selectedCountry: T.string,
-  onChange: T.func,
+  country: T.string.isRequired,
+  setCountry: T.func.isRequired,
 }
 
 export default CountryInput
