@@ -1,4 +1,4 @@
-import { useState, useEffect, forwardRef } from 'react'
+import { useState, useEffect, forwardRef, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import cls from 'classnames'
 import T from 'prop-types'
@@ -25,13 +25,14 @@ const ZipCodeInput = forwardRef(
     const [zipError, setZipError] = useState('')
     const { t } = useTranslation('nsAuth')
 
-    const validateZip = (zipCode) => {
-      if (!zipCode) {
-        setValidity(false)
-        setZipError(t('enterZipCode'))
+    const validateZip = useCallback(
+      (zipCode) => {
+        if (!zipCode) {
+          setValidity(false)
+          setZipError(t('enterZipCode'))
 
-        return
-      }
+          return
+        }
 
       let fetchedCity = ''
 
@@ -39,18 +40,20 @@ const ZipCodeInput = forwardRef(
         fetchedCity = MOCK_REGIONS[country][zipCode]
       }
 
-      const isValidZip = Boolean(fetchedCity)
+        const isValidZip = Boolean(fetchedCity)
 
-      if (isValidZip) {
-        setZipError('')
-        setCity(fetchedCity)
-      } else {
-        setCity('')
-        setZipError(errorMessage)
-      }
+        if (isValidZip) {
+          setZipError('')
+          setCity(fetchedCity)
+        } else {
+          setCity('')
+          setZipError(errorMessage)
+        }
 
-      setValidity(isValidZip)
-    }
+        setValidity(isValidZip)
+      },
+      [country, setCity, t, errorMessage],
+    )
 
     const handleZipChange = (e) => {
       const newZip = e.target.value
