@@ -23,6 +23,7 @@ const CityInput = forwardRef(
     const { t } = useTranslation('nsAuth')
 
     const isCityTouched = externalTouched ?? cityTouched
+    const filteredCities = cities.filter((cityName) => cityName.toLowerCase().startsWith(searchTerm.toLowerCase()))
 
     useEffect(() => {
       if (!city) {
@@ -43,6 +44,24 @@ const CityInput = forwardRef(
       setCities(citiesArray)
     }, [country])
 
+    useEffect(() => {
+      setIsCityDropdownOpen(openDropdown)
+    }, [openDropdown])
+
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+          setIsCityDropdownOpen(false)
+        }
+      }
+
+      document.addEventListener('mousedown', handleClickOutside)
+
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside)
+      }
+    }, [])
+
     const handleBlur = () => {
       setCityTouched(true)
       setIsFocused(false)
@@ -59,26 +78,6 @@ const CityInput = forwardRef(
       setCityTouched(true)
       setIsFocused(false)
     }
-
-    useEffect(() => {
-      setIsCityDropdownOpen(openDropdown)
-    }, [openDropdown])
-
-    const filteredCities = cities.filter((cityName) => cityName.toLowerCase().startsWith(searchTerm.toLowerCase()))
-
-    useEffect(() => {
-      const handleClickOutside = (event) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-          setIsCityDropdownOpen(false)
-        }
-      }
-
-      document.addEventListener('mousedown', handleClickOutside)
-
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside)
-      }
-    }, [])
 
     const cityStyle = cls(styles.text_input, { [styles.invalid_text_input]: isCityTouched && !city })
     const labelStyle = cls(styles.label_text, { [styles.focused_label_text]: isFocused || city })
