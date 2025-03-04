@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import CustomDropdown from '@components/UiKit/FormInputs/DateOfBirthInput/CustomDropdown'
 import YearInput from '@components/UiKit/FormInputs/DateOfBirthInput/YearInput'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import classNames from 'classnames'
 import styles from './date_of_birth_input.module.scss'
 
@@ -13,105 +13,101 @@ const months = [
 const days = Array.from({ length: 31 }, (_, i) => i + 1)
 
 export default function DateOfBirthInput({
-  onChange,
-  selectedMonth: propMonth = '',
-  selectedDay: propDay = '',
-  selectedYear: propYear = '',
+  onChange = () => {},
+  selectedMonth = '',
+  selectedDay = '',
+  selectedYear = '',
   showErrors = false,
 }) {
-  const [selectedMonth, setSelectedMonth] = useState(propMonth)
-  const [selectedDay, setSelectedDay] = useState(propDay)
-  const [selectedYear, setSelectedYear] = useState(propYear)
+  const [month, setMonth] = useState(selectedMonth)
+  const [day, setDay] = useState(selectedDay)
+  const [year, setYear] = useState(selectedYear)
 
-  const [monthError, setMonthError] = useState(false)
-  const [dayError, setDayError] = useState(false)
-  const [yearError, setYearError] = useState(false)
-
-  useEffect(() => {
-    setSelectedMonth(propMonth)
-    setSelectedDay(propDay)
-    setSelectedYear(propYear)
-    if (showErrors) {
-      validateAllFields(propMonth, propDay, propYear)
-    }
-  }, [propMonth, propDay, propYear, showErrors])
-
-  const hasError = monthError || dayError || yearError
-
-  const handleChange = (type, value) => {
-    const newMonth = type === 'month' ? value : selectedMonth
-    const newDay = type === 'day' ? value : selectedDay
-    const newYear = type === 'year' ? value : selectedYear
-
-    if (type === 'month') setSelectedMonth(value)
-    if (type === 'day') setSelectedDay(value)
-    if (type === 'year') setSelectedYear(value)
-
-    validateAllFields(newMonth, newDay, newYear)
-
-    onChange({ month: newMonth, day: newDay, year: newYear })
-  }
-
-  const validateAllFields = (month, day, year) => {
-    const isValid = month && day && year
-
-    setMonthError(!isValid)
-    setDayError(!isValid)
-    setYearError(!isValid)
-  }
-
-  const handleBlur = () => {
-    validateAllFields(selectedMonth, selectedDay, selectedYear)
-  }
-
-  const containerClass = classNames(styles.birth_container, {
-    [styles.error]: hasError,
+  const [touched, setTouched] = useState({
+    month: false,
+    day: false,
+    year: false,
   })
 
+  const validateAllFields = useCallback(() => {
+    const allFieldsFilled = month && day && year
+
+    setTouched((prev) => ({
+      month: prev.month || month,
+      day: prev.day || day,
+      year: prev.year || year,
+    }))
+
+    return !allFieldsFilled
+  }, [month, day, year])
+
+  useEffect(() => {
+    // Only show errors if the fields were touched
+    if (showErrors) {
+      validateAllFields()
+    }
+  }, [showErrors, validateAllFields])
+
+  const handleChange = (type, value) => {
+    if (type === 'month') setMonth(value)
+    if (type === 'day') setDay(value)
+    if (type === 'year') setYear(value)
+
+    onChange({
+      month: type === 'month' ? value : month,
+      day: type === 'day' ? value : day,
+      year: type === 'year' ? value : year,
+    })
+  }
+
+  const handleBlur = (type) => {
+    setTouched((prev) => ({ ...prev, [type]: true }))
+  }
+
+  const showError = touched.month || touched.day || touched.year
+  const allFieldsFilled = month && day && year
+
+  const isError = showError && !allFieldsFilled
+
   return (
-    <div className={containerClass}>
+    <div className={classNames(styles.birth_container, { [styles.error]: isError })}>
       <div className={styles.container}>
         <CustomDropdown
           label='Month'
           options={months}
-          selected={selectedMonth}
+          selected={month}
           onSelect={(value) => handleChange('month', value)}
-          onBlur={handleBlur}
-          hasError={monthError}
+          onBlur={() => handleBlur('month')}
+          hasError={isError}
         />
 
         <CustomDropdown
           label='Day'
           options={days}
-          selected={selectedDay}
+          selected={day}
           onSelect={(value) => handleChange('day', value)}
-          onBlur={handleBlur}
-          hasError={dayError}
+          onBlur={() => handleBlur('day')}
+          hasError={isError}
         />
 
         <YearInput
           label='Year'
-          selected={selectedYear}
+          selected={year}
           onChange={(value) => handleChange('year', value)}
-          onBlur={handleBlur}
-          hasError={yearError}
+          onBlur={() => handleBlur('year')}
+          hasError={isError}
         />
       </div>
 
-      {hasError && <p className={styles.error_text}>Enter your date of birth</p>}
+      {isError && <p className={styles.error_text}>Enter your date of birth</p>}
     </div>
   )
 }
 
 DateOfBirthInput.propTypes = {
-  onChange: PropTypes.func,
-  selectedMonth: PropTypes.string,
-  selectedDay: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  selectedYear: PropTypes.string,
-  showErrors: PropTypes.bool,
-}
-
-DateOfBirthInput.defaultProps = {
-  onChange: () => {},
-  showErrors: false,
+  onChange: T.func,
+  selectedMonth: T.string,
+  selectedDay: T.oneOfType([T.string, T.number]),
+  selectedYear: T.string,
+  showErrors: T.bool,
 }

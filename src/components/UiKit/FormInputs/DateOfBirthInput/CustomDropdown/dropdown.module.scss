@@ -10,7 +10,7 @@
   top: 50%;
   left: 13px;
   z-index: 1;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   line-height: 24.8px;
   color: var(--common-color-text-secondary);
@@ -27,19 +27,19 @@
 .select {
   border: 1px solid #ccc;
   display: flex;
+  align-items: center;
   border-radius: 4px;
   appearance: none;
   height: 24px;
   border: unset;
   box-shadow: unset;
   padding: 12px;
-  font-size: 15px;
+  font-size: 16px;
   border: 1px solid #ccc;
   background-color: var(--common-color-bg-primary);
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  align-items: end;
   color: var(--common-color-bg-inverse-primary);
   position: relative;
 }

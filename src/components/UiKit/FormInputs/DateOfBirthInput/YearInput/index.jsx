@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import PropTypes from 'prop-types'
+import T from 'prop-types'
 import classNames from 'classnames'
 import styles from './year_input.module.scss'
 
@@ -39,7 +39,7 @@ function YearInput({ label, selected, onChange, onBlur, hasError }) {
         {label}
       </label>
       <input
-        type="text"
+        type='text'
         className={styles.input}
         value={selected}
         onChange={handleChange}
@@ -51,11 +51,11 @@ function YearInput({ label, selected, onChange, onBlur, hasError }) {
 }
 
 YearInput.propTypes = {
-  label: PropTypes.string.isRequired,
-  selected: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  onBlur: PropTypes.func.isRequired,
-  hasError: PropTypes.bool,
+  label: T.string.isRequired,
+  selected: T.string,
+  onChange: T.func.isRequired,
+  onBlur: T.func.isRequired,
+  hasError: T.oneOfType([T.string, T.bool]),
 }
 
 export default YearInput

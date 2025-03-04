@@ -82,5 +82,5 @@ CustomDropdown.propTypes = {
   selected: T.oneOfType([T.string, T.number]),
   onSelect: T.func.isRequired,
   onBlur: T.func,
-  hasError: T.bool,
+  hasError: T.oneOfType([T.string, T.bool]),
 }
