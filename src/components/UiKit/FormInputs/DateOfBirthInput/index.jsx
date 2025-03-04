@@ -42,7 +42,6 @@ export default function DateOfBirthInput({
   }, [month, day, year])
 
   useEffect(() => {
-    // Only show errors if the fields were touched
     if (showErrors) {
       validateAllFields()
     }
