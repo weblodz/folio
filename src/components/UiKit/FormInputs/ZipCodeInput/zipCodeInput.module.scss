@@ -1,7 +1,7 @@
 .input_container {
   contain: layout;
   box-sizing: border-box;
-  width: 32%;
+  max-width: 250px;
 
   .text_input {
     box-sizing: border-box;
@@ -75,6 +75,4 @@
   margin-top: 3px;
   font-size: 0.765rem;
   color: var(--common-color-text-text-error);
-  width: 50%;
-
 }

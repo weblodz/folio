@@ -1,36 +1,16 @@
-import { useState, useEffect, forwardRef } from 'react'
+import { useState, forwardRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { SlArrowDown, SlArrowUp } from 'react-icons/sl'
+import cls from 'classnames'
 import T from 'prop-types'
 import styles from './countryInput.module.scss'
 
-const CountryInput = forwardRef(({ defaultValue = 'Poland', onChange, ...rest }, ref) => {
-  const [country, setCountry] = useState(() => sessionStorage.getItem('selectedCountry') || defaultValue)
+const CountryInput = forwardRef(({ country, setCountry, ...rest }, ref) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-
-  useEffect(() => {
-    const handleStorageChange = () => {
-      const storedCountry = sessionStorage.getItem('selectedCountry') || defaultValue
-
-      setCountry(storedCountry)
-    }
-
-    window.addEventListener('storage', handleStorageChange)
-
-    return () => window.removeEventListener('storage', handleStorageChange)
-  }, [defaultValue])
+  const { t } = useTranslation('nsAuth')
 
   const handleCountryChange = (e) => {
-    const selectedCountry = e.target.value
-
-    setCountry(selectedCountry)
-
-    sessionStorage.setItem('selectedCountry', selectedCountry)
-    sessionStorage.removeItem('selectedCity')
-    sessionStorage.removeItem('enteredZip')
-
-    window.dispatchEvent(new Event('storage'))
-
-    if (onChange) onChange(selectedCountry)
+    setCountry(e.target.value)
   }
 
   const toggleDropdown = () => {
@@ -38,7 +18,7 @@ const CountryInput = forwardRef(({ defaultValue = 'Poland', onChange, ...rest },
   }
 
   return (
-    <div className={styles.input_container} tabIndex={0}>
+    <div className={styles.input_container}>
       <div className={styles.select_wrapper} onClick={toggleDropdown}>
         <select
           id="country"
@@ -48,8 +28,8 @@ const CountryInput = forwardRef(({ defaultValue = 'Poland', onChange, ...rest },
           ref={ref}
           {...rest}
         >
-          <option value="Poland">Poland</option>
-          <option value="United Kingdom">United Kingdom</option>
+          <option value="Poland">{t('PL')}</option>
+          <option value="United Kingdom">{t('UK')}</option>
         </select>
         {isDropdownOpen ? (
           <SlArrowUp className={styles.custom_arrow} />
@@ -57,7 +37,7 @@ const CountryInput = forwardRef(({ defaultValue = 'Poland', onChange, ...rest },
           <SlArrowDown className={styles.custom_arrow} />
         )}
       </div>
-      <label className={`${styles.label_text} ${styles.focused_label_text}`}>Country/Region</label>
+      <label className={cls(styles.label_text, styles.focused_label_text)}>{t('countryLabel')}</label>
     </div>
   )
 })
@@ -65,8 +45,8 @@ const CountryInput = forwardRef(({ defaultValue = 'Poland', onChange, ...rest },
 CountryInput.displayName = 'CountryInput'
 
 CountryInput.propTypes = {
-  defaultValue: T.string,
-  onChange: T.func,
+  country: T.string.isRequired,
+  setCountry: T.func.isRequired,
 }
 
 export default CountryInput

@@ -4,14 +4,12 @@ export default {
   title: 'CityInput',
   component: CityInput,
   argTypes: {
+    country: {
+      control: 'radio',
+      options: ['Poland', 'United Kingdom'],
+    },
     defaultValue: {
       control: 'text',
-    },
-    defaultOpen: {
-      control: 'boolean',
-    },
-    onChange: {
-      action: 'changed',
     },
     errorMessage: {
       control: 'text',
@@ -19,11 +17,13 @@ export default {
     cityTouched: {
       control: 'boolean',
     },
+    setCity: { action: 'setCity' },
   },
 }
 
 export const EmptyValid = {
   args: {
+    country: 'Poland',
     defaultValue: '',
     errorMessage: 'Select your city',
     cityTouched: false,
@@ -32,6 +32,7 @@ export const EmptyValid = {
 
 export const EmptyInvalid = {
   args: {
+    country: 'Poland',
     defaultValue: '',
     errorMessage: 'Select your city',
     cityTouched: true,
@@ -40,7 +41,9 @@ export const EmptyInvalid = {
 
 export const OpenedDropdown = {
   args: {
+    country: 'Poland',
     defaultValue: '',
-    defaultOpen: true,
+    cityTouched: false,
+    openDropdown: true,
   },
 }

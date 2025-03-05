@@ -4,6 +4,10 @@ export default {
   title: 'ZipCodeInput',
   component: ZipCodeInput,
   argTypes: {
+    country: {
+      control: 'radio',
+      options: ['Poland', 'United Kingdom'],
+    },
     isValid: {
       control: 'boolean',
     },
@@ -16,11 +20,14 @@ export default {
     zipTouched: {
       control: 'boolean',
     },
+    setZip: { action: 'setZip' },
+    setCity: { action: 'setCity' },
   },
 }
 
 export const EmptyValid = {
   args: {
+    country: 'Poland',
     isValid: true,
     errorMessage: '',
     defaultValue: '',
@@ -30,6 +37,7 @@ export const EmptyValid = {
 
 export const EmptyInvalid = {
   args: {
+    country: 'Poland',
     isValid: false,
     errorMessage: 'Enter your Zip code',
     defaultValue: '',
@@ -39,6 +47,7 @@ export const EmptyInvalid = {
 
 export const Valid = {
   args: {
+    country: 'Poland',
     isValid: true,
     errorMessage: '',
     defaultValue: '00-001',
@@ -48,6 +57,7 @@ export const Valid = {
 
 export const Invalid = {
   args: {
+    country: 'United Kingdom',
     isValid: false,
     errorMessage: 'Ensure your ZIP code is correct',
     defaultValue: '10001',

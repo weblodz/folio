@@ -128,14 +128,10 @@
   align-items: center;
   width: 95%;
   height: 52px;
-  left: 2%;
+  left: 3%;
   position: relative;
-  border-bottom: 1px solid transparent;
+  border-bottom: 0.8px solid var(--common-color-bg-inverse-primary);
   margin-bottom: 10px;
-}
-
-.search_wrapper:focus-within {
-  border-bottom: 1px solid var(--common-color-bg-inverse-primary);
 }
 
 .search_input {
