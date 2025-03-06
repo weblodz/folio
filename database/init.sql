@@ -1,4 +1,3 @@
--- Create tables
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -17,7 +16,6 @@ CREATE TABLE products (
     category_id INTEGER REFERENCES categories(id)
 );
 
--- Insert some sample data
 INSERT INTO users (name, email) VALUES
 ('John Doe', 'john.doe@example.com'),
 ('Jane Smith', 'jane.smith@example.com');
