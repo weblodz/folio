@@ -11,6 +11,9 @@ This will start the frontend, PostgreSQL database, pgAdmin, and Storybook servic
 Once the containers are running, you can access them in your browser at the following URLs:
 
 Frontend: http://localhost:80
+
 PgAdmin: http://localhost:5050
+
 (Login using the provided credentials)
+
 Storybook: http://localhost:6006
