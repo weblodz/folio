@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import ArrowRightButton from '@components/UiKit/buttons/ArrowRight'
+import ArrowRightButton from '@components/UiKit/Buttons/ArrowRight'
 import styles from './link.module.scss'
 
 export default function PrototypeLink() {

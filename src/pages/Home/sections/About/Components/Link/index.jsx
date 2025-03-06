@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import ArrowRightButton from '@components/UiKit/buttons/ArrowRight'
+import ArrowRightButton from '@components/UiKit/Buttons/ArrowRight'
 import styles from './link.module.scss'
 
 function MoreLink() {

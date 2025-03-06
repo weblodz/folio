@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import ArrowRightButton from '@components/UiKit/buttons/ArrowRight'
+import ArrowRightButton from '@components/UiKit/Buttons/ArrowRight'
 import styles from './newsletter.module.scss'
 
 export default function NewsletterLink() {

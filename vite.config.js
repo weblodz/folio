@@ -18,6 +18,9 @@ export default defineConfig({
       '@hooks': path.resolve(__dirname, 'src/hooks'),
     },
   },
+  build: {
+    outDir: 'dist', // Make sure the output is directed to the "dist" folder
+  },
   css: {
     modules: {
       generateScopedName: (className, fileName, css) => {

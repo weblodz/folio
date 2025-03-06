@@ -1,4 +1,4 @@
-import ArrowRightButton from '@components/UiKit/buttons/ArrowRight'
+import ArrowRightButton from '@components/UiKit/Buttons/ArrowRight'
 
 export default {
   title: 'buttons/ArrowRight',
