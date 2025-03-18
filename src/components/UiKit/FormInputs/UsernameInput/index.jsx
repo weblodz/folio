@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import styles from './usernameinput.module.scss'
 
 const UsernameInput = forwardRef(({ value, onChange, errorMessage, isValid = true, ...rest }, ref) => {
-  const { t } = useTranslation('nsAuth')
+  const { t } = useTranslation('nsForms')
   const [localError, setLocalError] = useState(errorMessage || '')
   const [isTouched, setIsTouched] = useState(false)
 
