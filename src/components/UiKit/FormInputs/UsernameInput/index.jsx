@@ -1,22 +1,30 @@
-import { useState, forwardRef } from 'react'
+import { useState, useEffect, forwardRef, useCallback } from 'react'
 import T from 'prop-types'
+import { useTranslation } from 'react-i18next'
 import styles from './usernameinput.module.scss'
 
-const validateUsername = (username) => {
-  if (!username.trim()) return 'Enter your username'
-
-  return ''
-}
-
 const UsernameInput = forwardRef(({ value, onChange, errorMessage, isValid = true, ...rest }, ref) => {
+  const { t } = useTranslation('nsAuth')
   const [localError, setLocalError] = useState(errorMessage || '')
   const [isTouched, setIsTouched] = useState(false)
+
+  const validateUsername = useCallback(
+    (username) => (!username.trim() ? t('enterUserName') : ''),
+    [t]
+  )
+
+  useEffect(() => {
+    if (isTouched) {
+      setLocalError(validateUsername(value))
+    }
+  }, [validateUsername, value, isTouched])
 
   const handleChange = (e) => {
     const newValue = e.target.value
 
-    if (isTouched) setLocalError(validateUsername(newValue))
     onChange(newValue)
+
+    if (isTouched) setLocalError(validateUsername(newValue))
   }
 
   const handleBlur = () => {
@@ -31,7 +39,7 @@ const UsernameInput = forwardRef(({ value, onChange, errorMessage, isValid = tru
       <div className={styles.username_input_container} tabIndex={0}>
         <input
           className={isInputValid ? styles.username_input : `${styles.username_input} ${styles.invalid_input}`}
-          type='text'
+          type="text"
           ref={ref}
           value={value}
           onChange={handleChange}
@@ -39,7 +47,7 @@ const UsernameInput = forwardRef(({ value, onChange, errorMessage, isValid = tru
           {...rest}
         />
         <label className={value.trim() ? `${styles.label_text} ${styles.focused_label_text}` : styles.label_text}>
-          {'Username'}
+          {t('username')}
         </label>
       </div>
       {!isInputValid && <span className={styles.error_message}>{localError}</span>}
