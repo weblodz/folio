@@ -1,4 +1,7 @@
 {
   "enterUserName": "Enter your username",
-  "username": "Username"
+  "username": "Username",
+  "enterFirstName": "Enter your first name",
+  "unsupportedCharacters": "Unsupported characters detected",
+  "enterLastName": "Enter your last name"
 }

@@ -1,17 +1,28 @@
-import { useState, forwardRef } from 'react'
+import { useState, forwardRef, useCallback, useEffect } from 'react'
 import T from 'prop-types'
+import { useTranslation } from 'react-i18next'
 import styles from './surnameinput.module.scss'
 
-const validateSurname = (surname) => {
-  if (!surname.trim()) return 'Enter your last name'
-  if (!/^[a-zA-Z'’-]+$/.test(surname)) return 'Unsupported characters detected'
-
-  return ''
-}
-
 const SurnameInput = forwardRef(({ value, onChange, errorMessage, isValid = true, ...rest }, ref) => {
+  const { t } = useTranslation('nsForms')
   const [localError, setLocalError] = useState(errorMessage || '')
   const [isTouched, setIsTouched] = useState(false)
+
+  const validateSurname = useCallback(
+    (surname) => {
+      if (!surname.trim()) return t('enterLastName')
+      if (!/^[a-zA-Z'’-]+$/.test(surname)) return t('unsupportedCharacters')
+
+      return ''
+    },
+    [t]
+  )
+
+  useEffect(() => {
+    if (isTouched) {
+      setLocalError(validateSurname(value))
+    }
+  }, [t, validateSurname, value, isTouched])
 
   const handleChange = (e) => {
     const newValue = e.target.value
@@ -32,7 +43,7 @@ const SurnameInput = forwardRef(({ value, onChange, errorMessage, isValid = true
       <div className={styles.surname_input_container} tabIndex={0}>
         <input
           className={isInputValid ? styles.surname_input : `${styles.surname_input} ${styles.invalid_input}`}
-          type='text'
+          type="text"
           ref={ref}
           value={value}
           onChange={handleChange}
@@ -40,7 +51,7 @@ const SurnameInput = forwardRef(({ value, onChange, errorMessage, isValid = true
           {...rest}
         />
         <label className={value.trim() ? `${styles.label_text} ${styles.focused_label_text}` : styles.label_text}>
-          {'Surname'}
+          {t('enterLastName')}
         </label>
       </div>
       {!isInputValid && <span className={styles.error_message}>{localError}</span>}

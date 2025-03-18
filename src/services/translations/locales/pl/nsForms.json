@@ -1,4 +1,7 @@
 {
   "enterUserName": "Wprowadź swoją nazwę użytkownika",
-  "username": "Nazwa użytkownika"
+  "username": "Nazwa użytkownika",
+  "enterFirstName": "Wprowadź swoje imię",
+  "unsupportedCharacters": "Wykryto nieobsługiwane znaki",
+  "enterLastName": "Wpisz swoje nazwisko"
 }

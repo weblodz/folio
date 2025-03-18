@@ -1,17 +1,29 @@
-import { useState, forwardRef } from 'react'
+import { useState, forwardRef, useCallback, useEffect } from 'react'
 import T from 'prop-types'
+import { useTranslation } from 'react-i18next'
 import styles from './nameinput.module.scss'
 
-const validateName = (name) => {
-  if (!name.trim()) return 'Enter your first name'
-  if (!/^[a-zA-Z'’-]+$/.test(name)) return 'Unsupported characters detected'
-
-  return ''
-}
-
 const NameInput = forwardRef(({ value, onChange, errorMessage, isValid = true, ...rest }, ref) => {
+  const { t } = useTranslation('nsForms')
   const [localError, setLocalError] = useState(errorMessage || '')
   const [isTouched, setIsTouched] = useState(false)
+
+  const validateName = useCallback(
+    (name) => {
+      if (!name.trim()) return t('enterFirstName')
+      if (!/^[a-zA-Z'’-]+$/.test(name)) return t('unsupportedCharacters')
+
+      return ''
+    },
+    [t]
+  )
+
+  // Re-run validation when the language changes
+  useEffect(() => {
+    if (isTouched) {
+      setLocalError(validateName(value))
+    }
+  }, [t, validateName, value, isTouched])
 
   const handleChange = (e) => {
     const newValue = e.target.value
@@ -32,7 +44,7 @@ const NameInput = forwardRef(({ value, onChange, errorMessage, isValid = true, .
       <div className={styles.name_input_container} tabIndex={0}>
         <input
           className={isInputValid ? styles.name_input : `${styles.name_input} ${styles.invalid_input}`}
-          type='text'
+          type="text"
           ref={ref}
           value={value}
           onChange={handleChange}
@@ -40,7 +52,7 @@ const NameInput = forwardRef(({ value, onChange, errorMessage, isValid = true, .
           {...rest}
         />
         <label className={value.trim() ? `${styles.label_text} ${styles.focused_label_text}` : styles.label_text}>
-          {'First name'}
+          {t('enterFirstName')}
         </label>
       </div>
       {!isInputValid && <span className={styles.error_message}>{localError}</span>}
@@ -48,7 +60,7 @@ const NameInput = forwardRef(({ value, onChange, errorMessage, isValid = true, .
   )
 })
 
-NameInput.displayName = 'First Name'
+NameInput.displayName = 'NameInput'
 
 export default NameInput
 
