@@ -1,6 +1,7 @@
 import { useState, forwardRef, useCallback, useEffect } from 'react'
 import T from 'prop-types'
 import { useTranslation } from 'react-i18next'
+import cls from 'classnames'
 import styles from './surnameinput.module.scss'
 
 const SurnameInput = forwardRef(({ value, onChange, errorMessage, isValid = true, ...rest }, ref) => {
@@ -42,7 +43,7 @@ const SurnameInput = forwardRef(({ value, onChange, errorMessage, isValid = true
     <div className={styles.surname_container}>
       <div className={styles.surname_input_container} tabIndex={0}>
         <input
-          className={isInputValid ? styles.surname_input : `${styles.surname_input} ${styles.invalid_input}`}
+          className={cls(styles.surname_input, { [styles.invalid_input]: !isInputValid })}
           type="text"
           ref={ref}
           value={value}
@@ -50,7 +51,7 @@ const SurnameInput = forwardRef(({ value, onChange, errorMessage, isValid = true
           onBlur={handleBlur}
           {...rest}
         />
-        <label className={value.trim() ? `${styles.label_text} ${styles.focused_label_text}` : styles.label_text}>
+        <label className={cls(styles.label_text, { [styles.focused_label_text]: value.trim() })}>
           {t('enterLastName')}
         </label>
       </div>

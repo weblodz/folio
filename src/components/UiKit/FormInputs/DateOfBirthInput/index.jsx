@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import CustomDropdown from '@components/UiKit/FormInputs/DateOfBirthInput/CustomDropdown'
 import YearInput from '@components/UiKit/FormInputs/DateOfBirthInput/YearInput'
 import T from 'prop-types'
-import classNames from 'classnames'
+import cls from 'classnames'
 import { useTranslation } from 'react-i18next'
 import styles from './date_of_birth_input.module.scss'
 
@@ -78,7 +78,7 @@ export default function DateOfBirthInput({
   const isError = showError && !allFieldsFilled
 
   return (
-    <div className={classNames(styles.birth_container, { [styles.error]: isError })}>
+    <div className={cls(styles.birth_container, { [styles.error]: isError })}>
       <div className={styles.container}>
         <CustomDropdown
           label={t('month')}

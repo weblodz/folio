@@ -1,6 +1,7 @@
 import { useState, forwardRef, useCallback, useEffect } from 'react'
 import T from 'prop-types'
 import { useTranslation } from 'react-i18next'
+import cls from 'classnames'
 import styles from './nameinput.module.scss'
 
 const NameInput = forwardRef(({ value, onChange, errorMessage, isValid = true, ...rest }, ref) => {
@@ -42,7 +43,7 @@ const NameInput = forwardRef(({ value, onChange, errorMessage, isValid = true, .
     <div className={styles.name_container}>
       <div className={styles.name_input_container} tabIndex={0}>
         <input
-          className={isInputValid ? styles.name_input : `${styles.name_input} ${styles.invalid_input}`}
+          className={cls(styles.name_input, { [styles.invalid_input]: !isInputValid })}
           type="text"
           ref={ref}
           value={value}
@@ -50,9 +51,10 @@ const NameInput = forwardRef(({ value, onChange, errorMessage, isValid = true, .
           onBlur={handleBlur}
           {...rest}
         />
-        <label className={value.trim() ? `${styles.label_text} ${styles.focused_label_text}` : styles.label_text}>
+        <label className={cls(styles.label_text, { [styles.focused_label_text]: value.trim() })}>
           {t('enterFirstName')}
         </label>
+
       </div>
       {!isInputValid && <span className={styles.error_message}>{localError}</span>}
     </div>
