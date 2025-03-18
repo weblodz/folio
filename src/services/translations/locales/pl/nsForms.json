@@ -3,5 +3,21 @@
   "username": "Nazwa użytkownika",
   "enterFirstName": "Wprowadź swoje imię",
   "unsupportedCharacters": "Wykryto nieobsługiwane znaki",
-  "enterLastName": "Wpisz swoje nazwisko"
+  "enterLastName": "Wpisz swoje nazwisko",
+  "january": "styczeń" ,
+  "february": "luty",
+  "march": "marzec",
+  "april": "kwiecień",
+  "may": "maj",
+  "june": "czerwiec",
+  "july": "lipiec", 
+  "august": "sierpień",
+  "september": "wrzesień",
+  "october": "październik",
+  "november": "listopad", 
+  "december": "grudzień",
+  "day": "Dzień",
+  "month": "Miesiąc",
+  "year": "Rok",
+  "enterDateOfBirth": "Wprowadź datę urodzenia"
 }

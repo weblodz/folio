@@ -3,14 +3,8 @@ import CustomDropdown from '@components/UiKit/FormInputs/DateOfBirthInput/Custom
 import YearInput from '@components/UiKit/FormInputs/DateOfBirthInput/YearInput'
 import T from 'prop-types'
 import classNames from 'classnames'
+import { useTranslation } from 'react-i18next'
 import styles from './date_of_birth_input.module.scss'
-
-const months = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December'
-]
-
-const days = Array.from({ length: 31 }, (_, i) => i + 1)
 
 export default function DateOfBirthInput({
   onChange = () => {},
@@ -19,7 +13,18 @@ export default function DateOfBirthInput({
   selectedYear = '',
   showErrors = false,
 }) {
-  const [month, setMonth] = useState(selectedMonth)
+  const { t } = useTranslation('nsForms')
+
+  const monthNames = [
+    t('january'), t('february'), t('march'), t('april'), t('may'), t('june'),
+    t('july'), t('august'), t('september'), t('october'), t('november'), t('december')
+  ]
+
+  const days = Array.from({ length: 31 }, (_, i) => i + 1)
+
+  const [monthIndex, setMonthIndex] = useState(
+    selectedMonth ? monthNames.indexOf(selectedMonth) : ''
+  )
   const [day, setDay] = useState(selectedDay)
   const [year, setYear] = useState(selectedYear)
 
@@ -29,17 +34,21 @@ export default function DateOfBirthInput({
     year: false,
   })
 
+  useEffect(() => {
+    setMonthIndex((prev) => (prev !== '' && prev >= 0 ? prev : ''))
+  }, [t])
+
   const validateAllFields = useCallback(() => {
-    const allFieldsFilled = month && day && year
+    const allFieldsFilled = monthIndex !== '' && day && year
 
     setTouched((prev) => ({
-      month: prev.month || month,
+      month: prev.month || monthIndex !== '',
       day: prev.day || day,
       year: prev.year || year,
     }))
 
     return !allFieldsFilled
-  }, [month, day, year])
+  }, [monthIndex, day, year])
 
   useEffect(() => {
     if (showErrors) {
@@ -48,12 +57,12 @@ export default function DateOfBirthInput({
   }, [showErrors, validateAllFields])
 
   const handleChange = (type, value) => {
-    if (type === 'month') setMonth(value)
+    if (type === 'month') setMonthIndex(value)
     if (type === 'day') setDay(value)
     if (type === 'year') setYear(value)
 
     onChange({
-      month: type === 'month' ? value : month,
+      month: type === 'month' ? monthNames[value] : monthNames[monthIndex],
       day: type === 'day' ? value : day,
       year: type === 'year' ? value : year,
     })
@@ -64,7 +73,7 @@ export default function DateOfBirthInput({
   }
 
   const showError = touched.month || touched.day || touched.year
-  const allFieldsFilled = month && day && year
+  const allFieldsFilled = monthIndex !== '' && day && year
 
   const isError = showError && !allFieldsFilled
 
@@ -72,16 +81,16 @@ export default function DateOfBirthInput({
     <div className={classNames(styles.birth_container, { [styles.error]: isError })}>
       <div className={styles.container}>
         <CustomDropdown
-          label='Month'
-          options={months}
-          selected={month}
-          onSelect={(value) => handleChange('month', value)}
+          label={t('month')}
+          options={monthNames}
+          selected={monthIndex !== '' ? monthNames[monthIndex] : ''}
+          onSelect={(value) => handleChange('month', monthNames.indexOf(value))}
           onBlur={() => handleBlur('month')}
           hasError={isError}
         />
 
         <CustomDropdown
-          label='Day'
+          label={t('day')}
           options={days}
           selected={day}
           onSelect={(value) => handleChange('day', value)}
@@ -90,7 +99,7 @@ export default function DateOfBirthInput({
         />
 
         <YearInput
-          label='Year'
+          label={t('year')}
           selected={year}
           onChange={(value) => handleChange('year', value)}
           onBlur={() => handleBlur('year')}
@@ -98,7 +107,7 @@ export default function DateOfBirthInput({
         />
       </div>
 
-      {isError && <p className={styles.error_text}>Enter your date of birth</p>}
+      {isError && <p className={styles.error_text}>{t('enterDateOfBirth')}</p>}
     </div>
   )
 }

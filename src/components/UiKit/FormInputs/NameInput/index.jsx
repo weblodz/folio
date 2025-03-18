@@ -18,7 +18,6 @@ const NameInput = forwardRef(({ value, onChange, errorMessage, isValid = true, .
     [t]
   )
 
-  // Re-run validation when the language changes
   useEffect(() => {
     if (isTouched) {
       setLocalError(validateName(value))

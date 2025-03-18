@@ -3,5 +3,21 @@
   "username": "Username",
   "enterFirstName": "Enter your first name",
   "unsupportedCharacters": "Unsupported characters detected",
-  "enterLastName": "Enter your last name"
+  "enterLastName": "Enter your last name",
+  "january": "january" ,
+  "february": "february",
+  "march": "march",
+  "april": "april",
+  "may": "may",
+  "june": "june",
+  "july": "july", 
+  "august": "august",
+  "september": "september",
+  "october": "october",
+  "november": "november", 
+  "december": "december",
+  "day": "Day",
+  "month": "Month",
+  "year": "Year",
+  "enterDateOfBirth": "Enter date of birth"
 }
