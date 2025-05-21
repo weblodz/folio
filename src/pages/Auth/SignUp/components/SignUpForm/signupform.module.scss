@@ -1,0 +1,16 @@
+.container {
+  font-family: var(--common-font-en), sans-serif;
+  color: var(--common-color-text-primary);
+  margin-top: 32px;
+  width: 100%;
+  min-width: 360px;
+}
+
+.title {
+  font-size: 0.95rem;
+  margin: 0 0 16px;
+}
+
+.input_field {
+  margin: 0 0 16px;
+}
