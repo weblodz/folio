@@ -1,0 +1,38 @@
+.container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 0;
+  margin: 48px 0 48px 0;
+  height: 100px;
+}
+
+.checkbox_container {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.checked_icon_background {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 6;
+  background-color: #081217;
+  width: 16px;
+  height: 16px;
+}
+
+.icon_container {
+  position: absolute;
+  inset: 0;
+  background-color: white;
+  z-index: 5;
+  width: 16px;
+  height: 16px;
+  border-radius: 10%;
+  border: 1px solid var(--common-color-text-primary);
+}

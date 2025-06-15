@@ -1,0 +1,17 @@
+.container {
+  font-family: var(--common-font-en), sans-serif;
+  color: var(--common-color-text-primary);
+  font-size: 0.79rem;
+  line-height: 1.25rem;
+  width: 88%;
+}
+
+.text_link{
+  cursor: pointer;
+  border-bottom: 1px solid var(--common-color-text-primary);
+  margin: 0 5px 0 5px;
+
+  &:hover{
+    opacity: 0.6;
+  }
+}
