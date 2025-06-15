@@ -1,0 +1,17 @@
+.birth_container {
+  contain: layout;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+}
+
+.container {
+  display: grid;
+  grid-template: "month day year" / 2fr 1fr 1fr;
+  gap: 2px;
+}
+
+.error_text {
+  color: var(--common-color-text-text-error);
+  font-size: 15px;
+  margin-top: 3px;
+}

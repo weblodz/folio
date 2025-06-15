@@ -1,0 +1,25 @@
+@use "/src/styles/mixins" as *;
+
+.surname_container {
+  contain: layout;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 771px;
+
+  .surname_input_container{
+    contain: layout;
+    box-sizing: border-box;
+
+    .surname_input {
+      @include input;
+    }
+
+    .label_text {
+      @include label-text;
+    }
+  }
+
+  .error_message {
+    @include error_message;
+  }
+}
