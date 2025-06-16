@@ -3,12 +3,12 @@ import TitleAbout from '@pages/Home/sections/About/Components/Title'
 import MoreLink from '@pages/Home/sections/About/Components/Link'
 import VideoBG from '@components/VideoBG'
 import useVisibilityObserver from '@hooks/useVisibilityObserver.js'
+import bigVideo from '@assets/videos/top_corporate_bg_pc.mp4'
+import smallVideo from '@assets/videos/top_corporate_bg_sp.mp4'
 import styles from './about.module.scss'
 
 function About() {
   useVisibilityObserver(`.${styles.linkContainer}`, styles.visible)
-  const bigVideoLink = "src/assets/videos/top_corporate_bg_pc.mp4"
-  const smallVideoLink = "src/assets/videos/top_corporate_bg_sp.mp4"
 
   return (
     <div className={styles.container}>
@@ -19,10 +19,10 @@ function About() {
           <MoreLink />
         </div>
         <div className={styles.smallVideoContainer}>
-          <VideoBG isBgPlaying={true} src={bigVideoLink} />
+          <VideoBG isBgPlaying={true} src={bigVideo} />
         </div>
         <div className={styles.bigVideoContainer}>
-          <VideoBG isBgPlaying={true} src={smallVideoLink} />
+          <VideoBG isBgPlaying={true} src={smallVideo} />
         </div>
       </div>
     </div>
